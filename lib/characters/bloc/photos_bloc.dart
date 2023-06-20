@@ -47,7 +47,7 @@ class PhotosState with _$PhotosState {
   }) = photosError;
 }
 
-@injectable
+@lazySingleton
 class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
   final PhotosRepository _photosRepository;
 
@@ -108,17 +108,11 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
   }
 
   FutureOr<void> _onUpdateFavorite(_updateFavorite event, emit) async {
-    final characters = state.characters.characters;
-    final updatedList = characters
-        .map((character) => character.id == event.character.id
-            ? character.copyWith(isFavorite: !character.isFavorite)
-            : character)
-        .toList();
+    final updatedData = await _photosRepository.updateFavorite(
+      state.characters,
+      event.character,
+    );
 
-    emit(_initialized(
-      characters: state.characters.copyWith(
-        characters: updatedList,
-      ),
-    ));
+    emit(_initialized(characters: updatedData));
   }
 }

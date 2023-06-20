@@ -1,5 +1,5 @@
 name: morty_api
-description: Simple images list
+description: Simple morty api list
 
 publish_to: 'none'
 
@@ -7,6 +7,8 @@ version: 1.0.0+1
 
 environment:
   sdk: ">=2.18.0 <3.0.0"
+
+isar_version: &isar_version 3.1.0 # define the version to be used in multiple places
 
 dependencies:
   flutter:
@@ -23,6 +25,10 @@ dependencies:
   injectable: ^2.1.2
   get_it: ^7.6.0
 
+  path_provider: ^2.0.15
+  isar: *isar_version
+  isar_flutter_libs: *isar_version
+
   # Network
   json_annotation: ^4.7.0
   dio: ^4.0.6
@@ -30,7 +36,7 @@ dependencies:
 
   # Utils
   fimber: ^0.6.6
-  #analyzer: ^5.2.0
+  analyzer: ^5.2.0
 
 dependency_overrides:
   analyzer: ">=5.2.0 <=5.2.0"
@@ -47,11 +53,7 @@ dev_dependencies:
   json_serializable: ^6.5.4
   dart_code_metrics: ^5.4.0
   injectable_generator: ^2.1.2
+  isar_generator: *isar_version
 
 flutter:
   uses-material-design: true
-
-  # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg

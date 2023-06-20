@@ -11,7 +11,7 @@ CharactersResponse _$CharactersResponseFromJson(Map<String, dynamic> json) =>
       characters: (json['results'] as List<dynamic>)
           .map((e) => CharacterResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
-      pageModel: json['info'],
+      pageModel: PageModel.fromJson(json['info'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$CharactersResponseToJson(CharactersResponse instance) =>

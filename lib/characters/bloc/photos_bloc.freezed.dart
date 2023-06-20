@@ -622,7 +622,8 @@ class __$$_loadingCopyWithImpl<$Res>
 
 class _$_loading extends _loading {
   const _$_loading(
-      {this.characters = const CharactersData([], const PageModel.firstPage())})
+      {this.characters = const CharactersData(
+          characters: [], pageModel: PageModel.firstPage())})
       : super._();
 
   @override

@@ -21,6 +21,20 @@ class RootNavigatorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: getIt.isReady<PhotosBloc>(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.hasData) {
+            return _buildRootNavigator(context);
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        });
+  }
+
+  Widget _buildRootNavigator(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(

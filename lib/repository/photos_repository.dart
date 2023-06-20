@@ -8,4 +8,7 @@ abstract class PhotosRepository {
   ///Fetch Characters paginated response for specific [page] and [limit]
   Future<CharactersData> fetchCharactersData(
       {required int page, required int limit});
+
+  Future<CharactersData> updateFavorite(
+      CharactersData data, CharacterModel character);
 }
