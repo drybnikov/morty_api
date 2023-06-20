@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart' hide Headers;
 import 'package:injectable/injectable.dart';
-import 'package:morty_api/model/characters/character_response.dart';
 import 'package:morty_api/network/client_provider.dart';
+import 'package:morty_api/network/model/characters/character_response.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'rest_client_public.g.dart';
@@ -18,7 +18,7 @@ abstract class RestClientPublic {
 
   /// Get paged photos list
   @GET('character/')
-  Future<List<CharacterModel>> getCharacter(
+  Future<List<CharacterResponse>> getCharacter(
     @Query('page') int page,
     @Query('limit') int limit,
   );

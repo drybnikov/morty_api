@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:morty_api/characters/bloc/photos_bloc.dart';
+import 'package:morty_api/characters/photo_details_screen.dart';
+import 'package:morty_api/characters/photos_list_screen.dart';
 import 'package:morty_api/di/injection_container.dart';
-import 'package:morty_api/model/characters/page_model.dart';
-import 'package:morty_api/photos/bloc/photos_bloc.dart';
-import 'package:morty_api/photos/photo_details_screen.dart';
-import 'package:morty_api/photos/photos_list_screen.dart';
+import 'package:morty_api/network/model/characters/page_model.dart';
 
 Map<String, Function> _navigatorRoutes = {
   PhotosListScreen.path: (args) => PhotosListScreen.get(args),

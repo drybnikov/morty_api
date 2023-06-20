@@ -21,7 +21,7 @@ class _RestClientPublic implements RestClientPublic {
   String? baseUrl;
 
   @override
-  Future<List<CharacterModel>> getCharacter(
+  Future<List<CharacterResponse>> getCharacter(
     page,
     limit,
   ) async {
@@ -33,7 +33,7 @@ class _RestClientPublic implements RestClientPublic {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
-        .fetch<List<dynamic>>(_setStreamType<List<CharacterModel>>(Options(
+        .fetch<List<dynamic>>(_setStreamType<List<CharacterResponse>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -46,7 +46,8 @@ class _RestClientPublic implements RestClientPublic {
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
-        .map((dynamic i) => CharacterModel.fromJson(i as Map<String, dynamic>))
+        .map((dynamic i) =>
+            CharacterResponse.fromJson(i as Map<String, dynamic>))
         .toList();
     return value;
   }

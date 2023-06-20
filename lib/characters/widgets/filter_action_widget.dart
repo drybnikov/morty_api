@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:morty_api/model/characters/page_model.dart';
-import 'package:morty_api/photos/bloc/photos_bloc.dart';
+import 'package:morty_api/characters/bloc/photos_bloc.dart';
+import 'package:morty_api/network/model/characters/page_model.dart';
 
 class FilterActionWidget extends StatelessWidget {
   const FilterActionWidget({super.key});

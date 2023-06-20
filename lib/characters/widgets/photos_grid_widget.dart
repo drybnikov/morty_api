@@ -2,16 +2,16 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:morty_api/model/characters/character_response.dart';
-import 'package:morty_api/photos/bloc/photos_bloc.dart';
-import 'package:morty_api/photos/widgets/photo_navigator_bar.dart';
+import 'package:morty_api/characters/bloc/photos_bloc.dart';
+import 'package:morty_api/characters/model/character_model.dart';
+import 'package:morty_api/characters/widgets/photo_navigator_bar.dart';
 
 import '../photo_details_screen.dart';
 
 class PhotosGridWidget extends StatelessWidget {
-  final CharactersResponse charactersResponse;
+  final CharactersData charactersModel;
 
-  const PhotosGridWidget({Key? key, required this.charactersResponse})
+  const PhotosGridWidget({Key? key, required this.charactersModel})
       : super(key: key);
 
   @override
@@ -20,7 +20,7 @@ class PhotosGridWidget extends StatelessWidget {
       slivers: <Widget>[
         SliverAppBar(
           flexibleSpace:
-              PhotoNavigationWidget(pageModel: charactersResponse.pageModel),
+              PhotoNavigationWidget(pageModel: charactersModel.pageModel),
           floating: true,
         ),
         SliverGrid(
@@ -29,18 +29,17 @@ class PhotosGridWidget extends StatelessWidget {
           ),
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
-              final cardItem = charactersResponse.characters[index];
+              final cardItem = charactersModel.characters[index];
 
               return _PhotoCardItem(cardItem: cardItem);
             },
-            childCount: charactersResponse.characters.length,
+            childCount: charactersModel.characters.length,
           ),
         ),
         SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsets.all(16),
-            child:
-                PhotoNavigationWidget(pageModel: charactersResponse.pageModel),
+            child: PhotoNavigationWidget(pageModel: charactersModel.pageModel),
           ),
         ),
       ],

@@ -1,11 +1,11 @@
-import 'package:morty_api/model/characters/character_response.dart';
+import 'package:morty_api/characters/model/character_model.dart';
 
 abstract class PhotosRepository {
-  ///Fetch photos list for specific [page] and [limit]
-  Future<List<CharacterModel>> fetchPhotos(
+  ///Fetch Characters list for specific [page] and [limit]
+  Future<List<CharacterModel>> fetchCharacters(
       {required int page, required int limit});
 
-  ///Fetch photos paginated response for specific [page] and [limit]
-  Future<CharactersResponse> fetchPhotosResponse(
+  ///Fetch Characters paginated response for specific [page] and [limit]
+  Future<CharactersData> fetchCharactersData(
       {required int page, required int limit});
 }

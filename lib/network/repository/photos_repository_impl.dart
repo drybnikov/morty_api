@@ -1,8 +1,7 @@
-import 'package:dio/dio.dart';
 import 'package:fimber/fimber.dart';
 import 'package:injectable/injectable.dart';
-import 'package:morty_api/model/characters/character_response.dart';
-import 'package:morty_api/model/characters/page_model.dart';
+import 'package:morty_api/characters/model/character_model.dart';
+import 'package:morty_api/network/model/characters/character_response.dart';
 import 'package:morty_api/network/rest_client_public.dart';
 import 'package:morty_api/repository/photos_repository.dart';
 
@@ -13,21 +12,26 @@ class PhotosRepositoryImpl implements PhotosRepository {
   PhotosRepositoryImpl(this._restClient);
 
   @override
-  Future<List<CharacterModel>> fetchPhotos(
+  Future<List<CharacterModel>> fetchCharacters(
       {required int page, required int limit}) async {
     try {
-      return _restClient.getCharacter(page, limit);
+      final result = await _restClient.getCharacter(page, limit);
+
+      return result.map((e) => e.toCharacterModel()).toList();
     } on Exception catch (ex, st) {
-      Fimber.e('Error when load photos on page:$page', ex: ex, stacktrace: st);
+      Fimber.e('Error when load characters on page:$page',
+          ex: ex, stacktrace: st);
       rethrow;
     }
   }
 
   @override
-  Future<CharactersResponse> fetchPhotosResponse(
+  Future<CharactersData> fetchCharactersData(
       {required int page, required int limit}) async {
     try {
-      return await _restClient.getCharacterPage(page, limit);
+      final result = await _restClient.getCharacterPage(page, limit);
+
+      return result.toCharactersData();
     } on Exception catch (ex, st) {
       Fimber.e('Error when load characters on page:$page',
           ex: ex, stacktrace: st);
@@ -36,11 +40,19 @@ class PhotosRepositoryImpl implements PhotosRepository {
   }
 }
 
-extension PageModelParse on Headers {
-  PageModel toPageModel(int currentPage, int pageLimit) =>
-      PageModel.fromHeaderLink(
-        currentPage: currentPage,
-        pageLimit: pageLimit,
-        link: value('link') ?? '',
+extension CharactersResponseMapper on CharactersResponse {
+  CharactersData toCharactersData() => CharactersData(
+        pageModel: pageModel,
+        characters: characters.map((e) => e.toCharacterModel()).toList(),
+      );
+}
+
+extension CharacterResponseMapper on CharacterResponse {
+  CharacterModel toCharacterModel({bool isFavorite = false}) => CharacterModel(
+        id: id,
+        name: name,
+        image: image,
+        status: status,
+        isFavorite: isFavorite,
       );
 }

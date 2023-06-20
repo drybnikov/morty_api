@@ -484,31 +484,31 @@ abstract class _updateFavorite extends PhotosEvent {
 
 /// @nodoc
 mixin _$PhotosState {
-  CharactersResponse get characters => throw _privateConstructorUsedError;
+  CharactersData get characters => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CharactersResponse characters) loading,
-    required TResult Function(CharactersResponse characters) initialized,
+    required TResult Function(CharactersData characters) loading,
+    required TResult Function(CharactersData characters) initialized,
     required TResult Function(
-            CharactersResponse characters, String message, String? errorCode)
+            CharactersData characters, String message, String? errorCode)
         error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CharactersResponse characters)? loading,
-    TResult? Function(CharactersResponse characters)? initialized,
+    TResult? Function(CharactersData characters)? loading,
+    TResult? Function(CharactersData characters)? initialized,
     TResult? Function(
-            CharactersResponse characters, String message, String? errorCode)?
+            CharactersData characters, String message, String? errorCode)?
         error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CharactersResponse characters)? loading,
-    TResult Function(CharactersResponse characters)? initialized,
+    TResult Function(CharactersData characters)? loading,
+    TResult Function(CharactersData characters)? initialized,
     TResult Function(
-            CharactersResponse characters, String message, String? errorCode)?
+            CharactersData characters, String message, String? errorCode)?
         error,
     required TResult orElse(),
   }) =>
@@ -547,7 +547,9 @@ abstract class $PhotosStateCopyWith<$Res> {
           PhotosState value, $Res Function(PhotosState) then) =
       _$PhotosStateCopyWithImpl<$Res, PhotosState>;
   @useResult
-  $Res call({CharactersResponse characters});
+  $Res call({CharactersData characters});
+
+  $CharactersDataCopyWith<$Res> get characters;
 }
 
 /// @nodoc
@@ -569,8 +571,16 @@ class _$PhotosStateCopyWithImpl<$Res, $Val extends PhotosState>
       characters: null == characters
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as CharactersResponse,
+              as CharactersData,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CharactersDataCopyWith<$Res> get characters {
+    return $CharactersDataCopyWith<$Res>(_value.characters, (value) {
+      return _then(_value.copyWith(characters: value) as $Val);
+    });
   }
 }
 
@@ -581,7 +591,10 @@ abstract class _$$_loadingCopyWith<$Res> implements $PhotosStateCopyWith<$Res> {
       __$$_loadingCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({CharactersResponse characters});
+  $Res call({CharactersData characters});
+
+  @override
+  $CharactersDataCopyWith<$Res> get characters;
 }
 
 /// @nodoc
@@ -600,7 +613,7 @@ class __$$_loadingCopyWithImpl<$Res>
       characters: null == characters
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as CharactersResponse,
+              as CharactersData,
     ));
   }
 }
@@ -608,12 +621,13 @@ class __$$_loadingCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_loading extends _loading {
-  const _$_loading({this.characters = const CharactersResponse.empty()})
+  const _$_loading(
+      {this.characters = const CharactersData([], const PageModel.firstPage())})
       : super._();
 
   @override
   @JsonKey()
-  final CharactersResponse characters;
+  final CharactersData characters;
 
   @override
   bool operator ==(dynamic other) {
@@ -636,10 +650,10 @@ class _$_loading extends _loading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CharactersResponse characters) loading,
-    required TResult Function(CharactersResponse characters) initialized,
+    required TResult Function(CharactersData characters) loading,
+    required TResult Function(CharactersData characters) initialized,
     required TResult Function(
-            CharactersResponse characters, String message, String? errorCode)
+            CharactersData characters, String message, String? errorCode)
         error,
   }) {
     return loading(characters);
@@ -648,10 +662,10 @@ class _$_loading extends _loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CharactersResponse characters)? loading,
-    TResult? Function(CharactersResponse characters)? initialized,
+    TResult? Function(CharactersData characters)? loading,
+    TResult? Function(CharactersData characters)? initialized,
     TResult? Function(
-            CharactersResponse characters, String message, String? errorCode)?
+            CharactersData characters, String message, String? errorCode)?
         error,
   }) {
     return loading?.call(characters);
@@ -660,10 +674,10 @@ class _$_loading extends _loading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CharactersResponse characters)? loading,
-    TResult Function(CharactersResponse characters)? initialized,
+    TResult Function(CharactersData characters)? loading,
+    TResult Function(CharactersData characters)? initialized,
     TResult Function(
-            CharactersResponse characters, String message, String? errorCode)?
+            CharactersData characters, String message, String? errorCode)?
         error,
     required TResult orElse(),
   }) {
@@ -709,11 +723,11 @@ class _$_loading extends _loading {
 }
 
 abstract class _loading extends PhotosState {
-  const factory _loading({final CharactersResponse characters}) = _$_loading;
+  const factory _loading({final CharactersData characters}) = _$_loading;
   const _loading._() : super._();
 
   @override
-  CharactersResponse get characters;
+  CharactersData get characters;
   @override
   @JsonKey(ignore: true)
   _$$_loadingCopyWith<_$_loading> get copyWith =>
@@ -728,7 +742,10 @@ abstract class _$$_initializedCopyWith<$Res>
       __$$_initializedCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({CharactersResponse characters});
+  $Res call({CharactersData characters});
+
+  @override
+  $CharactersDataCopyWith<$Res> get characters;
 }
 
 /// @nodoc
@@ -748,7 +765,7 @@ class __$$_initializedCopyWithImpl<$Res>
       characters: null == characters
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as CharactersResponse,
+              as CharactersData,
     ));
   }
 }
@@ -759,7 +776,7 @@ class _$_initialized extends _initialized {
   const _$_initialized({required this.characters}) : super._();
 
   @override
-  final CharactersResponse characters;
+  final CharactersData characters;
 
   @override
   bool operator ==(dynamic other) {
@@ -782,10 +799,10 @@ class _$_initialized extends _initialized {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CharactersResponse characters) loading,
-    required TResult Function(CharactersResponse characters) initialized,
+    required TResult Function(CharactersData characters) loading,
+    required TResult Function(CharactersData characters) initialized,
     required TResult Function(
-            CharactersResponse characters, String message, String? errorCode)
+            CharactersData characters, String message, String? errorCode)
         error,
   }) {
     return initialized(characters);
@@ -794,10 +811,10 @@ class _$_initialized extends _initialized {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CharactersResponse characters)? loading,
-    TResult? Function(CharactersResponse characters)? initialized,
+    TResult? Function(CharactersData characters)? loading,
+    TResult? Function(CharactersData characters)? initialized,
     TResult? Function(
-            CharactersResponse characters, String message, String? errorCode)?
+            CharactersData characters, String message, String? errorCode)?
         error,
   }) {
     return initialized?.call(characters);
@@ -806,10 +823,10 @@ class _$_initialized extends _initialized {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CharactersResponse characters)? loading,
-    TResult Function(CharactersResponse characters)? initialized,
+    TResult Function(CharactersData characters)? loading,
+    TResult Function(CharactersData characters)? initialized,
     TResult Function(
-            CharactersResponse characters, String message, String? errorCode)?
+            CharactersData characters, String message, String? errorCode)?
         error,
     required TResult orElse(),
   }) {
@@ -855,12 +872,12 @@ class _$_initialized extends _initialized {
 }
 
 abstract class _initialized extends PhotosState {
-  const factory _initialized({required final CharactersResponse characters}) =
+  const factory _initialized({required final CharactersData characters}) =
       _$_initialized;
   const _initialized._() : super._();
 
   @override
-  CharactersResponse get characters;
+  CharactersData get characters;
   @override
   @JsonKey(ignore: true)
   _$$_initializedCopyWith<_$_initialized> get copyWith =>
@@ -875,7 +892,10 @@ abstract class _$$photosErrorCopyWith<$Res>
       __$$photosErrorCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({CharactersResponse characters, String message, String? errorCode});
+  $Res call({CharactersData characters, String message, String? errorCode});
+
+  @override
+  $CharactersDataCopyWith<$Res> get characters;
 }
 
 /// @nodoc
@@ -897,7 +917,7 @@ class __$$photosErrorCopyWithImpl<$Res>
       characters: null == characters
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as CharactersResponse,
+              as CharactersData,
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -918,7 +938,7 @@ class _$photosError extends photosError {
       : super._();
 
   @override
-  final CharactersResponse characters;
+  final CharactersData characters;
   @override
   @JsonKey()
   final String message;
@@ -949,10 +969,10 @@ class _$photosError extends photosError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CharactersResponse characters) loading,
-    required TResult Function(CharactersResponse characters) initialized,
+    required TResult Function(CharactersData characters) loading,
+    required TResult Function(CharactersData characters) initialized,
     required TResult Function(
-            CharactersResponse characters, String message, String? errorCode)
+            CharactersData characters, String message, String? errorCode)
         error,
   }) {
     return error(characters, message, errorCode);
@@ -961,10 +981,10 @@ class _$photosError extends photosError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CharactersResponse characters)? loading,
-    TResult? Function(CharactersResponse characters)? initialized,
+    TResult? Function(CharactersData characters)? loading,
+    TResult? Function(CharactersData characters)? initialized,
     TResult? Function(
-            CharactersResponse characters, String message, String? errorCode)?
+            CharactersData characters, String message, String? errorCode)?
         error,
   }) {
     return error?.call(characters, message, errorCode);
@@ -973,10 +993,10 @@ class _$photosError extends photosError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CharactersResponse characters)? loading,
-    TResult Function(CharactersResponse characters)? initialized,
+    TResult Function(CharactersData characters)? loading,
+    TResult Function(CharactersData characters)? initialized,
     TResult Function(
-            CharactersResponse characters, String message, String? errorCode)?
+            CharactersData characters, String message, String? errorCode)?
         error,
     required TResult orElse(),
   }) {
@@ -1023,13 +1043,13 @@ class _$photosError extends photosError {
 
 abstract class photosError extends PhotosState {
   const factory photosError(
-      {required final CharactersResponse characters,
+      {required final CharactersData characters,
       final String message,
       final String? errorCode}) = _$photosError;
   const photosError._() : super._();
 
   @override
-  CharactersResponse get characters;
+  CharactersData get characters;
   String get message;
   String? get errorCode;
   @override

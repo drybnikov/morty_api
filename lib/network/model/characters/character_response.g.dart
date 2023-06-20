@@ -9,9 +9,9 @@ part of 'character_response.dart';
 CharactersResponse _$CharactersResponseFromJson(Map<String, dynamic> json) =>
     CharactersResponse(
       characters: (json['results'] as List<dynamic>)
-          .map((e) => CharacterModel.fromJson(e as Map<String, dynamic>))
+          .map((e) => CharacterResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
-      pageModel: PageModel.fromJson(json['info'] as Map<String, dynamic>),
+      pageModel: json['info'],
     );
 
 Map<String, dynamic> _$CharactersResponseToJson(CharactersResponse instance) =>
@@ -20,8 +20,8 @@ Map<String, dynamic> _$CharactersResponseToJson(CharactersResponse instance) =>
       'info': instance.pageModel,
     };
 
-_$_CharacterModel _$$_CharacterModelFromJson(Map<String, dynamic> json) =>
-    _$_CharacterModel(
+_$_CharacterResponse _$$_CharacterResponseFromJson(Map<String, dynamic> json) =>
+    _$_CharacterResponse(
       id: json['id'] as int,
       name: json['name'] as String,
       status: $enumDecodeNullable(_$CharacterStatusEnumMap, json['status']) ??
@@ -30,10 +30,10 @@ _$_CharacterModel _$$_CharacterModelFromJson(Map<String, dynamic> json) =>
       gender: $enumDecodeNullable(_$GenderTypeEnumMap, json['gender']) ??
           GenderType.unknown,
       image: json['image'] as String? ?? '',
-      isFavorite: json['isFavorite'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$$_CharacterModelToJson(_$_CharacterModel instance) =>
+Map<String, dynamic> _$$_CharacterResponseToJson(
+        _$_CharacterResponse instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -41,7 +41,6 @@ Map<String, dynamic> _$$_CharacterModelToJson(_$_CharacterModel instance) =>
       'species': instance.species,
       'gender': _$GenderTypeEnumMap[instance.gender]!,
       'image': instance.image,
-      'isFavorite': instance.isFavorite,
     };
 
 const _$CharacterStatusEnumMap = {

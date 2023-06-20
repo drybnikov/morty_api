@@ -1,25 +1,24 @@
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:morty_api/model/characters/page_model.dart';
+import 'package:morty_api/network/model/characters/page_model.dart';
 
 part 'character_response.freezed.dart';
 
 part 'character_response.g.dart';
 
 @freezed
-class CharacterModel with _$CharacterModel {
-  const factory CharacterModel({
+class CharacterResponse with _$CharacterResponse {
+  const factory CharacterResponse({
     required int id,
     required String name,
     @Default(CharacterStatus.unknown) CharacterStatus status,
     @Default('') String species,
     @Default(GenderType.unknown) GenderType gender,
     @Default('') String image,
-    @Default(false) bool isFavorite,
-  }) = _CharacterModel;
+  }) = _CharacterResponse;
 
-  factory CharacterModel.fromJson(Map<String, dynamic> json) =>
-      _$CharacterModelFromJson(json);
+  factory CharacterResponse.fromJson(Map<String, dynamic> json) =>
+      _$CharacterResponseFromJson(json);
 }
 
 enum GenderType {
@@ -43,7 +42,7 @@ enum CharacterStatus {
 @JsonSerializable()
 class CharactersResponse extends Equatable {
   @JsonKey(name: 'results')
-  final List<CharacterModel> characters;
+  final List<CharacterResponse> characters;
   @JsonKey(name: 'info')
   final PageModel pageModel;
 
@@ -66,13 +65,4 @@ class CharactersResponse extends Equatable {
 
   factory CharactersResponse.fromJson(Map<String, dynamic> json) =>
       _$CharactersResponseFromJson(json);
-
-  CharactersResponse copyWith({
-    List<CharacterModel>? characters,
-    PageModel? pageModel,
-  }) =>
-      CharactersResponse(
-        characters: characters ?? this.characters,
-        pageModel: pageModel ?? this.pageModel,
-      );
 }

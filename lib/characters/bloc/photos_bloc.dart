@@ -5,8 +5,8 @@ import 'package:fimber/fimber.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:morty_api/model/characters/character_response.dart';
-import 'package:morty_api/model/characters/page_model.dart';
+import 'package:morty_api/characters/model/character_model.dart';
+import 'package:morty_api/network/model/characters/page_model.dart';
 import 'package:morty_api/repository/photos_repository.dart';
 
 part 'photos_bloc.freezed.dart';
@@ -31,14 +31,17 @@ class PhotosState with _$PhotosState {
   const PhotosState._();
 
   const factory PhotosState.loading(
-      {@Default(CharactersResponse.empty())
-          CharactersResponse characters}) = _loading;
+      {@Default(CharactersData(
+        characters: [],
+        pageModel: PageModel.firstPage(),
+      ))
+          CharactersData characters}) = _loading;
 
-  const factory PhotosState.initialized(
-      {required CharactersResponse characters}) = _initialized;
+  const factory PhotosState.initialized({required CharactersData characters}) =
+      _initialized;
 
   const factory PhotosState.error({
-    required CharactersResponse characters,
+    required CharactersData characters,
     @Default('Error') String message,
     String? errorCode,
   }) = photosError;
@@ -59,7 +62,7 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
     try {
       final pageModel = event.pageModel;
 
-      final charactersResult = await _photosRepository.fetchPhotosResponse(
+      final charactersResult = await _photosRepository.fetchCharactersData(
         page: event.pageModel.current,
         limit: pageModel.pages,
       );

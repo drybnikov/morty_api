@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:morty_api/photos/bloc/photos_bloc.dart';
-import 'package:morty_api/photos/widgets/about_info_action_widget.dart';
-import 'package:morty_api/photos/widgets/characters_error.dart';
-import 'package:morty_api/photos/widgets/filter_action_widget.dart';
-import 'package:morty_api/photos/widgets/photos_grid_widget.dart';
+import 'package:morty_api/characters/bloc/photos_bloc.dart';
+import 'package:morty_api/characters/widgets/about_info_action_widget.dart';
+import 'package:morty_api/characters/widgets/characters_error.dart';
+import 'package:morty_api/characters/widgets/filter_action_widget.dart';
+import 'package:morty_api/characters/widgets/photos_grid_widget.dart';
 
 class PhotosListScreen extends StatelessWidget {
   static const path = '/photos_list';
@@ -44,13 +44,13 @@ class _PhotosListBody extends StatelessWidget {
                 errorCode: error.errorCode,
               )
             : PhotosGridWidget(
-                charactersResponse: error.characters,
+                charactersModel: error.characters,
                 key: ValueKey(state.characters.pageModel.current),
               ),
         orElse: () => AnimatedSwitcher(
           duration: const Duration(milliseconds: 300),
           child: PhotosGridWidget(
-            charactersResponse: state.characters,
+            charactersModel: state.characters,
             key: ValueKey(state.characters.pageModel.current),
           ),
         ),

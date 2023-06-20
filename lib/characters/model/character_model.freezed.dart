@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'character_response.dart';
+part of 'character_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -13,10 +13,6 @@ T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-CharacterModel _$CharacterModelFromJson(Map<String, dynamic> json) {
-  return _CharacterModel.fromJson(json);
-}
 
 /// @nodoc
 mixin _$CharacterModel {
@@ -28,7 +24,6 @@ mixin _$CharacterModel {
   String get image => throw _privateConstructorUsedError;
   bool get isFavorite => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CharacterModelCopyWith<CharacterModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -175,7 +170,7 @@ class __$$_CharacterModelCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_CharacterModel implements _CharacterModel {
   const _$_CharacterModel(
       {required this.id,
@@ -185,9 +180,6 @@ class _$_CharacterModel implements _CharacterModel {
       this.gender = GenderType.unknown,
       this.image = '',
       this.isFavorite = false});
-
-  factory _$_CharacterModel.fromJson(Map<String, dynamic> json) =>
-      _$$_CharacterModelFromJson(json);
 
   @override
   final int id;
@@ -229,7 +221,6 @@ class _$_CharacterModel implements _CharacterModel {
                 other.isFavorite == isFavorite));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, id, name, status, species, gender, image, isFavorite);
@@ -239,13 +230,6 @@ class _$_CharacterModel implements _CharacterModel {
   @pragma('vm:prefer-inline')
   _$$_CharacterModelCopyWith<_$_CharacterModel> get copyWith =>
       __$$_CharacterModelCopyWithImpl<_$_CharacterModel>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_CharacterModelToJson(
-      this,
-    );
-  }
 }
 
 abstract class _CharacterModel implements CharacterModel {
@@ -257,9 +241,6 @@ abstract class _CharacterModel implements CharacterModel {
       final GenderType gender,
       final String image,
       final bool isFavorite}) = _$_CharacterModel;
-
-  factory _CharacterModel.fromJson(Map<String, dynamic> json) =
-      _$_CharacterModel.fromJson;
 
   @override
   int get id;
@@ -278,5 +259,151 @@ abstract class _CharacterModel implements CharacterModel {
   @override
   @JsonKey(ignore: true)
   _$$_CharacterModelCopyWith<_$_CharacterModel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$CharactersData {
+  List<CharacterModel> get characters => throw _privateConstructorUsedError;
+  PageModel get pageModel => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $CharactersDataCopyWith<CharactersData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CharactersDataCopyWith<$Res> {
+  factory $CharactersDataCopyWith(
+          CharactersData value, $Res Function(CharactersData) then) =
+      _$CharactersDataCopyWithImpl<$Res, CharactersData>;
+  @useResult
+  $Res call({List<CharacterModel> characters, PageModel pageModel});
+}
+
+/// @nodoc
+class _$CharactersDataCopyWithImpl<$Res, $Val extends CharactersData>
+    implements $CharactersDataCopyWith<$Res> {
+  _$CharactersDataCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? characters = null,
+    Object? pageModel = null,
+  }) {
+    return _then(_value.copyWith(
+      characters: null == characters
+          ? _value.characters
+          : characters // ignore: cast_nullable_to_non_nullable
+              as List<CharacterModel>,
+      pageModel: null == pageModel
+          ? _value.pageModel
+          : pageModel // ignore: cast_nullable_to_non_nullable
+              as PageModel,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_CharactersDataCopyWith<$Res>
+    implements $CharactersDataCopyWith<$Res> {
+  factory _$$_CharactersDataCopyWith(
+          _$_CharactersData value, $Res Function(_$_CharactersData) then) =
+      __$$_CharactersDataCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({List<CharacterModel> characters, PageModel pageModel});
+}
+
+/// @nodoc
+class __$$_CharactersDataCopyWithImpl<$Res>
+    extends _$CharactersDataCopyWithImpl<$Res, _$_CharactersData>
+    implements _$$_CharactersDataCopyWith<$Res> {
+  __$$_CharactersDataCopyWithImpl(
+      _$_CharactersData _value, $Res Function(_$_CharactersData) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? characters = null,
+    Object? pageModel = null,
+  }) {
+    return _then(_$_CharactersData(
+      characters: null == characters
+          ? _value._characters
+          : characters // ignore: cast_nullable_to_non_nullable
+              as List<CharacterModel>,
+      pageModel: null == pageModel
+          ? _value.pageModel
+          : pageModel // ignore: cast_nullable_to_non_nullable
+              as PageModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_CharactersData implements _CharactersData {
+  const _$_CharactersData(
+      {required final List<CharacterModel> characters, required this.pageModel})
+      : _characters = characters;
+
+  final List<CharacterModel> _characters;
+  @override
+  List<CharacterModel> get characters {
+    if (_characters is EqualUnmodifiableListView) return _characters;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_characters);
+  }
+
+  @override
+  final PageModel pageModel;
+
+  @override
+  String toString() {
+    return 'CharactersData(characters: $characters, pageModel: $pageModel)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CharactersData &&
+            const DeepCollectionEquality()
+                .equals(other._characters, _characters) &&
+            (identical(other.pageModel, pageModel) ||
+                other.pageModel == pageModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_characters), pageModel);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_CharactersDataCopyWith<_$_CharactersData> get copyWith =>
+      __$$_CharactersDataCopyWithImpl<_$_CharactersData>(this, _$identity);
+}
+
+abstract class _CharactersData implements CharactersData {
+  const factory _CharactersData(
+      {required final List<CharacterModel> characters,
+      required final PageModel pageModel}) = _$_CharactersData;
+
+  @override
+  List<CharacterModel> get characters;
+  @override
+  PageModel get pageModel;
+  @override
+  @JsonKey(ignore: true)
+  _$$_CharactersDataCopyWith<_$_CharactersData> get copyWith =>
       throw _privateConstructorUsedError;
 }
