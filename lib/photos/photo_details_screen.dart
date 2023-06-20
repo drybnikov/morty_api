@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-
-import '../model/photos/character_response.dart';
+import 'package:morty_api/model/characters/character_response.dart';
 
 class PhotosDetailsScreen extends StatelessWidget {
   static const path = '/photo_details';

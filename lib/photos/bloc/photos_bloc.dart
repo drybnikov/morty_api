@@ -5,8 +5,8 @@ import 'package:fimber/fimber.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:morty_api/model/photos/character_response.dart';
-import 'package:morty_api/model/photos/page_model.dart';
+import 'package:morty_api/model/characters/character_response.dart';
+import 'package:morty_api/model/characters/page_model.dart';
 import 'package:morty_api/repository/photos_repository.dart';
 
 part 'photos_bloc.freezed.dart';
@@ -21,9 +21,12 @@ class PhotosEvent with _$PhotosEvent {
   const factory PhotosEvent.getNextPage() = _getNextPage;
 
   const factory PhotosEvent.getPrevPage() = _getPrevPage;
+
+  const factory PhotosEvent.updateFavorite(CharacterModel character) =
+      _updateFavorite;
 }
 
-@Freezed(toStringOverride: false, copyWith: false)
+@Freezed(toStringOverride: false)
 class PhotosState with _$PhotosState {
   const PhotosState._();
 
@@ -49,6 +52,7 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
     on<_fetchPhotos>(_onFetchPhotos);
     on<_getNextPage>(_onGetNextPage);
     on<_getPrevPage>(_onGetPrevPage);
+    on<_updateFavorite>(_onUpdateFavorite);
   }
 
   FutureOr<void> _onFetchPhotos(_fetchPhotos event, emit) async {
@@ -98,5 +102,20 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
         emit,
       );
     }
+  }
+
+  FutureOr<void> _onUpdateFavorite(_updateFavorite event, emit) async {
+    final characters = state.characters.characters;
+    final updatedList = characters
+        .map((character) => character.id == event.character.id
+            ? character.copyWith(isFavorite: !character.isFavorite)
+            : character)
+        .toList();
+
+    emit(_initialized(
+      characters: state.characters.copyWith(
+        characters: updatedList,
+      ),
+    ));
   }
 }

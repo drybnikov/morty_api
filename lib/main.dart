@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
       title: 'The Rick and Morty Demo',
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
+        useMaterial3: true,
       ),
       home: RootNavigatorWidget(),
     );

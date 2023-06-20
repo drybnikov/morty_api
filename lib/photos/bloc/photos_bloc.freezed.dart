@@ -21,6 +21,7 @@ mixin _$PhotosEvent {
     required TResult Function(PageModel pageModel) fetchPhotos,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
+    required TResult Function(CharacterModel character) updateFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$PhotosEvent {
     TResult? Function(PageModel pageModel)? fetchPhotos,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
+    TResult? Function(CharacterModel character)? updateFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$PhotosEvent {
     TResult Function(PageModel pageModel)? fetchPhotos,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
+    TResult Function(CharacterModel character)? updateFavorite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$PhotosEvent {
     required TResult Function(_fetchPhotos value) fetchPhotos,
     required TResult Function(_getNextPage value) getNextPage,
     required TResult Function(_getPrevPage value) getPrevPage,
+    required TResult Function(_updateFavorite value) updateFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$PhotosEvent {
     TResult? Function(_fetchPhotos value)? fetchPhotos,
     TResult? Function(_getNextPage value)? getNextPage,
     TResult? Function(_getPrevPage value)? getPrevPage,
+    TResult? Function(_updateFavorite value)? updateFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$PhotosEvent {
     TResult Function(_fetchPhotos value)? fetchPhotos,
     TResult Function(_getNextPage value)? getNextPage,
     TResult Function(_getPrevPage value)? getPrevPage,
+    TResult Function(_updateFavorite value)? updateFavorite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -93,6 +99,7 @@ class _$_fetchPhotos extends _fetchPhotos {
     required TResult Function(PageModel pageModel) fetchPhotos,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
+    required TResult Function(CharacterModel character) updateFavorite,
   }) {
     return fetchPhotos(pageModel);
   }
@@ -103,6 +110,7 @@ class _$_fetchPhotos extends _fetchPhotos {
     TResult? Function(PageModel pageModel)? fetchPhotos,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
+    TResult? Function(CharacterModel character)? updateFavorite,
   }) {
     return fetchPhotos?.call(pageModel);
   }
@@ -113,6 +121,7 @@ class _$_fetchPhotos extends _fetchPhotos {
     TResult Function(PageModel pageModel)? fetchPhotos,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
+    TResult Function(CharacterModel character)? updateFavorite,
     required TResult orElse(),
   }) {
     if (fetchPhotos != null) {
@@ -127,6 +136,7 @@ class _$_fetchPhotos extends _fetchPhotos {
     required TResult Function(_fetchPhotos value) fetchPhotos,
     required TResult Function(_getNextPage value) getNextPage,
     required TResult Function(_getPrevPage value) getPrevPage,
+    required TResult Function(_updateFavorite value) updateFavorite,
   }) {
     return fetchPhotos(this);
   }
@@ -137,6 +147,7 @@ class _$_fetchPhotos extends _fetchPhotos {
     TResult? Function(_fetchPhotos value)? fetchPhotos,
     TResult? Function(_getNextPage value)? getNextPage,
     TResult? Function(_getPrevPage value)? getPrevPage,
+    TResult? Function(_updateFavorite value)? updateFavorite,
   }) {
     return fetchPhotos?.call(this);
   }
@@ -147,6 +158,7 @@ class _$_fetchPhotos extends _fetchPhotos {
     TResult Function(_fetchPhotos value)? fetchPhotos,
     TResult Function(_getNextPage value)? getNextPage,
     TResult Function(_getPrevPage value)? getPrevPage,
+    TResult Function(_updateFavorite value)? updateFavorite,
     required TResult orElse(),
   }) {
     if (fetchPhotos != null) {
@@ -189,6 +201,7 @@ class _$_getNextPage extends _getNextPage {
     required TResult Function(PageModel pageModel) fetchPhotos,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
+    required TResult Function(CharacterModel character) updateFavorite,
   }) {
     return getNextPage();
   }
@@ -199,6 +212,7 @@ class _$_getNextPage extends _getNextPage {
     TResult? Function(PageModel pageModel)? fetchPhotos,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
+    TResult? Function(CharacterModel character)? updateFavorite,
   }) {
     return getNextPage?.call();
   }
@@ -209,6 +223,7 @@ class _$_getNextPage extends _getNextPage {
     TResult Function(PageModel pageModel)? fetchPhotos,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
+    TResult Function(CharacterModel character)? updateFavorite,
     required TResult orElse(),
   }) {
     if (getNextPage != null) {
@@ -223,6 +238,7 @@ class _$_getNextPage extends _getNextPage {
     required TResult Function(_fetchPhotos value) fetchPhotos,
     required TResult Function(_getNextPage value) getNextPage,
     required TResult Function(_getPrevPage value) getPrevPage,
+    required TResult Function(_updateFavorite value) updateFavorite,
   }) {
     return getNextPage(this);
   }
@@ -233,6 +249,7 @@ class _$_getNextPage extends _getNextPage {
     TResult? Function(_fetchPhotos value)? fetchPhotos,
     TResult? Function(_getNextPage value)? getNextPage,
     TResult? Function(_getPrevPage value)? getPrevPage,
+    TResult? Function(_updateFavorite value)? updateFavorite,
   }) {
     return getNextPage?.call(this);
   }
@@ -243,6 +260,7 @@ class _$_getNextPage extends _getNextPage {
     TResult Function(_fetchPhotos value)? fetchPhotos,
     TResult Function(_getNextPage value)? getNextPage,
     TResult Function(_getPrevPage value)? getPrevPage,
+    TResult Function(_updateFavorite value)? updateFavorite,
     required TResult orElse(),
   }) {
     if (getNextPage != null) {
@@ -282,6 +300,7 @@ class _$_getPrevPage extends _getPrevPage {
     required TResult Function(PageModel pageModel) fetchPhotos,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
+    required TResult Function(CharacterModel character) updateFavorite,
   }) {
     return getPrevPage();
   }
@@ -292,6 +311,7 @@ class _$_getPrevPage extends _getPrevPage {
     TResult? Function(PageModel pageModel)? fetchPhotos,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
+    TResult? Function(CharacterModel character)? updateFavorite,
   }) {
     return getPrevPage?.call();
   }
@@ -302,6 +322,7 @@ class _$_getPrevPage extends _getPrevPage {
     TResult Function(PageModel pageModel)? fetchPhotos,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
+    TResult Function(CharacterModel character)? updateFavorite,
     required TResult orElse(),
   }) {
     if (getPrevPage != null) {
@@ -316,6 +337,7 @@ class _$_getPrevPage extends _getPrevPage {
     required TResult Function(_fetchPhotos value) fetchPhotos,
     required TResult Function(_getNextPage value) getNextPage,
     required TResult Function(_getPrevPage value) getPrevPage,
+    required TResult Function(_updateFavorite value) updateFavorite,
   }) {
     return getPrevPage(this);
   }
@@ -326,6 +348,7 @@ class _$_getPrevPage extends _getPrevPage {
     TResult? Function(_fetchPhotos value)? fetchPhotos,
     TResult? Function(_getNextPage value)? getNextPage,
     TResult? Function(_getPrevPage value)? getPrevPage,
+    TResult? Function(_updateFavorite value)? updateFavorite,
   }) {
     return getPrevPage?.call(this);
   }
@@ -336,6 +359,7 @@ class _$_getPrevPage extends _getPrevPage {
     TResult Function(_fetchPhotos value)? fetchPhotos,
     TResult Function(_getNextPage value)? getNextPage,
     TResult Function(_getPrevPage value)? getPrevPage,
+    TResult Function(_updateFavorite value)? updateFavorite,
     required TResult orElse(),
   }) {
     if (getPrevPage != null) {
@@ -348,6 +372,114 @@ class _$_getPrevPage extends _getPrevPage {
 abstract class _getPrevPage extends PhotosEvent {
   const factory _getPrevPage() = _$_getPrevPage;
   const _getPrevPage._() : super._();
+}
+
+/// @nodoc
+
+class _$_updateFavorite extends _updateFavorite {
+  const _$_updateFavorite(this.character) : super._();
+
+  @override
+  final CharacterModel character;
+
+  @override
+  String toString() {
+    return 'PhotosEvent.updateFavorite(character: $character)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_updateFavorite &&
+            (identical(other.character, character) ||
+                other.character == character));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, character);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PageModel pageModel) fetchPhotos,
+    required TResult Function() getNextPage,
+    required TResult Function() getPrevPage,
+    required TResult Function(CharacterModel character) updateFavorite,
+  }) {
+    return updateFavorite(character);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PageModel pageModel)? fetchPhotos,
+    TResult? Function()? getNextPage,
+    TResult? Function()? getPrevPage,
+    TResult? Function(CharacterModel character)? updateFavorite,
+  }) {
+    return updateFavorite?.call(character);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PageModel pageModel)? fetchPhotos,
+    TResult Function()? getNextPage,
+    TResult Function()? getPrevPage,
+    TResult Function(CharacterModel character)? updateFavorite,
+    required TResult orElse(),
+  }) {
+    if (updateFavorite != null) {
+      return updateFavorite(character);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_fetchPhotos value) fetchPhotos,
+    required TResult Function(_getNextPage value) getNextPage,
+    required TResult Function(_getPrevPage value) getPrevPage,
+    required TResult Function(_updateFavorite value) updateFavorite,
+  }) {
+    return updateFavorite(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_fetchPhotos value)? fetchPhotos,
+    TResult? Function(_getNextPage value)? getNextPage,
+    TResult? Function(_getPrevPage value)? getPrevPage,
+    TResult? Function(_updateFavorite value)? updateFavorite,
+  }) {
+    return updateFavorite?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_fetchPhotos value)? fetchPhotos,
+    TResult Function(_getNextPage value)? getNextPage,
+    TResult Function(_getPrevPage value)? getPrevPage,
+    TResult Function(_updateFavorite value)? updateFavorite,
+    required TResult orElse(),
+  }) {
+    if (updateFavorite != null) {
+      return updateFavorite(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _updateFavorite extends PhotosEvent {
+  const factory _updateFavorite(final CharacterModel character) =
+      _$_updateFavorite;
+  const _updateFavorite._() : super._();
+
+  CharacterModel get character;
 }
 
 /// @nodoc
@@ -403,6 +535,74 @@ mixin _$PhotosState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $PhotosStateCopyWith<PhotosState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PhotosStateCopyWith<$Res> {
+  factory $PhotosStateCopyWith(
+          PhotosState value, $Res Function(PhotosState) then) =
+      _$PhotosStateCopyWithImpl<$Res, PhotosState>;
+  @useResult
+  $Res call({CharactersResponse characters});
+}
+
+/// @nodoc
+class _$PhotosStateCopyWithImpl<$Res, $Val extends PhotosState>
+    implements $PhotosStateCopyWith<$Res> {
+  _$PhotosStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? characters = null,
+  }) {
+    return _then(_value.copyWith(
+      characters: null == characters
+          ? _value.characters
+          : characters // ignore: cast_nullable_to_non_nullable
+              as CharactersResponse,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_loadingCopyWith<$Res> implements $PhotosStateCopyWith<$Res> {
+  factory _$$_loadingCopyWith(
+          _$_loading value, $Res Function(_$_loading) then) =
+      __$$_loadingCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({CharactersResponse characters});
+}
+
+/// @nodoc
+class __$$_loadingCopyWithImpl<$Res>
+    extends _$PhotosStateCopyWithImpl<$Res, _$_loading>
+    implements _$$_loadingCopyWith<$Res> {
+  __$$_loadingCopyWithImpl(_$_loading _value, $Res Function(_$_loading) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? characters = null,
+  }) {
+    return _then(_$_loading(
+      characters: null == characters
+          ? _value.characters
+          : characters // ignore: cast_nullable_to_non_nullable
+              as CharactersResponse,
+    ));
+  }
 }
 
 /// @nodoc
@@ -426,6 +626,12 @@ class _$_loading extends _loading {
 
   @override
   int get hashCode => Object.hash(runtimeType, characters);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_loadingCopyWith<_$_loading> get copyWith =>
+      __$$_loadingCopyWithImpl<_$_loading>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -508,6 +714,43 @@ abstract class _loading extends PhotosState {
 
   @override
   CharactersResponse get characters;
+  @override
+  @JsonKey(ignore: true)
+  _$$_loadingCopyWith<_$_loading> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_initializedCopyWith<$Res>
+    implements $PhotosStateCopyWith<$Res> {
+  factory _$$_initializedCopyWith(
+          _$_initialized value, $Res Function(_$_initialized) then) =
+      __$$_initializedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({CharactersResponse characters});
+}
+
+/// @nodoc
+class __$$_initializedCopyWithImpl<$Res>
+    extends _$PhotosStateCopyWithImpl<$Res, _$_initialized>
+    implements _$$_initializedCopyWith<$Res> {
+  __$$_initializedCopyWithImpl(
+      _$_initialized _value, $Res Function(_$_initialized) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? characters = null,
+  }) {
+    return _then(_$_initialized(
+      characters: null == characters
+          ? _value.characters
+          : characters // ignore: cast_nullable_to_non_nullable
+              as CharactersResponse,
+    ));
+  }
 }
 
 /// @nodoc
@@ -529,6 +772,12 @@ class _$_initialized extends _initialized {
 
   @override
   int get hashCode => Object.hash(runtimeType, characters);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_initializedCopyWith<_$_initialized> get copyWith =>
+      __$$_initializedCopyWithImpl<_$_initialized>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -612,6 +861,53 @@ abstract class _initialized extends PhotosState {
 
   @override
   CharactersResponse get characters;
+  @override
+  @JsonKey(ignore: true)
+  _$$_initializedCopyWith<_$_initialized> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$photosErrorCopyWith<$Res>
+    implements $PhotosStateCopyWith<$Res> {
+  factory _$$photosErrorCopyWith(
+          _$photosError value, $Res Function(_$photosError) then) =
+      __$$photosErrorCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({CharactersResponse characters, String message, String? errorCode});
+}
+
+/// @nodoc
+class __$$photosErrorCopyWithImpl<$Res>
+    extends _$PhotosStateCopyWithImpl<$Res, _$photosError>
+    implements _$$photosErrorCopyWith<$Res> {
+  __$$photosErrorCopyWithImpl(
+      _$photosError _value, $Res Function(_$photosError) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? characters = null,
+    Object? message = null,
+    Object? errorCode = freezed,
+  }) {
+    return _then(_$photosError(
+      characters: null == characters
+          ? _value.characters
+          : characters // ignore: cast_nullable_to_non_nullable
+              as CharactersResponse,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      errorCode: freezed == errorCode
+          ? _value.errorCode
+          : errorCode // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
@@ -643,6 +939,12 @@ class _$photosError extends photosError {
 
   @override
   int get hashCode => Object.hash(runtimeType, characters, message, errorCode);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$photosErrorCopyWith<_$photosError> get copyWith =>
+      __$$photosErrorCopyWithImpl<_$photosError>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -730,4 +1032,8 @@ abstract class photosError extends PhotosState {
   CharactersResponse get characters;
   String get message;
   String? get errorCode;
+  @override
+  @JsonKey(ignore: true)
+  _$$photosErrorCopyWith<_$photosError> get copyWith =>
+      throw _privateConstructorUsedError;
 }

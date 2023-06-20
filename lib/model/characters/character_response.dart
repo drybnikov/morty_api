@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:morty_api/model/photos/page_model.dart';
+import 'package:morty_api/model/characters/page_model.dart';
 
 part 'character_response.freezed.dart';
 
@@ -66,4 +66,13 @@ class CharactersResponse extends Equatable {
 
   factory CharactersResponse.fromJson(Map<String, dynamic> json) =>
       _$CharactersResponseFromJson(json);
+
+  CharactersResponse copyWith({
+    List<CharacterModel>? characters,
+    PageModel? pageModel,
+  }) =>
+      CharactersResponse(
+        characters: characters ?? this.characters,
+        pageModel: pageModel ?? this.pageModel,
+      );
 }

@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
-import 'package:morty_api/model/photos/character_response.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:morty_api/model/characters/character_response.dart';
+import 'package:morty_api/photos/bloc/photos_bloc.dart';
 import 'package:morty_api/photos/widgets/photo_navigator_bar.dart';
 
 import '../photo_details_screen.dart';
@@ -28,7 +30,6 @@ class PhotosGridWidget extends StatelessWidget {
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
               final cardItem = charactersResponse.characters[index];
-              Fimber.d('build cardItem:$cardItem');
 
               return _PhotoCardItem(cardItem: cardItem);
             },
@@ -86,15 +87,33 @@ class _PhotoCardItem extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    Chip(label: Text(cardItem.species)),
+                    Chip(
+                        label: Text(
+                      cardItem.species,
+                      style: Theme.of(context).textTheme.bodySmall,
+                    )),
                   ],
                 ),
               ),
             ),
           ),
+          Align(
+            alignment: Alignment.topRight,
+            child: IconButton(
+              onPressed: () => _onFavoritePressed(context),
+              icon: const Icon(Icons.favorite_outline),
+              selectedIcon: const Icon(Icons.favorite, color: Colors.red),
+              isSelected: cardItem.isFavorite,
+            ),
+          ),
         ],
       ),
     );
+  }
+
+  void _onFavoritePressed(BuildContext context) {
+    Fimber.d('Press cardItem:$cardItem');
+    context.read<PhotosBloc>().add(PhotosEvent.updateFavorite(cardItem));
   }
 }
 

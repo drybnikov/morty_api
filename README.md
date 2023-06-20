@@ -1,6 +1,6 @@
-# picsum_photos
+# morty_api
 
-Simple images list
+Simple morty api usage
 
 Shown as grid with paging navigation
 

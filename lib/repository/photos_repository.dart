@@ -1,4 +1,4 @@
-import 'package:morty_api/model/photos/character_response.dart';
+import 'package:morty_api/model/characters/character_response.dart';
 
 abstract class PhotosRepository {
   ///Fetch photos list for specific [page] and [limit]

@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart' hide Headers;
 import 'package:injectable/injectable.dart';
-import 'package:morty_api/model/photos/character_response.dart';
+import 'package:morty_api/model/characters/character_response.dart';
 import 'package:morty_api/network/client_provider.dart';
 import 'package:retrofit/retrofit.dart';
 
