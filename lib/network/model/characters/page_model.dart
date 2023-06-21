@@ -1,8 +1,9 @@
 import 'package:equatable/equatable.dart';
-import 'package:fimber/fimber.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'page_model.g.dart';
+
+const int pageSize = 20;
 
 @JsonSerializable()
 class PageModel extends Equatable {
@@ -24,7 +25,7 @@ class PageModel extends Equatable {
 
   const PageModel.firstPage({
     this.current = 1,
-    this.pages = 10,
+    this.pages = pageSize,
     this.next = '2',
     this.prev,
   });
@@ -37,39 +38,12 @@ class PageModel extends Equatable {
         prev: prev ?? this.prev,
       );
 
-  factory PageModel.fromHeaderLink(
-      {required int currentPage, required int pageLimit, String link = ''}) {
-    ///Parse link string:  <https://picsum.photos/v2/list?page=2&limit=10>; rel="prev", <https://picsum.photos/v2/list?page=4&limit=10>; rel="next"
-    final linkParts = link.split('?');
-
-    final nextPageUri = linkParts
-        .firstWhere((element) => element.contains('"next"'), orElse: () => '');
-    final nextPageMap = Uri.splitQueryString(nextPageUri);
-
-    final prevPageUri = linkParts
-        .firstWhere((element) => element.contains('"prev"'), orElse: () => '');
-    final prevPageMap = Uri.splitQueryString(prevPageUri);
-
-    Fimber.d('linkParts:$linkParts');
-    Fimber.d(
-        'nextPageUri:$nextPageUri, map:$nextPageMap, page:${nextPageMap['page']}');
-    Fimber.d(
-        'prevPageUri:$prevPageUri, map:$prevPageMap, page:${prevPageMap['page']}');
-
-    return PageModel(
-      current: currentPage,
-      pages: pageLimit,
-      next: nextPageMap['page'] ?? '',
-      prev: prevPageMap['page'] ?? '',
-    );
-  }
-
   @override
   List<Object?> get props => [current, pages, next, prev];
 
   @override
   String toString() =>
-      'PageModel(current:$current, limit:$pages, next:$next, prev:$prev)';
+      'PageModel(current:$current, pages:$pages, next:$next, prev:$prev)';
 
   factory PageModel.fromJson(Map<String, dynamic> json) =>
       _$PageModelFromJson(json);

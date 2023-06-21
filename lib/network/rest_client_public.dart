@@ -27,6 +27,5 @@ abstract class RestClientPublic {
   @GET('character/')
   Future<CharactersResponse> getCharacterPage(
     @Query('page') int page,
-    @Query('limit') int limit,
   );
 }

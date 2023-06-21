@@ -24,13 +24,13 @@ class RootNavigatorWidget extends StatelessWidget {
     return FutureBuilder(
         future: getIt.isReady<PhotosBloc>(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
-          if (snapshot.hasData) {
-            return _buildRootNavigator(context);
-          } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
+          return snapshot.hasData
+              ? _buildRootNavigator(context)
+              : const Scaffold(
+                  body: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                );
         });
   }
 

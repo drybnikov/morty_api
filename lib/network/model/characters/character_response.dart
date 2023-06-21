@@ -29,6 +29,11 @@ enum GenderType {
   @JsonValue('Genderless')
   genderless,
   unknown;
+
+  static GenderType fromString(String? gender) => values.firstWhere(
+        (element) => element.name == gender,
+        orElse: () => unknown,
+      );
 }
 
 enum CharacterStatus {
@@ -37,6 +42,11 @@ enum CharacterStatus {
   @JsonValue('Dead')
   dead,
   unknown;
+
+  static CharacterStatus fromString(String? status) => values.firstWhere(
+        (element) => element.name == status,
+        orElse: () => unknown,
+      );
 }
 
 @JsonSerializable()
