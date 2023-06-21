@@ -9,6 +9,7 @@ abstract class PhotosRepository {
   Future<CharactersData> fetchCharactersData(
       {required int page, required int limit});
 
-  Future<CharactersData> updateFavorite(
-      CharactersData data, CharacterModel character);
+  Future<bool> updateFavorite(CharactersData data, CharacterModel character);
+
+  Stream<List<int>> watchFavorites();
 }

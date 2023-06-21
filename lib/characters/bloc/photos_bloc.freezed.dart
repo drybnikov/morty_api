@@ -22,6 +22,7 @@ mixin _$PhotosEvent {
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
     required TResult Function(CharacterModel character) updateFavorite,
+    required TResult Function(List<int> favorites) updateFavorites,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$PhotosEvent {
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
     TResult? Function(CharacterModel character)? updateFavorite,
+    TResult? Function(List<int> favorites)? updateFavorites,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$PhotosEvent {
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
     TResult Function(CharacterModel character)? updateFavorite,
+    TResult Function(List<int> favorites)? updateFavorites,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$PhotosEvent {
     required TResult Function(_getNextPage value) getNextPage,
     required TResult Function(_getPrevPage value) getPrevPage,
     required TResult Function(_updateFavorite value) updateFavorite,
+    required TResult Function(_updateFavorites value) updateFavorites,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$PhotosEvent {
     TResult? Function(_getNextPage value)? getNextPage,
     TResult? Function(_getPrevPage value)? getPrevPage,
     TResult? Function(_updateFavorite value)? updateFavorite,
+    TResult? Function(_updateFavorites value)? updateFavorites,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$PhotosEvent {
     TResult Function(_getNextPage value)? getNextPage,
     TResult Function(_getPrevPage value)? getPrevPage,
     TResult Function(_updateFavorite value)? updateFavorite,
+    TResult Function(_updateFavorites value)? updateFavorites,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -100,6 +106,7 @@ class _$_fetchPhotos extends _fetchPhotos {
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
     required TResult Function(CharacterModel character) updateFavorite,
+    required TResult Function(List<int> favorites) updateFavorites,
   }) {
     return fetchPhotos(pageModel);
   }
@@ -111,6 +118,7 @@ class _$_fetchPhotos extends _fetchPhotos {
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
     TResult? Function(CharacterModel character)? updateFavorite,
+    TResult? Function(List<int> favorites)? updateFavorites,
   }) {
     return fetchPhotos?.call(pageModel);
   }
@@ -122,6 +130,7 @@ class _$_fetchPhotos extends _fetchPhotos {
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
     TResult Function(CharacterModel character)? updateFavorite,
+    TResult Function(List<int> favorites)? updateFavorites,
     required TResult orElse(),
   }) {
     if (fetchPhotos != null) {
@@ -137,6 +146,7 @@ class _$_fetchPhotos extends _fetchPhotos {
     required TResult Function(_getNextPage value) getNextPage,
     required TResult Function(_getPrevPage value) getPrevPage,
     required TResult Function(_updateFavorite value) updateFavorite,
+    required TResult Function(_updateFavorites value) updateFavorites,
   }) {
     return fetchPhotos(this);
   }
@@ -148,6 +158,7 @@ class _$_fetchPhotos extends _fetchPhotos {
     TResult? Function(_getNextPage value)? getNextPage,
     TResult? Function(_getPrevPage value)? getPrevPage,
     TResult? Function(_updateFavorite value)? updateFavorite,
+    TResult? Function(_updateFavorites value)? updateFavorites,
   }) {
     return fetchPhotos?.call(this);
   }
@@ -159,6 +170,7 @@ class _$_fetchPhotos extends _fetchPhotos {
     TResult Function(_getNextPage value)? getNextPage,
     TResult Function(_getPrevPage value)? getPrevPage,
     TResult Function(_updateFavorite value)? updateFavorite,
+    TResult Function(_updateFavorites value)? updateFavorites,
     required TResult orElse(),
   }) {
     if (fetchPhotos != null) {
@@ -202,6 +214,7 @@ class _$_getNextPage extends _getNextPage {
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
     required TResult Function(CharacterModel character) updateFavorite,
+    required TResult Function(List<int> favorites) updateFavorites,
   }) {
     return getNextPage();
   }
@@ -213,6 +226,7 @@ class _$_getNextPage extends _getNextPage {
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
     TResult? Function(CharacterModel character)? updateFavorite,
+    TResult? Function(List<int> favorites)? updateFavorites,
   }) {
     return getNextPage?.call();
   }
@@ -224,6 +238,7 @@ class _$_getNextPage extends _getNextPage {
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
     TResult Function(CharacterModel character)? updateFavorite,
+    TResult Function(List<int> favorites)? updateFavorites,
     required TResult orElse(),
   }) {
     if (getNextPage != null) {
@@ -239,6 +254,7 @@ class _$_getNextPage extends _getNextPage {
     required TResult Function(_getNextPage value) getNextPage,
     required TResult Function(_getPrevPage value) getPrevPage,
     required TResult Function(_updateFavorite value) updateFavorite,
+    required TResult Function(_updateFavorites value) updateFavorites,
   }) {
     return getNextPage(this);
   }
@@ -250,6 +266,7 @@ class _$_getNextPage extends _getNextPage {
     TResult? Function(_getNextPage value)? getNextPage,
     TResult? Function(_getPrevPage value)? getPrevPage,
     TResult? Function(_updateFavorite value)? updateFavorite,
+    TResult? Function(_updateFavorites value)? updateFavorites,
   }) {
     return getNextPage?.call(this);
   }
@@ -261,6 +278,7 @@ class _$_getNextPage extends _getNextPage {
     TResult Function(_getNextPage value)? getNextPage,
     TResult Function(_getPrevPage value)? getPrevPage,
     TResult Function(_updateFavorite value)? updateFavorite,
+    TResult Function(_updateFavorites value)? updateFavorites,
     required TResult orElse(),
   }) {
     if (getNextPage != null) {
@@ -301,6 +319,7 @@ class _$_getPrevPage extends _getPrevPage {
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
     required TResult Function(CharacterModel character) updateFavorite,
+    required TResult Function(List<int> favorites) updateFavorites,
   }) {
     return getPrevPage();
   }
@@ -312,6 +331,7 @@ class _$_getPrevPage extends _getPrevPage {
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
     TResult? Function(CharacterModel character)? updateFavorite,
+    TResult? Function(List<int> favorites)? updateFavorites,
   }) {
     return getPrevPage?.call();
   }
@@ -323,6 +343,7 @@ class _$_getPrevPage extends _getPrevPage {
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
     TResult Function(CharacterModel character)? updateFavorite,
+    TResult Function(List<int> favorites)? updateFavorites,
     required TResult orElse(),
   }) {
     if (getPrevPage != null) {
@@ -338,6 +359,7 @@ class _$_getPrevPage extends _getPrevPage {
     required TResult Function(_getNextPage value) getNextPage,
     required TResult Function(_getPrevPage value) getPrevPage,
     required TResult Function(_updateFavorite value) updateFavorite,
+    required TResult Function(_updateFavorites value) updateFavorites,
   }) {
     return getPrevPage(this);
   }
@@ -349,6 +371,7 @@ class _$_getPrevPage extends _getPrevPage {
     TResult? Function(_getNextPage value)? getNextPage,
     TResult? Function(_getPrevPage value)? getPrevPage,
     TResult? Function(_updateFavorite value)? updateFavorite,
+    TResult? Function(_updateFavorites value)? updateFavorites,
   }) {
     return getPrevPage?.call(this);
   }
@@ -360,6 +383,7 @@ class _$_getPrevPage extends _getPrevPage {
     TResult Function(_getNextPage value)? getNextPage,
     TResult Function(_getPrevPage value)? getPrevPage,
     TResult Function(_updateFavorite value)? updateFavorite,
+    TResult Function(_updateFavorites value)? updateFavorites,
     required TResult orElse(),
   }) {
     if (getPrevPage != null) {
@@ -406,6 +430,7 @@ class _$_updateFavorite extends _updateFavorite {
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
     required TResult Function(CharacterModel character) updateFavorite,
+    required TResult Function(List<int> favorites) updateFavorites,
   }) {
     return updateFavorite(character);
   }
@@ -417,6 +442,7 @@ class _$_updateFavorite extends _updateFavorite {
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
     TResult? Function(CharacterModel character)? updateFavorite,
+    TResult? Function(List<int> favorites)? updateFavorites,
   }) {
     return updateFavorite?.call(character);
   }
@@ -428,6 +454,7 @@ class _$_updateFavorite extends _updateFavorite {
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
     TResult Function(CharacterModel character)? updateFavorite,
+    TResult Function(List<int> favorites)? updateFavorites,
     required TResult orElse(),
   }) {
     if (updateFavorite != null) {
@@ -443,6 +470,7 @@ class _$_updateFavorite extends _updateFavorite {
     required TResult Function(_getNextPage value) getNextPage,
     required TResult Function(_getPrevPage value) getPrevPage,
     required TResult Function(_updateFavorite value) updateFavorite,
+    required TResult Function(_updateFavorites value) updateFavorites,
   }) {
     return updateFavorite(this);
   }
@@ -454,6 +482,7 @@ class _$_updateFavorite extends _updateFavorite {
     TResult? Function(_getNextPage value)? getNextPage,
     TResult? Function(_getPrevPage value)? getPrevPage,
     TResult? Function(_updateFavorite value)? updateFavorite,
+    TResult? Function(_updateFavorites value)? updateFavorites,
   }) {
     return updateFavorite?.call(this);
   }
@@ -465,6 +494,7 @@ class _$_updateFavorite extends _updateFavorite {
     TResult Function(_getNextPage value)? getNextPage,
     TResult Function(_getPrevPage value)? getPrevPage,
     TResult Function(_updateFavorite value)? updateFavorite,
+    TResult Function(_updateFavorites value)? updateFavorites,
     required TResult orElse(),
   }) {
     if (updateFavorite != null) {
@@ -480,6 +510,128 @@ abstract class _updateFavorite extends PhotosEvent {
   const _updateFavorite._() : super._();
 
   CharacterModel get character;
+}
+
+/// @nodoc
+
+class _$_updateFavorites extends _updateFavorites {
+  const _$_updateFavorites(final List<int> favorites)
+      : _favorites = favorites,
+        super._();
+
+  final List<int> _favorites;
+  @override
+  List<int> get favorites {
+    if (_favorites is EqualUnmodifiableListView) return _favorites;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_favorites);
+  }
+
+  @override
+  String toString() {
+    return 'PhotosEvent.updateFavorites(favorites: $favorites)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_updateFavorites &&
+            const DeepCollectionEquality()
+                .equals(other._favorites, _favorites));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_favorites));
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PageModel pageModel) fetchPhotos,
+    required TResult Function() getNextPage,
+    required TResult Function() getPrevPage,
+    required TResult Function(CharacterModel character) updateFavorite,
+    required TResult Function(List<int> favorites) updateFavorites,
+  }) {
+    return updateFavorites(favorites);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PageModel pageModel)? fetchPhotos,
+    TResult? Function()? getNextPage,
+    TResult? Function()? getPrevPage,
+    TResult? Function(CharacterModel character)? updateFavorite,
+    TResult? Function(List<int> favorites)? updateFavorites,
+  }) {
+    return updateFavorites?.call(favorites);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PageModel pageModel)? fetchPhotos,
+    TResult Function()? getNextPage,
+    TResult Function()? getPrevPage,
+    TResult Function(CharacterModel character)? updateFavorite,
+    TResult Function(List<int> favorites)? updateFavorites,
+    required TResult orElse(),
+  }) {
+    if (updateFavorites != null) {
+      return updateFavorites(favorites);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_fetchPhotos value) fetchPhotos,
+    required TResult Function(_getNextPage value) getNextPage,
+    required TResult Function(_getPrevPage value) getPrevPage,
+    required TResult Function(_updateFavorite value) updateFavorite,
+    required TResult Function(_updateFavorites value) updateFavorites,
+  }) {
+    return updateFavorites(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_fetchPhotos value)? fetchPhotos,
+    TResult? Function(_getNextPage value)? getNextPage,
+    TResult? Function(_getPrevPage value)? getPrevPage,
+    TResult? Function(_updateFavorite value)? updateFavorite,
+    TResult? Function(_updateFavorites value)? updateFavorites,
+  }) {
+    return updateFavorites?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_fetchPhotos value)? fetchPhotos,
+    TResult Function(_getNextPage value)? getNextPage,
+    TResult Function(_getPrevPage value)? getPrevPage,
+    TResult Function(_updateFavorite value)? updateFavorite,
+    TResult Function(_updateFavorites value)? updateFavorites,
+    required TResult orElse(),
+  }) {
+    if (updateFavorites != null) {
+      return updateFavorites(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _updateFavorites extends PhotosEvent {
+  const factory _updateFavorites(final List<int> favorites) =
+      _$_updateFavorites;
+  const _updateFavorites._() : super._();
+
+  List<int> get favorites;
 }
 
 /// @nodoc

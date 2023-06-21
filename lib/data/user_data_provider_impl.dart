@@ -28,6 +28,11 @@ class UserDataProviderImpl implements UserDataProvider {
   }
 
   @override
+  Stream<List<FavoriteCharacter>> watchFavorites() {
+    return _isar.favoriteCharacters.where().watch();
+  }
+
+  @override
   Future<bool> updateFavorite(int characterId, bool isFavorite) async {
     await _isar.writeTxn(() async {
       Fimber.d(

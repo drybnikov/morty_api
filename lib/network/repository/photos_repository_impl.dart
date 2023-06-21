@@ -43,19 +43,20 @@ class PhotosRepositoryImpl implements PhotosRepository {
   }
 
   @override
-  Future<CharactersData> updateFavorite(
+  Future<bool> updateFavorite(
       CharactersData data, CharacterModel character) async {
     final updateResult = await _userDataProvider.updateFavorite(
         character.id, !character.isFavorite);
     Fimber.d('Update favorite result: $updateResult');
 
-    final updatedList = data.characters
-        .map((element) => element.id == character.id
-            ? element.copyWith(isFavorite: !element.isFavorite)
-            : element)
-        .toList();
+    return updateResult;
+  }
 
-    return data.copyWith(characters: updatedList);
+  @override
+  Stream<List<int>> watchFavorites() {
+    return _userDataProvider
+        .watchFavorites()
+        .map((event) => event.map((e) => e.id).toList());
   }
 }
 

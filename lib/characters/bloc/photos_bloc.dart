@@ -24,6 +24,9 @@ class PhotosEvent with _$PhotosEvent {
 
   const factory PhotosEvent.updateFavorite(CharacterModel character) =
       _updateFavorite;
+
+  const factory PhotosEvent.updateFavorites(List<int> favorites) =
+      _updateFavorites;
 }
 
 @Freezed(toStringOverride: false)
@@ -50,12 +53,25 @@ class PhotosState with _$PhotosState {
 @lazySingleton
 class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
   final PhotosRepository _photosRepository;
+  late StreamSubscription<List<int>> _favoritesSubscription;
 
   PhotosBloc(this._photosRepository) : super(const _loading()) {
     on<_fetchPhotos>(_onFetchPhotos);
     on<_getNextPage>(_onGetNextPage);
     on<_getPrevPage>(_onGetPrevPage);
     on<_updateFavorite>(_onUpdateFavorite);
+    on<_updateFavorites>(_onUpdateFavorites);
+
+    _favoritesSubscription =
+        _photosRepository.watchFavorites().listen((newFavorites) {
+      add(PhotosEvent.updateFavorites(newFavorites));
+    });
+  }
+
+  @override
+  Future<void> close() async {
+    _favoritesSubscription.cancel();
+    super.close();
   }
 
   FutureOr<void> _onFetchPhotos(_fetchPhotos event, emit) async {
@@ -108,11 +124,31 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
   }
 
   FutureOr<void> _onUpdateFavorite(_updateFavorite event, emit) async {
-    final updatedData = await _photosRepository.updateFavorite(
+    await _photosRepository.updateFavorite(
       state.characters,
       event.character,
     );
+  }
 
-    emit(_initialized(characters: updatedData));
+  FutureOr<void> _onUpdateFavorites(_updateFavorites event, emit) async {
+    emit(
+      _initialized(
+        characters: state.characters.updateFavorite(event.favorites),
+      ),
+    );
+  }
+}
+
+extension CharactersDataUpdate on CharactersData {
+  CharactersData updateFavorite(List<int> favorites) {
+    final updatedList = characters
+        .map(
+          (element) => element.copyWith(
+            isFavorite: favorites.contains(element.id),
+          ),
+        )
+        .toList();
+
+    return copyWith(characters: updatedList);
   }
 }
