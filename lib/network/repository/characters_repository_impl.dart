@@ -4,17 +4,17 @@ import 'package:morty_api/characters/model/character_model.dart';
 import 'package:morty_api/data/character_data.dart';
 import 'package:morty_api/network/model/characters/character_response.dart';
 import 'package:morty_api/network/rest_client_public.dart';
-import 'package:morty_api/repository/photos_repository.dart';
+import 'package:morty_api/repository/characters_repository.dart';
 import 'package:morty_api/repository/user_data_provider.dart';
 
 import '../model/characters/page_model.dart';
 
-@Injectable(as: PhotosRepository)
-class PhotosRepositoryImpl implements PhotosRepository {
+@Injectable(as: CharactersRepository)
+class CharactersRepositoryImpl implements CharactersRepository {
   final RestClientPublic _restClient;
   final UserDataProvider _userDataProvider;
 
-  PhotosRepositoryImpl(this._restClient, this._userDataProvider);
+  CharactersRepositoryImpl(this._restClient, this._userDataProvider);
 
   @override
   Future<List<CharacterModel>> fetchCharacters(

@@ -1,12 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:morty_api/characters/bloc/photos_bloc.dart';
 import 'package:morty_api/characters/model/character_model.dart';
+import 'package:morty_api/characters/widgets/favorite_button_widget.dart';
 import 'package:morty_api/characters/widgets/photo_navigator_bar.dart';
 
-import '../photo_details_screen.dart';
+import '../character_card_screen.dart';
 
 class PhotosGridWidget extends StatelessWidget {
   final CharactersData charactersModel;
@@ -63,9 +61,12 @@ class _PhotoCardItem extends StatelessWidget {
               tag: cardItem.id,
               transitionOnUserGestures: true,
               child: _MaterialInkImage(
-                  onImageTap: () => Navigator.of(context)
-                      .pushNamed(PhotosDetailsScreen.path, arguments: cardItem),
-                  imageUrl: cardItem.image),
+                onImageTap: () => Navigator.of(context).pushNamed(
+                  CharacterCardScreen.path,
+                  arguments: cardItem.id,
+                ),
+                imageUrl: cardItem.image,
+              ),
             ),
           ),
           Align(
@@ -98,21 +99,11 @@ class _PhotoCardItem extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.topRight,
-            child: IconButton(
-              onPressed: () => _onFavoritePressed(context),
-              icon: const Icon(Icons.favorite_outline),
-              selectedIcon: const Icon(Icons.favorite, color: Colors.red),
-              isSelected: cardItem.isFavorite,
-            ),
+            child: FavoriteButtonWidget(characterModel: cardItem),
           ),
         ],
       ),
     );
-  }
-
-  void _onFavoritePressed(BuildContext context) {
-    Fimber.d('Press cardItem:$cardItem');
-    context.read<PhotosBloc>().add(PhotosEvent.updateFavorite(cardItem));
   }
 }
 

@@ -7,7 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:morty_api/characters/model/character_model.dart';
 import 'package:morty_api/network/model/characters/page_model.dart';
-import 'package:morty_api/repository/photos_repository.dart';
+import 'package:morty_api/repository/characters_repository.dart';
 
 part 'photos_bloc.freezed.dart';
 
@@ -48,11 +48,14 @@ class PhotosState with _$PhotosState {
     @Default('Error') String message,
     String? errorCode,
   }) = photosError;
+
+  CharacterModel selected(int id) =>
+      characters.characters.firstWhere((element) => element.id == id);
 }
 
 @lazySingleton
 class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
-  final PhotosRepository _photosRepository;
+  final CharactersRepository _photosRepository;
   late StreamSubscription<List<int>> _favoritesSubscription;
 
   PhotosBloc(this._photosRepository) : super(const _loading()) {

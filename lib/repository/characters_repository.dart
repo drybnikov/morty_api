@@ -1,6 +1,6 @@
 import 'package:morty_api/characters/model/character_model.dart';
 
-abstract class PhotosRepository {
+abstract class CharactersRepository {
   ///Fetch Characters list for specific [page] and [limit]
   Future<List<CharacterModel>> fetchCharacters(
       {required int page, required int limit});

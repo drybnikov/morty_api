@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:morty_api/characters/bloc/photos_bloc.dart';
-import 'package:morty_api/characters/photo_details_screen.dart';
+import 'package:morty_api/characters/character_card_screen.dart';
 import 'package:morty_api/characters/photos_list_screen.dart';
 import 'package:morty_api/di/injection_container.dart';
 import 'package:morty_api/network/model/characters/page_model.dart';
 
 Map<String, Function> _navigatorRoutes = {
-  PhotosListScreen.path: (args) => PhotosListScreen.get(args),
-  PhotosDetailsScreen.path: (args) => PhotosDetailsScreen.get(args),
+  CharactersListScreen.path: (args) => CharactersListScreen.get(args),
+  CharacterCardScreen.path: (args) => CharacterCardScreen.get(args),
 };
 
 class RootNavigatorWidget extends StatelessWidget {
@@ -68,5 +68,5 @@ class RootNavigatorWidget extends StatelessWidget {
     );
   }
 
-  Function get initialRouteBuilder => PhotosListScreen.get(null);
+  Function get initialRouteBuilder => CharactersListScreen.get(null);
 }

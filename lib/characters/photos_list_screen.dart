@@ -6,13 +6,13 @@ import 'package:morty_api/characters/widgets/characters_error.dart';
 import 'package:morty_api/characters/widgets/filter_action_widget.dart';
 import 'package:morty_api/characters/widgets/photos_grid_widget.dart';
 
-class PhotosListScreen extends StatelessWidget {
-  static const path = '/photos_list';
+class CharactersListScreen extends StatelessWidget {
+  static const path = '/characters_list';
 
   static get(Object? arguments) =>
-      (BuildContext context) => const PhotosListScreen();
+      (BuildContext context) => const CharactersListScreen();
 
-  const PhotosListScreen({Key? key}) : super(key: key);
+  const CharactersListScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,13 +25,13 @@ class PhotosListScreen extends StatelessWidget {
           AboutInfoActionWidget(),
         ],
       ),
-      body: const _PhotosListBody(),
+      body: const _CharactersListBody(),
     );
   }
 }
 
-class _PhotosListBody extends StatelessWidget {
-  const _PhotosListBody({Key? key}) : super(key: key);
+class _CharactersListBody extends StatelessWidget {
+  const _CharactersListBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
