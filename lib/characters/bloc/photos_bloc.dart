@@ -119,7 +119,9 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
     if (pageModel.hasNext) {
       await _onFetchPhotos(
         _fetchPhotos(
-            pageModel: pageModel.copyWith(current: pageModel.current + 1)),
+          pageModel: pageModel.copyWith(current: pageModel.current + 1),
+          filter: state.filter,
+        ),
         emit,
       );
     }
@@ -130,7 +132,9 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
     if (pageModel.hasPrev) {
       await _onFetchPhotos(
         _fetchPhotos(
-            pageModel: pageModel.copyWith(current: pageModel.current - 1)),
+          pageModel: pageModel.copyWith(current: pageModel.current - 1),
+          filter: state.filter,
+        ),
         emit,
       );
     }
@@ -147,6 +151,7 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
     emit(
       _initialized(
         characters: state.characters.updateFavorite(event.favorites),
+        filter: state.filter,
       ),
     );
   }
