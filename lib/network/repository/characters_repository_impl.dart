@@ -1,7 +1,9 @@
 import 'package:fimber/fimber.dart';
 import 'package:injectable/injectable.dart';
+import 'package:morty_api/characters/model/character_filter.dart';
 import 'package:morty_api/characters/model/character_model.dart';
 import 'package:morty_api/data/character_data.dart';
+import 'package:morty_api/network/mappers/character_mapper.dart';
 import 'package:morty_api/network/model/characters/character_response.dart';
 import 'package:morty_api/network/rest_client_public.dart';
 import 'package:morty_api/repository/characters_repository.dart';
@@ -32,14 +34,25 @@ class CharactersRepositoryImpl implements CharactersRepository {
 
   @override
   Future<CharactersData> fetchCharactersData(
-      {required int page, required int limit}) async {
+      {required int page, CharacterFilter? filter}) async {
     try {
-      final cachedData =
-          await _userDataProvider.fetchCharacterData(page - 1, pageSize);
+      final cachedData = await _userDataProvider.fetchCharacterData(
+        page - 1,
+        pageSize,
+        filters: filter?.toUserFilter,
+      );
       final favorites = await _userDataProvider.fetchFavorites();
+      Fimber.d('filter:$filter, cachedData size: ${cachedData.length}');
 
-      if (cachedData.isEmpty) {
-        final result = await _restClient.getCharacterPage(page);
+      if (cachedData.isEmpty || cachedData.length < pageSize) {
+        final result = await _restClient.getCharacterPage(
+          page: page,
+          name: filter?.name,
+          species: filter?.race,
+          gender: filter?.gender,
+          status: filter?.status,
+        );
+
         final charactersList =
             result.characters.map((e) => e.toCharacterCollection()).toList();
         await _userDataProvider.storeCharacterData(charactersList);

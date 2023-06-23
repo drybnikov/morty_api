@@ -8,7 +8,8 @@ abstract class UserDataProvider {
 
   Future<bool> updateFavorite(int characterId, bool isFavorite);
 
-  Future<List<CharacterCollection>> fetchCharacterData(int page, int limit);
+  Future<List<CharacterCollection>> fetchCharacterData(int page, int limit,
+      {Filters? filters});
 
   Future<bool> storeCharacterData(List<CharacterCollection> charactersList);
 }

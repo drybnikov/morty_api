@@ -50,11 +50,14 @@ class UserDataProviderImpl implements UserDataProvider {
   }
 
   @override
-  Future<List<CharacterCollection>> fetchCharacterData(
-      int page, int limit) async {
-    Fimber.d('page: $page, limit: $limit, offset: ${page * limit} ');
+  Future<List<CharacterCollection>> fetchCharacterData(int page, int limit,
+      {Filters? filters}) async {
     return _isar.characterCollections
-        .where()
+        .filter()
+        .nameMatches('*${filters?.name ?? ''}*', caseSensitive: false)
+        .speciesMatches('*${filters?.race ?? ''}*', caseSensitive: false)
+        .statusContains(filters?.status ?? '')
+        .genderContains(filters?.gender ?? '')
         .offset(page * limit)
         .limit(limit)
         .findAll();

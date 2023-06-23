@@ -352,11 +352,13 @@ class __$$_CharactersDataCopyWithImpl<$Res>
 
 class _$_CharactersData implements _CharactersData {
   const _$_CharactersData(
-      {required final List<CharacterModel> characters, required this.pageModel})
+      {final List<CharacterModel> characters = const [],
+      this.pageModel = const PageModel.firstPage()})
       : _characters = characters;
 
   final List<CharacterModel> _characters;
   @override
+  @JsonKey()
   List<CharacterModel> get characters {
     if (_characters is EqualUnmodifiableListView) return _characters;
     // ignore: implicit_dynamic_type
@@ -364,6 +366,7 @@ class _$_CharactersData implements _CharactersData {
   }
 
   @override
+  @JsonKey()
   final PageModel pageModel;
 
   @override
@@ -395,8 +398,8 @@ class _$_CharactersData implements _CharactersData {
 
 abstract class _CharactersData implements CharactersData {
   const factory _CharactersData(
-      {required final List<CharacterModel> characters,
-      required final PageModel pageModel}) = _$_CharactersData;
+      {final List<CharacterModel> characters,
+      final PageModel pageModel}) = _$_CharactersData;
 
   @override
   List<CharacterModel> get characters;

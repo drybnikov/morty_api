@@ -1,3 +1,4 @@
+import 'package:morty_api/characters/model/character_filter.dart';
 import 'package:morty_api/characters/model/character_model.dart';
 
 abstract class CharactersRepository {
@@ -7,7 +8,7 @@ abstract class CharactersRepository {
 
   ///Fetch Characters paginated response for specific [page] and [limit]
   Future<CharactersData> fetchCharactersData(
-      {required int page, required int limit});
+      {required int page, CharacterFilter? filter});
 
   Future<bool> updateFavorite(CharactersData data, CharacterModel character);
 

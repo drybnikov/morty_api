@@ -53,9 +53,22 @@ class _RestClientPublic implements RestClientPublic {
   }
 
   @override
-  Future<CharactersResponse> getCharacterPage(page) async {
+  Future<CharactersResponse> getCharacterPage({
+    required page,
+    name,
+    status,
+    species,
+    gender,
+  }) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'page': page};
+    final queryParameters = <String, dynamic>{
+      r'page': page,
+      r'name': name,
+      r'status': status,
+      r'species': species,
+      r'gender': gender,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio

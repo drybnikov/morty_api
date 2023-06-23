@@ -5,6 +5,7 @@ import 'package:fimber/fimber.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:morty_api/characters/model/character_filter.dart';
 import 'package:morty_api/characters/model/character_model.dart';
 import 'package:morty_api/network/model/characters/page_model.dart';
 import 'package:morty_api/repository/characters_repository.dart';
@@ -15,8 +16,8 @@ part 'photos_bloc.freezed.dart';
 class PhotosEvent with _$PhotosEvent {
   const PhotosEvent._();
 
-  const factory PhotosEvent.fetchPhotos({required PageModel pageModel}) =
-      _fetchPhotos;
+  const factory PhotosEvent.fetchPhotos(
+      {required PageModel pageModel, CharacterFilter? filter}) = _fetchPhotos;
 
   const factory PhotosEvent.getNextPage() = _getNextPage;
 
@@ -27,24 +28,28 @@ class PhotosEvent with _$PhotosEvent {
 
   const factory PhotosEvent.updateFavorites(List<int> favorites) =
       _updateFavorites;
+
+  const factory PhotosEvent.filterCharacters(
+      {required CharacterFilter filter}) = _filterCharacters;
 }
 
 @Freezed(toStringOverride: false)
 class PhotosState with _$PhotosState {
   const PhotosState._();
 
-  const factory PhotosState.loading(
-      {@Default(CharactersData(
-        characters: [],
-        pageModel: PageModel.firstPage(),
-      ))
-          CharactersData characters}) = _loading;
+  const factory PhotosState.loading({
+    @Default(CharactersData()) CharactersData characters,
+    CharacterFilter? filter,
+  }) = _loading;
 
-  const factory PhotosState.initialized({required CharactersData characters}) =
-      _initialized;
+  const factory PhotosState.initialized({
+    required CharactersData characters,
+    CharacterFilter? filter,
+  }) = _initialized;
 
   const factory PhotosState.error({
     required CharactersData characters,
+    CharacterFilter? filter,
     @Default('Error') String message,
     String? errorCode,
   }) = photosError;
@@ -64,6 +69,7 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
     on<_getPrevPage>(_onGetPrevPage);
     on<_updateFavorite>(_onUpdateFavorite);
     on<_updateFavorites>(_onUpdateFavorites);
+    on<_filterCharacters>(_onFilterCharacters);
 
     _favoritesSubscription =
         _photosRepository.watchFavorites().listen((newFavorites) {
@@ -82,23 +88,27 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
       final pageModel = event.pageModel;
 
       final charactersResult = await _photosRepository.fetchCharactersData(
-        page: event.pageModel.current,
-        limit: pageModel.pages,
+        page: pageModel.current,
+        filter: event.filter,
       );
 
-      emit(_initialized(characters: charactersResult));
+      emit(_initialized(characters: charactersResult, filter: event.filter));
     } on Object catch (error, st) {
       Fimber.e('Error when load characters', ex: error, stacktrace: st);
       if (error is DioError) {
         emit(photosError(
           message: error.response?.data.toString() ?? error.message,
           errorCode: error.type.name,
-          characters: state.characters,
+          characters: error.response?.statusCode == 404
+              ? const CharactersData()
+              : state.characters,
+          filter: event.filter,
         ));
       } else {
         emit(photosError(
           message: error.toString(),
           characters: state.characters,
+          filter: event.filter,
         ));
       }
     }
@@ -138,6 +148,16 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
       _initialized(
         characters: state.characters.updateFavorite(event.favorites),
       ),
+    );
+  }
+
+  FutureOr<void> _onFilterCharacters(_filterCharacters event, emit) async {
+    await _onFetchPhotos(
+      _fetchPhotos(
+        pageModel: const PageModel.firstPage(),
+        filter: event.filter,
+      ),
+      emit,
     );
   }
 }

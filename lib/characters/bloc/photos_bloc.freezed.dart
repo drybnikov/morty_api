@@ -18,29 +18,34 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PhotosEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PageModel pageModel) fetchPhotos,
+    required TResult Function(PageModel pageModel, CharacterFilter? filter)
+        fetchPhotos,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
     required TResult Function(CharacterModel character) updateFavorite,
     required TResult Function(List<int> favorites) updateFavorites,
+    required TResult Function(CharacterFilter filter) filterCharacters,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PageModel pageModel)? fetchPhotos,
+    TResult? Function(PageModel pageModel, CharacterFilter? filter)?
+        fetchPhotos,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
     TResult? Function(CharacterModel character)? updateFavorite,
     TResult? Function(List<int> favorites)? updateFavorites,
+    TResult? Function(CharacterFilter filter)? filterCharacters,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageModel pageModel)? fetchPhotos,
+    TResult Function(PageModel pageModel, CharacterFilter? filter)? fetchPhotos,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
     TResult Function(CharacterModel character)? updateFavorite,
     TResult Function(List<int> favorites)? updateFavorites,
+    TResult Function(CharacterFilter filter)? filterCharacters,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +56,7 @@ mixin _$PhotosEvent {
     required TResult Function(_getPrevPage value) getPrevPage,
     required TResult Function(_updateFavorite value) updateFavorite,
     required TResult Function(_updateFavorites value) updateFavorites,
+    required TResult Function(_filterCharacters value) filterCharacters,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +66,7 @@ mixin _$PhotosEvent {
     TResult? Function(_getPrevPage value)? getPrevPage,
     TResult? Function(_updateFavorite value)? updateFavorite,
     TResult? Function(_updateFavorites value)? updateFavorites,
+    TResult? Function(_filterCharacters value)? filterCharacters,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +76,7 @@ mixin _$PhotosEvent {
     TResult Function(_getPrevPage value)? getPrevPage,
     TResult Function(_updateFavorite value)? updateFavorite,
     TResult Function(_updateFavorites value)? updateFavorites,
+    TResult Function(_filterCharacters value)? filterCharacters,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -77,14 +85,16 @@ mixin _$PhotosEvent {
 /// @nodoc
 
 class _$_fetchPhotos extends _fetchPhotos {
-  const _$_fetchPhotos({required this.pageModel}) : super._();
+  const _$_fetchPhotos({required this.pageModel, this.filter}) : super._();
 
   @override
   final PageModel pageModel;
+  @override
+  final CharacterFilter? filter;
 
   @override
   String toString() {
-    return 'PhotosEvent.fetchPhotos(pageModel: $pageModel)';
+    return 'PhotosEvent.fetchPhotos(pageModel: $pageModel, filter: $filter)';
   }
 
   @override
@@ -93,48 +103,54 @@ class _$_fetchPhotos extends _fetchPhotos {
         (other.runtimeType == runtimeType &&
             other is _$_fetchPhotos &&
             (identical(other.pageModel, pageModel) ||
-                other.pageModel == pageModel));
+                other.pageModel == pageModel) &&
+            (identical(other.filter, filter) || other.filter == filter));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, pageModel);
+  int get hashCode => Object.hash(runtimeType, pageModel, filter);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PageModel pageModel) fetchPhotos,
+    required TResult Function(PageModel pageModel, CharacterFilter? filter)
+        fetchPhotos,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
     required TResult Function(CharacterModel character) updateFavorite,
     required TResult Function(List<int> favorites) updateFavorites,
+    required TResult Function(CharacterFilter filter) filterCharacters,
   }) {
-    return fetchPhotos(pageModel);
+    return fetchPhotos(pageModel, filter);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PageModel pageModel)? fetchPhotos,
+    TResult? Function(PageModel pageModel, CharacterFilter? filter)?
+        fetchPhotos,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
     TResult? Function(CharacterModel character)? updateFavorite,
     TResult? Function(List<int> favorites)? updateFavorites,
+    TResult? Function(CharacterFilter filter)? filterCharacters,
   }) {
-    return fetchPhotos?.call(pageModel);
+    return fetchPhotos?.call(pageModel, filter);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageModel pageModel)? fetchPhotos,
+    TResult Function(PageModel pageModel, CharacterFilter? filter)? fetchPhotos,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
     TResult Function(CharacterModel character)? updateFavorite,
     TResult Function(List<int> favorites)? updateFavorites,
+    TResult Function(CharacterFilter filter)? filterCharacters,
     required TResult orElse(),
   }) {
     if (fetchPhotos != null) {
-      return fetchPhotos(pageModel);
+      return fetchPhotos(pageModel, filter);
     }
     return orElse();
   }
@@ -147,6 +163,7 @@ class _$_fetchPhotos extends _fetchPhotos {
     required TResult Function(_getPrevPage value) getPrevPage,
     required TResult Function(_updateFavorite value) updateFavorite,
     required TResult Function(_updateFavorites value) updateFavorites,
+    required TResult Function(_filterCharacters value) filterCharacters,
   }) {
     return fetchPhotos(this);
   }
@@ -159,6 +176,7 @@ class _$_fetchPhotos extends _fetchPhotos {
     TResult? Function(_getPrevPage value)? getPrevPage,
     TResult? Function(_updateFavorite value)? updateFavorite,
     TResult? Function(_updateFavorites value)? updateFavorites,
+    TResult? Function(_filterCharacters value)? filterCharacters,
   }) {
     return fetchPhotos?.call(this);
   }
@@ -171,6 +189,7 @@ class _$_fetchPhotos extends _fetchPhotos {
     TResult Function(_getPrevPage value)? getPrevPage,
     TResult Function(_updateFavorite value)? updateFavorite,
     TResult Function(_updateFavorites value)? updateFavorites,
+    TResult Function(_filterCharacters value)? filterCharacters,
     required TResult orElse(),
   }) {
     if (fetchPhotos != null) {
@@ -181,11 +200,13 @@ class _$_fetchPhotos extends _fetchPhotos {
 }
 
 abstract class _fetchPhotos extends PhotosEvent {
-  const factory _fetchPhotos({required final PageModel pageModel}) =
-      _$_fetchPhotos;
+  const factory _fetchPhotos(
+      {required final PageModel pageModel,
+      final CharacterFilter? filter}) = _$_fetchPhotos;
   const _fetchPhotos._() : super._();
 
   PageModel get pageModel;
+  CharacterFilter? get filter;
 }
 
 /// @nodoc
@@ -210,11 +231,13 @@ class _$_getNextPage extends _getNextPage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PageModel pageModel) fetchPhotos,
+    required TResult Function(PageModel pageModel, CharacterFilter? filter)
+        fetchPhotos,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
     required TResult Function(CharacterModel character) updateFavorite,
     required TResult Function(List<int> favorites) updateFavorites,
+    required TResult Function(CharacterFilter filter) filterCharacters,
   }) {
     return getNextPage();
   }
@@ -222,11 +245,13 @@ class _$_getNextPage extends _getNextPage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PageModel pageModel)? fetchPhotos,
+    TResult? Function(PageModel pageModel, CharacterFilter? filter)?
+        fetchPhotos,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
     TResult? Function(CharacterModel character)? updateFavorite,
     TResult? Function(List<int> favorites)? updateFavorites,
+    TResult? Function(CharacterFilter filter)? filterCharacters,
   }) {
     return getNextPage?.call();
   }
@@ -234,11 +259,12 @@ class _$_getNextPage extends _getNextPage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageModel pageModel)? fetchPhotos,
+    TResult Function(PageModel pageModel, CharacterFilter? filter)? fetchPhotos,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
     TResult Function(CharacterModel character)? updateFavorite,
     TResult Function(List<int> favorites)? updateFavorites,
+    TResult Function(CharacterFilter filter)? filterCharacters,
     required TResult orElse(),
   }) {
     if (getNextPage != null) {
@@ -255,6 +281,7 @@ class _$_getNextPage extends _getNextPage {
     required TResult Function(_getPrevPage value) getPrevPage,
     required TResult Function(_updateFavorite value) updateFavorite,
     required TResult Function(_updateFavorites value) updateFavorites,
+    required TResult Function(_filterCharacters value) filterCharacters,
   }) {
     return getNextPage(this);
   }
@@ -267,6 +294,7 @@ class _$_getNextPage extends _getNextPage {
     TResult? Function(_getPrevPage value)? getPrevPage,
     TResult? Function(_updateFavorite value)? updateFavorite,
     TResult? Function(_updateFavorites value)? updateFavorites,
+    TResult? Function(_filterCharacters value)? filterCharacters,
   }) {
     return getNextPage?.call(this);
   }
@@ -279,6 +307,7 @@ class _$_getNextPage extends _getNextPage {
     TResult Function(_getPrevPage value)? getPrevPage,
     TResult Function(_updateFavorite value)? updateFavorite,
     TResult Function(_updateFavorites value)? updateFavorites,
+    TResult Function(_filterCharacters value)? filterCharacters,
     required TResult orElse(),
   }) {
     if (getNextPage != null) {
@@ -315,11 +344,13 @@ class _$_getPrevPage extends _getPrevPage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PageModel pageModel) fetchPhotos,
+    required TResult Function(PageModel pageModel, CharacterFilter? filter)
+        fetchPhotos,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
     required TResult Function(CharacterModel character) updateFavorite,
     required TResult Function(List<int> favorites) updateFavorites,
+    required TResult Function(CharacterFilter filter) filterCharacters,
   }) {
     return getPrevPage();
   }
@@ -327,11 +358,13 @@ class _$_getPrevPage extends _getPrevPage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PageModel pageModel)? fetchPhotos,
+    TResult? Function(PageModel pageModel, CharacterFilter? filter)?
+        fetchPhotos,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
     TResult? Function(CharacterModel character)? updateFavorite,
     TResult? Function(List<int> favorites)? updateFavorites,
+    TResult? Function(CharacterFilter filter)? filterCharacters,
   }) {
     return getPrevPage?.call();
   }
@@ -339,11 +372,12 @@ class _$_getPrevPage extends _getPrevPage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageModel pageModel)? fetchPhotos,
+    TResult Function(PageModel pageModel, CharacterFilter? filter)? fetchPhotos,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
     TResult Function(CharacterModel character)? updateFavorite,
     TResult Function(List<int> favorites)? updateFavorites,
+    TResult Function(CharacterFilter filter)? filterCharacters,
     required TResult orElse(),
   }) {
     if (getPrevPage != null) {
@@ -360,6 +394,7 @@ class _$_getPrevPage extends _getPrevPage {
     required TResult Function(_getPrevPage value) getPrevPage,
     required TResult Function(_updateFavorite value) updateFavorite,
     required TResult Function(_updateFavorites value) updateFavorites,
+    required TResult Function(_filterCharacters value) filterCharacters,
   }) {
     return getPrevPage(this);
   }
@@ -372,6 +407,7 @@ class _$_getPrevPage extends _getPrevPage {
     TResult? Function(_getPrevPage value)? getPrevPage,
     TResult? Function(_updateFavorite value)? updateFavorite,
     TResult? Function(_updateFavorites value)? updateFavorites,
+    TResult? Function(_filterCharacters value)? filterCharacters,
   }) {
     return getPrevPage?.call(this);
   }
@@ -384,6 +420,7 @@ class _$_getPrevPage extends _getPrevPage {
     TResult Function(_getPrevPage value)? getPrevPage,
     TResult Function(_updateFavorite value)? updateFavorite,
     TResult Function(_updateFavorites value)? updateFavorites,
+    TResult Function(_filterCharacters value)? filterCharacters,
     required TResult orElse(),
   }) {
     if (getPrevPage != null) {
@@ -426,11 +463,13 @@ class _$_updateFavorite extends _updateFavorite {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PageModel pageModel) fetchPhotos,
+    required TResult Function(PageModel pageModel, CharacterFilter? filter)
+        fetchPhotos,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
     required TResult Function(CharacterModel character) updateFavorite,
     required TResult Function(List<int> favorites) updateFavorites,
+    required TResult Function(CharacterFilter filter) filterCharacters,
   }) {
     return updateFavorite(character);
   }
@@ -438,11 +477,13 @@ class _$_updateFavorite extends _updateFavorite {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PageModel pageModel)? fetchPhotos,
+    TResult? Function(PageModel pageModel, CharacterFilter? filter)?
+        fetchPhotos,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
     TResult? Function(CharacterModel character)? updateFavorite,
     TResult? Function(List<int> favorites)? updateFavorites,
+    TResult? Function(CharacterFilter filter)? filterCharacters,
   }) {
     return updateFavorite?.call(character);
   }
@@ -450,11 +491,12 @@ class _$_updateFavorite extends _updateFavorite {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageModel pageModel)? fetchPhotos,
+    TResult Function(PageModel pageModel, CharacterFilter? filter)? fetchPhotos,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
     TResult Function(CharacterModel character)? updateFavorite,
     TResult Function(List<int> favorites)? updateFavorites,
+    TResult Function(CharacterFilter filter)? filterCharacters,
     required TResult orElse(),
   }) {
     if (updateFavorite != null) {
@@ -471,6 +513,7 @@ class _$_updateFavorite extends _updateFavorite {
     required TResult Function(_getPrevPage value) getPrevPage,
     required TResult Function(_updateFavorite value) updateFavorite,
     required TResult Function(_updateFavorites value) updateFavorites,
+    required TResult Function(_filterCharacters value) filterCharacters,
   }) {
     return updateFavorite(this);
   }
@@ -483,6 +526,7 @@ class _$_updateFavorite extends _updateFavorite {
     TResult? Function(_getPrevPage value)? getPrevPage,
     TResult? Function(_updateFavorite value)? updateFavorite,
     TResult? Function(_updateFavorites value)? updateFavorites,
+    TResult? Function(_filterCharacters value)? filterCharacters,
   }) {
     return updateFavorite?.call(this);
   }
@@ -495,6 +539,7 @@ class _$_updateFavorite extends _updateFavorite {
     TResult Function(_getPrevPage value)? getPrevPage,
     TResult Function(_updateFavorite value)? updateFavorite,
     TResult Function(_updateFavorites value)? updateFavorites,
+    TResult Function(_filterCharacters value)? filterCharacters,
     required TResult orElse(),
   }) {
     if (updateFavorite != null) {
@@ -548,11 +593,13 @@ class _$_updateFavorites extends _updateFavorites {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PageModel pageModel) fetchPhotos,
+    required TResult Function(PageModel pageModel, CharacterFilter? filter)
+        fetchPhotos,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
     required TResult Function(CharacterModel character) updateFavorite,
     required TResult Function(List<int> favorites) updateFavorites,
+    required TResult Function(CharacterFilter filter) filterCharacters,
   }) {
     return updateFavorites(favorites);
   }
@@ -560,11 +607,13 @@ class _$_updateFavorites extends _updateFavorites {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PageModel pageModel)? fetchPhotos,
+    TResult? Function(PageModel pageModel, CharacterFilter? filter)?
+        fetchPhotos,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
     TResult? Function(CharacterModel character)? updateFavorite,
     TResult? Function(List<int> favorites)? updateFavorites,
+    TResult? Function(CharacterFilter filter)? filterCharacters,
   }) {
     return updateFavorites?.call(favorites);
   }
@@ -572,11 +621,12 @@ class _$_updateFavorites extends _updateFavorites {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageModel pageModel)? fetchPhotos,
+    TResult Function(PageModel pageModel, CharacterFilter? filter)? fetchPhotos,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
     TResult Function(CharacterModel character)? updateFavorite,
     TResult Function(List<int> favorites)? updateFavorites,
+    TResult Function(CharacterFilter filter)? filterCharacters,
     required TResult orElse(),
   }) {
     if (updateFavorites != null) {
@@ -593,6 +643,7 @@ class _$_updateFavorites extends _updateFavorites {
     required TResult Function(_getPrevPage value) getPrevPage,
     required TResult Function(_updateFavorite value) updateFavorite,
     required TResult Function(_updateFavorites value) updateFavorites,
+    required TResult Function(_filterCharacters value) filterCharacters,
   }) {
     return updateFavorites(this);
   }
@@ -605,6 +656,7 @@ class _$_updateFavorites extends _updateFavorites {
     TResult? Function(_getPrevPage value)? getPrevPage,
     TResult? Function(_updateFavorite value)? updateFavorite,
     TResult? Function(_updateFavorites value)? updateFavorites,
+    TResult? Function(_filterCharacters value)? filterCharacters,
   }) {
     return updateFavorites?.call(this);
   }
@@ -617,6 +669,7 @@ class _$_updateFavorites extends _updateFavorites {
     TResult Function(_getPrevPage value)? getPrevPage,
     TResult Function(_updateFavorite value)? updateFavorite,
     TResult Function(_updateFavorites value)? updateFavorites,
+    TResult Function(_filterCharacters value)? filterCharacters,
     required TResult orElse(),
   }) {
     if (updateFavorites != null) {
@@ -635,32 +688,162 @@ abstract class _updateFavorites extends PhotosEvent {
 }
 
 /// @nodoc
-mixin _$PhotosState {
-  CharactersData get characters => throw _privateConstructorUsedError;
+
+class _$_filterCharacters extends _filterCharacters {
+  const _$_filterCharacters({required this.filter}) : super._();
+
+  @override
+  final CharacterFilter filter;
+
+  @override
+  String toString() {
+    return 'PhotosEvent.filterCharacters(filter: $filter)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_filterCharacters &&
+            (identical(other.filter, filter) || other.filter == filter));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, filter);
+
+  @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CharactersData characters) loading,
-    required TResult Function(CharactersData characters) initialized,
+    required TResult Function(PageModel pageModel, CharacterFilter? filter)
+        fetchPhotos,
+    required TResult Function() getNextPage,
+    required TResult Function() getPrevPage,
+    required TResult Function(CharacterModel character) updateFavorite,
+    required TResult Function(List<int> favorites) updateFavorites,
+    required TResult Function(CharacterFilter filter) filterCharacters,
+  }) {
+    return filterCharacters(filter);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PageModel pageModel, CharacterFilter? filter)?
+        fetchPhotos,
+    TResult? Function()? getNextPage,
+    TResult? Function()? getPrevPage,
+    TResult? Function(CharacterModel character)? updateFavorite,
+    TResult? Function(List<int> favorites)? updateFavorites,
+    TResult? Function(CharacterFilter filter)? filterCharacters,
+  }) {
+    return filterCharacters?.call(filter);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PageModel pageModel, CharacterFilter? filter)? fetchPhotos,
+    TResult Function()? getNextPage,
+    TResult Function()? getPrevPage,
+    TResult Function(CharacterModel character)? updateFavorite,
+    TResult Function(List<int> favorites)? updateFavorites,
+    TResult Function(CharacterFilter filter)? filterCharacters,
+    required TResult orElse(),
+  }) {
+    if (filterCharacters != null) {
+      return filterCharacters(filter);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_fetchPhotos value) fetchPhotos,
+    required TResult Function(_getNextPage value) getNextPage,
+    required TResult Function(_getPrevPage value) getPrevPage,
+    required TResult Function(_updateFavorite value) updateFavorite,
+    required TResult Function(_updateFavorites value) updateFavorites,
+    required TResult Function(_filterCharacters value) filterCharacters,
+  }) {
+    return filterCharacters(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_fetchPhotos value)? fetchPhotos,
+    TResult? Function(_getNextPage value)? getNextPage,
+    TResult? Function(_getPrevPage value)? getPrevPage,
+    TResult? Function(_updateFavorite value)? updateFavorite,
+    TResult? Function(_updateFavorites value)? updateFavorites,
+    TResult? Function(_filterCharacters value)? filterCharacters,
+  }) {
+    return filterCharacters?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_fetchPhotos value)? fetchPhotos,
+    TResult Function(_getNextPage value)? getNextPage,
+    TResult Function(_getPrevPage value)? getPrevPage,
+    TResult Function(_updateFavorite value)? updateFavorite,
+    TResult Function(_updateFavorites value)? updateFavorites,
+    TResult Function(_filterCharacters value)? filterCharacters,
+    required TResult orElse(),
+  }) {
+    if (filterCharacters != null) {
+      return filterCharacters(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _filterCharacters extends PhotosEvent {
+  const factory _filterCharacters({required final CharacterFilter filter}) =
+      _$_filterCharacters;
+  const _filterCharacters._() : super._();
+
+  CharacterFilter get filter;
+}
+
+/// @nodoc
+mixin _$PhotosState {
+  CharactersData get characters => throw _privateConstructorUsedError;
+  CharacterFilter? get filter => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
     required TResult Function(
-            CharactersData characters, String message, String? errorCode)
+            CharactersData characters, CharacterFilter? filter)
+        loading,
+    required TResult Function(
+            CharactersData characters, CharacterFilter? filter)
+        initialized,
+    required TResult Function(CharactersData characters,
+            CharacterFilter? filter, String message, String? errorCode)
         error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CharactersData characters)? loading,
-    TResult? Function(CharactersData characters)? initialized,
-    TResult? Function(
-            CharactersData characters, String message, String? errorCode)?
+    TResult? Function(CharactersData characters, CharacterFilter? filter)?
+        loading,
+    TResult? Function(CharactersData characters, CharacterFilter? filter)?
+        initialized,
+    TResult? Function(CharactersData characters, CharacterFilter? filter,
+            String message, String? errorCode)?
         error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CharactersData characters)? loading,
-    TResult Function(CharactersData characters)? initialized,
-    TResult Function(
-            CharactersData characters, String message, String? errorCode)?
+    TResult Function(CharactersData characters, CharacterFilter? filter)?
+        loading,
+    TResult Function(CharactersData characters, CharacterFilter? filter)?
+        initialized,
+    TResult Function(CharactersData characters, CharacterFilter? filter,
+            String message, String? errorCode)?
         error,
     required TResult orElse(),
   }) =>
@@ -699,9 +882,10 @@ abstract class $PhotosStateCopyWith<$Res> {
           PhotosState value, $Res Function(PhotosState) then) =
       _$PhotosStateCopyWithImpl<$Res, PhotosState>;
   @useResult
-  $Res call({CharactersData characters});
+  $Res call({CharactersData characters, CharacterFilter? filter});
 
   $CharactersDataCopyWith<$Res> get characters;
+  $CharacterFilterCopyWith<$Res>? get filter;
 }
 
 /// @nodoc
@@ -718,12 +902,17 @@ class _$PhotosStateCopyWithImpl<$Res, $Val extends PhotosState>
   @override
   $Res call({
     Object? characters = null,
+    Object? filter = freezed,
   }) {
     return _then(_value.copyWith(
       characters: null == characters
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
               as CharactersData,
+      filter: freezed == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as CharacterFilter?,
     ) as $Val);
   }
 
@@ -732,6 +921,18 @@ class _$PhotosStateCopyWithImpl<$Res, $Val extends PhotosState>
   $CharactersDataCopyWith<$Res> get characters {
     return $CharactersDataCopyWith<$Res>(_value.characters, (value) {
       return _then(_value.copyWith(characters: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CharacterFilterCopyWith<$Res>? get filter {
+    if (_value.filter == null) {
+      return null;
+    }
+
+    return $CharacterFilterCopyWith<$Res>(_value.filter!, (value) {
+      return _then(_value.copyWith(filter: value) as $Val);
     });
   }
 }
@@ -743,10 +944,12 @@ abstract class _$$_loadingCopyWith<$Res> implements $PhotosStateCopyWith<$Res> {
       __$$_loadingCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({CharactersData characters});
+  $Res call({CharactersData characters, CharacterFilter? filter});
 
   @override
   $CharactersDataCopyWith<$Res> get characters;
+  @override
+  $CharacterFilterCopyWith<$Res>? get filter;
 }
 
 /// @nodoc
@@ -760,12 +963,17 @@ class __$$_loadingCopyWithImpl<$Res>
   @override
   $Res call({
     Object? characters = null,
+    Object? filter = freezed,
   }) {
     return _then(_$_loading(
       characters: null == characters
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
               as CharactersData,
+      filter: freezed == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as CharacterFilter?,
     ));
   }
 }
@@ -773,14 +981,14 @@ class __$$_loadingCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_loading extends _loading {
-  const _$_loading(
-      {this.characters = const CharactersData(
-          characters: [], pageModel: PageModel.firstPage())})
+  const _$_loading({this.characters = const CharactersData(), this.filter})
       : super._();
 
   @override
   @JsonKey()
   final CharactersData characters;
+  @override
+  final CharacterFilter? filter;
 
   @override
   bool operator ==(dynamic other) {
@@ -788,11 +996,12 @@ class _$_loading extends _loading {
         (other.runtimeType == runtimeType &&
             other is _$_loading &&
             (identical(other.characters, characters) ||
-                other.characters == characters));
+                other.characters == characters) &&
+            (identical(other.filter, filter) || other.filter == filter));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, characters);
+  int get hashCode => Object.hash(runtimeType, characters, filter);
 
   @JsonKey(ignore: true)
   @override
@@ -803,39 +1012,47 @@ class _$_loading extends _loading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CharactersData characters) loading,
-    required TResult Function(CharactersData characters) initialized,
     required TResult Function(
-            CharactersData characters, String message, String? errorCode)
+            CharactersData characters, CharacterFilter? filter)
+        loading,
+    required TResult Function(
+            CharactersData characters, CharacterFilter? filter)
+        initialized,
+    required TResult Function(CharactersData characters,
+            CharacterFilter? filter, String message, String? errorCode)
         error,
   }) {
-    return loading(characters);
+    return loading(characters, filter);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CharactersData characters)? loading,
-    TResult? Function(CharactersData characters)? initialized,
-    TResult? Function(
-            CharactersData characters, String message, String? errorCode)?
+    TResult? Function(CharactersData characters, CharacterFilter? filter)?
+        loading,
+    TResult? Function(CharactersData characters, CharacterFilter? filter)?
+        initialized,
+    TResult? Function(CharactersData characters, CharacterFilter? filter,
+            String message, String? errorCode)?
         error,
   }) {
-    return loading?.call(characters);
+    return loading?.call(characters, filter);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CharactersData characters)? loading,
-    TResult Function(CharactersData characters)? initialized,
-    TResult Function(
-            CharactersData characters, String message, String? errorCode)?
+    TResult Function(CharactersData characters, CharacterFilter? filter)?
+        loading,
+    TResult Function(CharactersData characters, CharacterFilter? filter)?
+        initialized,
+    TResult Function(CharactersData characters, CharacterFilter? filter,
+            String message, String? errorCode)?
         error,
     required TResult orElse(),
   }) {
     if (loading != null) {
-      return loading(characters);
+      return loading(characters, filter);
     }
     return orElse();
   }
@@ -876,11 +1093,15 @@ class _$_loading extends _loading {
 }
 
 abstract class _loading extends PhotosState {
-  const factory _loading({final CharactersData characters}) = _$_loading;
+  const factory _loading(
+      {final CharactersData characters,
+      final CharacterFilter? filter}) = _$_loading;
   const _loading._() : super._();
 
   @override
   CharactersData get characters;
+  @override
+  CharacterFilter? get filter;
   @override
   @JsonKey(ignore: true)
   _$$_loadingCopyWith<_$_loading> get copyWith =>
@@ -895,10 +1116,12 @@ abstract class _$$_initializedCopyWith<$Res>
       __$$_initializedCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({CharactersData characters});
+  $Res call({CharactersData characters, CharacterFilter? filter});
 
   @override
   $CharactersDataCopyWith<$Res> get characters;
+  @override
+  $CharacterFilterCopyWith<$Res>? get filter;
 }
 
 /// @nodoc
@@ -913,12 +1136,17 @@ class __$$_initializedCopyWithImpl<$Res>
   @override
   $Res call({
     Object? characters = null,
+    Object? filter = freezed,
   }) {
     return _then(_$_initialized(
       characters: null == characters
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
               as CharactersData,
+      filter: freezed == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as CharacterFilter?,
     ));
   }
 }
@@ -926,10 +1154,12 @@ class __$$_initializedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_initialized extends _initialized {
-  const _$_initialized({required this.characters}) : super._();
+  const _$_initialized({required this.characters, this.filter}) : super._();
 
   @override
   final CharactersData characters;
+  @override
+  final CharacterFilter? filter;
 
   @override
   bool operator ==(dynamic other) {
@@ -937,11 +1167,12 @@ class _$_initialized extends _initialized {
         (other.runtimeType == runtimeType &&
             other is _$_initialized &&
             (identical(other.characters, characters) ||
-                other.characters == characters));
+                other.characters == characters) &&
+            (identical(other.filter, filter) || other.filter == filter));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, characters);
+  int get hashCode => Object.hash(runtimeType, characters, filter);
 
   @JsonKey(ignore: true)
   @override
@@ -952,39 +1183,47 @@ class _$_initialized extends _initialized {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CharactersData characters) loading,
-    required TResult Function(CharactersData characters) initialized,
     required TResult Function(
-            CharactersData characters, String message, String? errorCode)
+            CharactersData characters, CharacterFilter? filter)
+        loading,
+    required TResult Function(
+            CharactersData characters, CharacterFilter? filter)
+        initialized,
+    required TResult Function(CharactersData characters,
+            CharacterFilter? filter, String message, String? errorCode)
         error,
   }) {
-    return initialized(characters);
+    return initialized(characters, filter);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CharactersData characters)? loading,
-    TResult? Function(CharactersData characters)? initialized,
-    TResult? Function(
-            CharactersData characters, String message, String? errorCode)?
+    TResult? Function(CharactersData characters, CharacterFilter? filter)?
+        loading,
+    TResult? Function(CharactersData characters, CharacterFilter? filter)?
+        initialized,
+    TResult? Function(CharactersData characters, CharacterFilter? filter,
+            String message, String? errorCode)?
         error,
   }) {
-    return initialized?.call(characters);
+    return initialized?.call(characters, filter);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CharactersData characters)? loading,
-    TResult Function(CharactersData characters)? initialized,
-    TResult Function(
-            CharactersData characters, String message, String? errorCode)?
+    TResult Function(CharactersData characters, CharacterFilter? filter)?
+        loading,
+    TResult Function(CharactersData characters, CharacterFilter? filter)?
+        initialized,
+    TResult Function(CharactersData characters, CharacterFilter? filter,
+            String message, String? errorCode)?
         error,
     required TResult orElse(),
   }) {
     if (initialized != null) {
-      return initialized(characters);
+      return initialized(characters, filter);
     }
     return orElse();
   }
@@ -1025,12 +1264,15 @@ class _$_initialized extends _initialized {
 }
 
 abstract class _initialized extends PhotosState {
-  const factory _initialized({required final CharactersData characters}) =
-      _$_initialized;
+  const factory _initialized(
+      {required final CharactersData characters,
+      final CharacterFilter? filter}) = _$_initialized;
   const _initialized._() : super._();
 
   @override
   CharactersData get characters;
+  @override
+  CharacterFilter? get filter;
   @override
   @JsonKey(ignore: true)
   _$$_initializedCopyWith<_$_initialized> get copyWith =>
@@ -1045,10 +1287,16 @@ abstract class _$$photosErrorCopyWith<$Res>
       __$$photosErrorCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({CharactersData characters, String message, String? errorCode});
+  $Res call(
+      {CharactersData characters,
+      CharacterFilter? filter,
+      String message,
+      String? errorCode});
 
   @override
   $CharactersDataCopyWith<$Res> get characters;
+  @override
+  $CharacterFilterCopyWith<$Res>? get filter;
 }
 
 /// @nodoc
@@ -1063,6 +1311,7 @@ class __$$photosErrorCopyWithImpl<$Res>
   @override
   $Res call({
     Object? characters = null,
+    Object? filter = freezed,
     Object? message = null,
     Object? errorCode = freezed,
   }) {
@@ -1071,6 +1320,10 @@ class __$$photosErrorCopyWithImpl<$Res>
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
               as CharactersData,
+      filter: freezed == filter
+          ? _value.filter
+          : filter // ignore: cast_nullable_to_non_nullable
+              as CharacterFilter?,
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -1087,11 +1340,16 @@ class __$$photosErrorCopyWithImpl<$Res>
 
 class _$photosError extends photosError {
   const _$photosError(
-      {required this.characters, this.message = 'Error', this.errorCode})
+      {required this.characters,
+      this.filter,
+      this.message = 'Error',
+      this.errorCode})
       : super._();
 
   @override
   final CharactersData characters;
+  @override
+  final CharacterFilter? filter;
   @override
   @JsonKey()
   final String message;
@@ -1105,13 +1363,15 @@ class _$photosError extends photosError {
             other is _$photosError &&
             (identical(other.characters, characters) ||
                 other.characters == characters) &&
+            (identical(other.filter, filter) || other.filter == filter) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.errorCode, errorCode) ||
                 other.errorCode == errorCode));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, characters, message, errorCode);
+  int get hashCode =>
+      Object.hash(runtimeType, characters, filter, message, errorCode);
 
   @JsonKey(ignore: true)
   @override
@@ -1122,39 +1382,47 @@ class _$photosError extends photosError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CharactersData characters) loading,
-    required TResult Function(CharactersData characters) initialized,
     required TResult Function(
-            CharactersData characters, String message, String? errorCode)
+            CharactersData characters, CharacterFilter? filter)
+        loading,
+    required TResult Function(
+            CharactersData characters, CharacterFilter? filter)
+        initialized,
+    required TResult Function(CharactersData characters,
+            CharacterFilter? filter, String message, String? errorCode)
         error,
   }) {
-    return error(characters, message, errorCode);
+    return error(characters, filter, message, errorCode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CharactersData characters)? loading,
-    TResult? Function(CharactersData characters)? initialized,
-    TResult? Function(
-            CharactersData characters, String message, String? errorCode)?
+    TResult? Function(CharactersData characters, CharacterFilter? filter)?
+        loading,
+    TResult? Function(CharactersData characters, CharacterFilter? filter)?
+        initialized,
+    TResult? Function(CharactersData characters, CharacterFilter? filter,
+            String message, String? errorCode)?
         error,
   }) {
-    return error?.call(characters, message, errorCode);
+    return error?.call(characters, filter, message, errorCode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CharactersData characters)? loading,
-    TResult Function(CharactersData characters)? initialized,
-    TResult Function(
-            CharactersData characters, String message, String? errorCode)?
+    TResult Function(CharactersData characters, CharacterFilter? filter)?
+        loading,
+    TResult Function(CharactersData characters, CharacterFilter? filter)?
+        initialized,
+    TResult Function(CharactersData characters, CharacterFilter? filter,
+            String message, String? errorCode)?
         error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(characters, message, errorCode);
+      return error(characters, filter, message, errorCode);
     }
     return orElse();
   }
@@ -1197,12 +1465,15 @@ class _$photosError extends photosError {
 abstract class photosError extends PhotosState {
   const factory photosError(
       {required final CharactersData characters,
+      final CharacterFilter? filter,
       final String message,
       final String? errorCode}) = _$photosError;
   const photosError._() : super._();
 
   @override
   CharactersData get characters;
+  @override
+  CharacterFilter? get filter;
   String get message;
   String? get errorCode;
   @override

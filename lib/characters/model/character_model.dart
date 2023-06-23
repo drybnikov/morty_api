@@ -20,7 +20,7 @@ class CharacterModel with _$CharacterModel {
 @freezed
 class CharactersData with _$CharactersData {
   const factory CharactersData({
-    required List<CharacterModel> characters,
-    required PageModel pageModel,
+    @Default([]) List<CharacterModel> characters,
+    @Default(PageModel.firstPage()) PageModel pageModel,
   }) = _CharactersData;
 }

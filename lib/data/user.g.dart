@@ -74,13 +74,14 @@ User _userDeserialize(
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  final object = User();
-  object.filters = reader.readObjectOrNull<Filters>(
-    offsets[0],
-    FiltersSchema.deserialize,
-    allOffsets,
+  final object = User(
+    filters: reader.readObjectOrNull<Filters>(
+      offsets[0],
+      FiltersSchema.deserialize,
+      allOffsets,
+    ),
+    id: id,
   );
-  object.id = id;
   return object;
 }
 
@@ -644,11 +645,12 @@ Filters _filtersDeserialize(
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  final object = Filters();
-  object.gender = reader.readStringOrNull(offsets[0]);
-  object.name = reader.readStringOrNull(offsets[1]);
-  object.race = reader.readStringOrNull(offsets[2]);
-  object.status = reader.readStringOrNull(offsets[3]);
+  final object = Filters(
+    gender: reader.readStringOrNull(offsets[0]),
+    name: reader.readStringOrNull(offsets[1]),
+    race: reader.readStringOrNull(offsets[2]),
+    status: reader.readStringOrNull(offsets[3]),
+  );
   return object;
 }
 

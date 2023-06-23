@@ -28,7 +28,12 @@ class CharacterCardScreen extends StatelessWidget {
                 elevation: 4,
                 pinned: true,
                 expandedHeight: MediaQuery.of(context).size.height / 4,
-                title: Text(model.name),
+                title: Text(
+                  model.name,
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onPrimary,
+                  ),
+                ),
                 flexibleSpace: Stack(
                   children: [
                     Hero(
@@ -50,6 +55,10 @@ class CharacterCardScreen extends StatelessWidget {
                           ),
                         ),
                       ),
+                    ),
+                    Container(
+                      color: Colors.black26,
+                      height: kToolbarHeight * 2,
                     ),
                     Align(
                       alignment: Alignment.bottomRight,

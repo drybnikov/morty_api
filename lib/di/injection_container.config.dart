@@ -38,10 +38,11 @@ extension GetItInjectableX on _i1.GetIt {
       final i = _i6.UserDataProviderImpl();
       return i.init().then((_) => i);
     });
-    gh.factoryAsync<_i7.CharactersRepository>(() async => _i8.CharactersRepositoryImpl(
-          gh<_i4.RestClientPublic>(),
-          await getAsync<_i5.UserDataProvider>(),
-        ));
+    gh.factoryAsync<_i7.CharactersRepository>(
+        () async => _i8.CharactersRepositoryImpl(
+              gh<_i4.RestClientPublic>(),
+              await getAsync<_i5.UserDataProvider>(),
+            ));
     gh.lazySingletonAsync<_i9.PhotosBloc>(
         () async => _i9.PhotosBloc(await getAsync<_i7.CharactersRepository>()));
     return this;

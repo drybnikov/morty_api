@@ -25,7 +25,11 @@ abstract class RestClientPublic {
 
   /// Get paged photos list with headers
   @GET('character/')
-  Future<CharactersResponse> getCharacterPage(
-    @Query('page') int page,
-  );
+  Future<CharactersResponse> getCharacterPage({
+    @Query('page') required int page,
+    @Query('name') String? name,
+    @Query('status') String? status,
+    @Query('species') String? species,
+    @Query('gender') String? gender,
+  });
 }
