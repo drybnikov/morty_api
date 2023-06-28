@@ -37,6 +37,7 @@ dependencies:
   # Utils
   fimber: ^0.6.6
   analyzer: ^5.2.0
+  rxdart: ^0.27.4
 
 dependency_overrides:
   analyzer: ">=5.2.0 <=5.2.0"

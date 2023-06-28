@@ -9,6 +9,7 @@ import 'package:morty_api/characters/model/character_filter.dart';
 import 'package:morty_api/characters/model/character_model.dart';
 import 'package:morty_api/network/model/characters/page_model.dart';
 import 'package:morty_api/repository/characters_repository.dart';
+import 'package:morty_api/utils/bloc_concurrency_mixin.dart';
 
 part 'photos_bloc.freezed.dart';
 
@@ -58,8 +59,11 @@ class PhotosState with _$PhotosState {
       characters.characters.firstWhere((element) => element.id == id);
 }
 
+const _filterApplyDebounce = Duration(milliseconds: 400);
+
 @lazySingleton
-class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
+class PhotosBloc extends Bloc<PhotosEvent, PhotosState>
+    with BlocConcurrencyMixin {
   final CharactersRepository _photosRepository;
   late StreamSubscription<List<int>> _favoritesSubscription;
 
@@ -69,7 +73,10 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
     on<_getPrevPage>(_onGetPrevPage);
     on<_updateFavorite>(_onUpdateFavorite);
     on<_updateFavorites>(_onUpdateFavorites);
-    on<_filterCharacters>(_onFilterCharacters);
+    on<_filterCharacters>(
+      _onFilterCharacters,
+      transformer: debounce(_filterApplyDebounce),
+    );
 
     _favoritesSubscription =
         _photosRepository.watchFavorites().listen((newFavorites) {
