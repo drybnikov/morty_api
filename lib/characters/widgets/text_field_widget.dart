@@ -85,13 +85,14 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
         decoration: InputDecoration(
           labelText: widget.hintLabel,
           prefixIcon: widget.prefixIcon,
-          suffixIcon: _buildSuffix,
+          //ignore: avoid-returning-widgets
+          suffixIcon: _buildSuffix(),
         ),
       ),
     );
   }
 
-  Widget? get _buildSuffix {
+  Widget? _buildSuffix() {
     return widget.suffixIcon != null
         ? widget.suffixIcon?.call(_textFieldController.text)
         : widget.buildClearIcon

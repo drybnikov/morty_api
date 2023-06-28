@@ -40,6 +40,7 @@ class UserDataProviderImpl implements UserDataProvider {
           'Update favorite characterId: $characterId, isFavorite: $isFavorite');
       if (isFavorite) {
         final newFavorite = FavoriteCharacter()..id = characterId;
+
         return await _isar.favoriteCharacters.put(newFavorite) != 0;
       } else {
         return await _isar.favoriteCharacters.delete(characterId);

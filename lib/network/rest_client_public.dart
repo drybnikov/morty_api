@@ -6,6 +6,7 @@ import 'package:retrofit/retrofit.dart';
 
 part 'rest_client_public.g.dart';
 
+//ignore_for_file: long-parameter-list
 @RestApi(
   baseUrl: 'https://rickandmortyapi.com/api/',
 )

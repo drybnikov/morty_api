@@ -46,6 +46,7 @@ class RootNavigatorWidget extends StatelessWidget {
       child: WillPopScope(
         onWillPop: () async {
           var canPop = await _rootNavigatorKey.currentState?.maybePop();
+
           return !(canPop ?? false);
         },
         child: Navigator(
