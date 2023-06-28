@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:morty_api/characters/bloc/photos_bloc.dart';
+import 'package:morty_api/characters/bloc/characters_bloc.dart';
 import 'package:morty_api/characters/model/character_filter.dart';
 import 'package:morty_api/network/model/characters/character_response.dart';
 
@@ -22,7 +22,7 @@ class FilterActionWidget extends StatelessWidget {
           borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
         ),
         builder: (internalContext) => BlocProvider.value(
-          value: context.read<PhotosBloc>(),
+          value: context.read<CharactersBloc>(),
           child: Padding(
             padding: MediaQuery.of(context).viewInsets,
             child: SingleChildScrollView(
@@ -61,7 +61,7 @@ class _FilterFormWidgetState extends State<_FilterFormWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PhotosBloc, PhotosState>(
+    return BlocBuilder<CharactersBloc, CharactersState>(
       builder: (context, state) {
         final model = state.characters.pageModel;
         _characterFilter = state.filter ?? _characterFilter;
@@ -124,8 +124,8 @@ class _FilterFormWidgetState extends State<_FilterFormWidget> {
     setState(() => _characterFilter = const CharacterFilter());
 
     context
-        .read<PhotosBloc>()
-        .add(PhotosEvent.filterCharacters(filter: _characterFilter));
+        .read<CharactersBloc>()
+        .add(CharactersEvent.filterCharacters(filter: _characterFilter));
 
     Navigator.of(context).pop();
   }
@@ -144,8 +144,8 @@ class _FilterFormWidgetState extends State<_FilterFormWidget> {
     );
 
     context
-        .read<PhotosBloc>()
-        .add(PhotosEvent.filterCharacters(filter: _characterFilter));
+        .read<CharactersBloc>()
+        .add(CharactersEvent.filterCharacters(filter: _characterFilter));
   }
 
   final _statusItems = CharacterStatus.values

@@ -1,7 +1,7 @@
 import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:morty_api/characters/bloc/photos_bloc.dart';
+import 'package:morty_api/characters/bloc/characters_bloc.dart';
 import 'package:morty_api/characters/model/character_model.dart';
 
 class FavoriteButtonWidget extends StatelessWidget {
@@ -21,6 +21,8 @@ class FavoriteButtonWidget extends StatelessWidget {
 
   void _onFavoritePressed(BuildContext context) {
     Fimber.d('Press :$characterModel');
-    context.read<PhotosBloc>().add(PhotosEvent.updateFavorite(characterModel));
+    context
+        .read<CharactersBloc>()
+        .add(CharactersEvent.updateFavorite(characterModel));
   }
 }

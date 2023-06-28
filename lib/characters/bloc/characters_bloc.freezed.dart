@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'photos_bloc.dart';
+part of 'characters_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,11 +15,11 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$PhotosEvent {
+mixin _$CharactersEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(PageModel pageModel, CharacterFilter? filter)
-        fetchPhotos,
+        fetchCharacters,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
     required TResult Function(CharacterModel character) updateFavorite,
@@ -30,7 +30,7 @@ mixin _$PhotosEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PageModel pageModel, CharacterFilter? filter)?
-        fetchPhotos,
+        fetchCharacters,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
     TResult? Function(CharacterModel character)? updateFavorite,
@@ -40,7 +40,8 @@ mixin _$PhotosEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageModel pageModel, CharacterFilter? filter)? fetchPhotos,
+    TResult Function(PageModel pageModel, CharacterFilter? filter)?
+        fetchCharacters,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
     TResult Function(CharacterModel character)? updateFavorite,
@@ -51,7 +52,7 @@ mixin _$PhotosEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_fetchPhotos value) fetchPhotos,
+    required TResult Function(_fetchCharacters value) fetchCharacters,
     required TResult Function(_getNextPage value) getNextPage,
     required TResult Function(_getPrevPage value) getPrevPage,
     required TResult Function(_updateFavorite value) updateFavorite,
@@ -61,7 +62,7 @@ mixin _$PhotosEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_fetchPhotos value)? fetchPhotos,
+    TResult? Function(_fetchCharacters value)? fetchCharacters,
     TResult? Function(_getNextPage value)? getNextPage,
     TResult? Function(_getPrevPage value)? getPrevPage,
     TResult? Function(_updateFavorite value)? updateFavorite,
@@ -71,7 +72,7 @@ mixin _$PhotosEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_fetchPhotos value)? fetchPhotos,
+    TResult Function(_fetchCharacters value)? fetchCharacters,
     TResult Function(_getNextPage value)? getNextPage,
     TResult Function(_getPrevPage value)? getPrevPage,
     TResult Function(_updateFavorite value)? updateFavorite,
@@ -84,8 +85,8 @@ mixin _$PhotosEvent {
 
 /// @nodoc
 
-class _$_fetchPhotos extends _fetchPhotos {
-  const _$_fetchPhotos({required this.pageModel, this.filter}) : super._();
+class _$_fetchCharacters extends _fetchCharacters {
+  const _$_fetchCharacters({required this.pageModel, this.filter}) : super._();
 
   @override
   final PageModel pageModel;
@@ -94,14 +95,14 @@ class _$_fetchPhotos extends _fetchPhotos {
 
   @override
   String toString() {
-    return 'PhotosEvent.fetchPhotos(pageModel: $pageModel, filter: $filter)';
+    return 'CharactersEvent.fetchCharacters(pageModel: $pageModel, filter: $filter)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_fetchPhotos &&
+            other is _$_fetchCharacters &&
             (identical(other.pageModel, pageModel) ||
                 other.pageModel == pageModel) &&
             (identical(other.filter, filter) || other.filter == filter));
@@ -114,34 +115,35 @@ class _$_fetchPhotos extends _fetchPhotos {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(PageModel pageModel, CharacterFilter? filter)
-        fetchPhotos,
+        fetchCharacters,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
     required TResult Function(CharacterModel character) updateFavorite,
     required TResult Function(List<int> favorites) updateFavorites,
     required TResult Function(CharacterFilter filter) filterCharacters,
   }) {
-    return fetchPhotos(pageModel, filter);
+    return fetchCharacters(pageModel, filter);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PageModel pageModel, CharacterFilter? filter)?
-        fetchPhotos,
+        fetchCharacters,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
     TResult? Function(CharacterModel character)? updateFavorite,
     TResult? Function(List<int> favorites)? updateFavorites,
     TResult? Function(CharacterFilter filter)? filterCharacters,
   }) {
-    return fetchPhotos?.call(pageModel, filter);
+    return fetchCharacters?.call(pageModel, filter);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageModel pageModel, CharacterFilter? filter)? fetchPhotos,
+    TResult Function(PageModel pageModel, CharacterFilter? filter)?
+        fetchCharacters,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
     TResult Function(CharacterModel character)? updateFavorite,
@@ -149,8 +151,8 @@ class _$_fetchPhotos extends _fetchPhotos {
     TResult Function(CharacterFilter filter)? filterCharacters,
     required TResult orElse(),
   }) {
-    if (fetchPhotos != null) {
-      return fetchPhotos(pageModel, filter);
+    if (fetchCharacters != null) {
+      return fetchCharacters(pageModel, filter);
     }
     return orElse();
   }
@@ -158,33 +160,33 @@ class _$_fetchPhotos extends _fetchPhotos {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_fetchPhotos value) fetchPhotos,
+    required TResult Function(_fetchCharacters value) fetchCharacters,
     required TResult Function(_getNextPage value) getNextPage,
     required TResult Function(_getPrevPage value) getPrevPage,
     required TResult Function(_updateFavorite value) updateFavorite,
     required TResult Function(_updateFavorites value) updateFavorites,
     required TResult Function(_filterCharacters value) filterCharacters,
   }) {
-    return fetchPhotos(this);
+    return fetchCharacters(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_fetchPhotos value)? fetchPhotos,
+    TResult? Function(_fetchCharacters value)? fetchCharacters,
     TResult? Function(_getNextPage value)? getNextPage,
     TResult? Function(_getPrevPage value)? getPrevPage,
     TResult? Function(_updateFavorite value)? updateFavorite,
     TResult? Function(_updateFavorites value)? updateFavorites,
     TResult? Function(_filterCharacters value)? filterCharacters,
   }) {
-    return fetchPhotos?.call(this);
+    return fetchCharacters?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_fetchPhotos value)? fetchPhotos,
+    TResult Function(_fetchCharacters value)? fetchCharacters,
     TResult Function(_getNextPage value)? getNextPage,
     TResult Function(_getPrevPage value)? getPrevPage,
     TResult Function(_updateFavorite value)? updateFavorite,
@@ -192,18 +194,18 @@ class _$_fetchPhotos extends _fetchPhotos {
     TResult Function(_filterCharacters value)? filterCharacters,
     required TResult orElse(),
   }) {
-    if (fetchPhotos != null) {
-      return fetchPhotos(this);
+    if (fetchCharacters != null) {
+      return fetchCharacters(this);
     }
     return orElse();
   }
 }
 
-abstract class _fetchPhotos extends PhotosEvent {
-  const factory _fetchPhotos(
+abstract class _fetchCharacters extends CharactersEvent {
+  const factory _fetchCharacters(
       {required final PageModel pageModel,
-      final CharacterFilter? filter}) = _$_fetchPhotos;
-  const _fetchPhotos._() : super._();
+      final CharacterFilter? filter}) = _$_fetchCharacters;
+  const _fetchCharacters._() : super._();
 
   PageModel get pageModel;
   CharacterFilter? get filter;
@@ -216,7 +218,7 @@ class _$_getNextPage extends _getNextPage {
 
   @override
   String toString() {
-    return 'PhotosEvent.getNextPage()';
+    return 'CharactersEvent.getNextPage()';
   }
 
   @override
@@ -232,7 +234,7 @@ class _$_getNextPage extends _getNextPage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(PageModel pageModel, CharacterFilter? filter)
-        fetchPhotos,
+        fetchCharacters,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
     required TResult Function(CharacterModel character) updateFavorite,
@@ -246,7 +248,7 @@ class _$_getNextPage extends _getNextPage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PageModel pageModel, CharacterFilter? filter)?
-        fetchPhotos,
+        fetchCharacters,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
     TResult? Function(CharacterModel character)? updateFavorite,
@@ -259,7 +261,8 @@ class _$_getNextPage extends _getNextPage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageModel pageModel, CharacterFilter? filter)? fetchPhotos,
+    TResult Function(PageModel pageModel, CharacterFilter? filter)?
+        fetchCharacters,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
     TResult Function(CharacterModel character)? updateFavorite,
@@ -276,7 +279,7 @@ class _$_getNextPage extends _getNextPage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_fetchPhotos value) fetchPhotos,
+    required TResult Function(_fetchCharacters value) fetchCharacters,
     required TResult Function(_getNextPage value) getNextPage,
     required TResult Function(_getPrevPage value) getPrevPage,
     required TResult Function(_updateFavorite value) updateFavorite,
@@ -289,7 +292,7 @@ class _$_getNextPage extends _getNextPage {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_fetchPhotos value)? fetchPhotos,
+    TResult? Function(_fetchCharacters value)? fetchCharacters,
     TResult? Function(_getNextPage value)? getNextPage,
     TResult? Function(_getPrevPage value)? getPrevPage,
     TResult? Function(_updateFavorite value)? updateFavorite,
@@ -302,7 +305,7 @@ class _$_getNextPage extends _getNextPage {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_fetchPhotos value)? fetchPhotos,
+    TResult Function(_fetchCharacters value)? fetchCharacters,
     TResult Function(_getNextPage value)? getNextPage,
     TResult Function(_getPrevPage value)? getPrevPage,
     TResult Function(_updateFavorite value)? updateFavorite,
@@ -317,7 +320,7 @@ class _$_getNextPage extends _getNextPage {
   }
 }
 
-abstract class _getNextPage extends PhotosEvent {
+abstract class _getNextPage extends CharactersEvent {
   const factory _getNextPage() = _$_getNextPage;
   const _getNextPage._() : super._();
 }
@@ -329,7 +332,7 @@ class _$_getPrevPage extends _getPrevPage {
 
   @override
   String toString() {
-    return 'PhotosEvent.getPrevPage()';
+    return 'CharactersEvent.getPrevPage()';
   }
 
   @override
@@ -345,7 +348,7 @@ class _$_getPrevPage extends _getPrevPage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(PageModel pageModel, CharacterFilter? filter)
-        fetchPhotos,
+        fetchCharacters,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
     required TResult Function(CharacterModel character) updateFavorite,
@@ -359,7 +362,7 @@ class _$_getPrevPage extends _getPrevPage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PageModel pageModel, CharacterFilter? filter)?
-        fetchPhotos,
+        fetchCharacters,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
     TResult? Function(CharacterModel character)? updateFavorite,
@@ -372,7 +375,8 @@ class _$_getPrevPage extends _getPrevPage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageModel pageModel, CharacterFilter? filter)? fetchPhotos,
+    TResult Function(PageModel pageModel, CharacterFilter? filter)?
+        fetchCharacters,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
     TResult Function(CharacterModel character)? updateFavorite,
@@ -389,7 +393,7 @@ class _$_getPrevPage extends _getPrevPage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_fetchPhotos value) fetchPhotos,
+    required TResult Function(_fetchCharacters value) fetchCharacters,
     required TResult Function(_getNextPage value) getNextPage,
     required TResult Function(_getPrevPage value) getPrevPage,
     required TResult Function(_updateFavorite value) updateFavorite,
@@ -402,7 +406,7 @@ class _$_getPrevPage extends _getPrevPage {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_fetchPhotos value)? fetchPhotos,
+    TResult? Function(_fetchCharacters value)? fetchCharacters,
     TResult? Function(_getNextPage value)? getNextPage,
     TResult? Function(_getPrevPage value)? getPrevPage,
     TResult? Function(_updateFavorite value)? updateFavorite,
@@ -415,7 +419,7 @@ class _$_getPrevPage extends _getPrevPage {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_fetchPhotos value)? fetchPhotos,
+    TResult Function(_fetchCharacters value)? fetchCharacters,
     TResult Function(_getNextPage value)? getNextPage,
     TResult Function(_getPrevPage value)? getPrevPage,
     TResult Function(_updateFavorite value)? updateFavorite,
@@ -430,7 +434,7 @@ class _$_getPrevPage extends _getPrevPage {
   }
 }
 
-abstract class _getPrevPage extends PhotosEvent {
+abstract class _getPrevPage extends CharactersEvent {
   const factory _getPrevPage() = _$_getPrevPage;
   const _getPrevPage._() : super._();
 }
@@ -445,7 +449,7 @@ class _$_updateFavorite extends _updateFavorite {
 
   @override
   String toString() {
-    return 'PhotosEvent.updateFavorite(character: $character)';
+    return 'CharactersEvent.updateFavorite(character: $character)';
   }
 
   @override
@@ -464,7 +468,7 @@ class _$_updateFavorite extends _updateFavorite {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(PageModel pageModel, CharacterFilter? filter)
-        fetchPhotos,
+        fetchCharacters,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
     required TResult Function(CharacterModel character) updateFavorite,
@@ -478,7 +482,7 @@ class _$_updateFavorite extends _updateFavorite {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PageModel pageModel, CharacterFilter? filter)?
-        fetchPhotos,
+        fetchCharacters,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
     TResult? Function(CharacterModel character)? updateFavorite,
@@ -491,7 +495,8 @@ class _$_updateFavorite extends _updateFavorite {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageModel pageModel, CharacterFilter? filter)? fetchPhotos,
+    TResult Function(PageModel pageModel, CharacterFilter? filter)?
+        fetchCharacters,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
     TResult Function(CharacterModel character)? updateFavorite,
@@ -508,7 +513,7 @@ class _$_updateFavorite extends _updateFavorite {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_fetchPhotos value) fetchPhotos,
+    required TResult Function(_fetchCharacters value) fetchCharacters,
     required TResult Function(_getNextPage value) getNextPage,
     required TResult Function(_getPrevPage value) getPrevPage,
     required TResult Function(_updateFavorite value) updateFavorite,
@@ -521,7 +526,7 @@ class _$_updateFavorite extends _updateFavorite {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_fetchPhotos value)? fetchPhotos,
+    TResult? Function(_fetchCharacters value)? fetchCharacters,
     TResult? Function(_getNextPage value)? getNextPage,
     TResult? Function(_getPrevPage value)? getPrevPage,
     TResult? Function(_updateFavorite value)? updateFavorite,
@@ -534,7 +539,7 @@ class _$_updateFavorite extends _updateFavorite {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_fetchPhotos value)? fetchPhotos,
+    TResult Function(_fetchCharacters value)? fetchCharacters,
     TResult Function(_getNextPage value)? getNextPage,
     TResult Function(_getPrevPage value)? getPrevPage,
     TResult Function(_updateFavorite value)? updateFavorite,
@@ -549,7 +554,7 @@ class _$_updateFavorite extends _updateFavorite {
   }
 }
 
-abstract class _updateFavorite extends PhotosEvent {
+abstract class _updateFavorite extends CharactersEvent {
   const factory _updateFavorite(final CharacterModel character) =
       _$_updateFavorite;
   const _updateFavorite._() : super._();
@@ -574,7 +579,7 @@ class _$_updateFavorites extends _updateFavorites {
 
   @override
   String toString() {
-    return 'PhotosEvent.updateFavorites(favorites: $favorites)';
+    return 'CharactersEvent.updateFavorites(favorites: $favorites)';
   }
 
   @override
@@ -594,7 +599,7 @@ class _$_updateFavorites extends _updateFavorites {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(PageModel pageModel, CharacterFilter? filter)
-        fetchPhotos,
+        fetchCharacters,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
     required TResult Function(CharacterModel character) updateFavorite,
@@ -608,7 +613,7 @@ class _$_updateFavorites extends _updateFavorites {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PageModel pageModel, CharacterFilter? filter)?
-        fetchPhotos,
+        fetchCharacters,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
     TResult? Function(CharacterModel character)? updateFavorite,
@@ -621,7 +626,8 @@ class _$_updateFavorites extends _updateFavorites {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageModel pageModel, CharacterFilter? filter)? fetchPhotos,
+    TResult Function(PageModel pageModel, CharacterFilter? filter)?
+        fetchCharacters,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
     TResult Function(CharacterModel character)? updateFavorite,
@@ -638,7 +644,7 @@ class _$_updateFavorites extends _updateFavorites {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_fetchPhotos value) fetchPhotos,
+    required TResult Function(_fetchCharacters value) fetchCharacters,
     required TResult Function(_getNextPage value) getNextPage,
     required TResult Function(_getPrevPage value) getPrevPage,
     required TResult Function(_updateFavorite value) updateFavorite,
@@ -651,7 +657,7 @@ class _$_updateFavorites extends _updateFavorites {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_fetchPhotos value)? fetchPhotos,
+    TResult? Function(_fetchCharacters value)? fetchCharacters,
     TResult? Function(_getNextPage value)? getNextPage,
     TResult? Function(_getPrevPage value)? getPrevPage,
     TResult? Function(_updateFavorite value)? updateFavorite,
@@ -664,7 +670,7 @@ class _$_updateFavorites extends _updateFavorites {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_fetchPhotos value)? fetchPhotos,
+    TResult Function(_fetchCharacters value)? fetchCharacters,
     TResult Function(_getNextPage value)? getNextPage,
     TResult Function(_getPrevPage value)? getPrevPage,
     TResult Function(_updateFavorite value)? updateFavorite,
@@ -679,7 +685,7 @@ class _$_updateFavorites extends _updateFavorites {
   }
 }
 
-abstract class _updateFavorites extends PhotosEvent {
+abstract class _updateFavorites extends CharactersEvent {
   const factory _updateFavorites(final List<int> favorites) =
       _$_updateFavorites;
   const _updateFavorites._() : super._();
@@ -697,7 +703,7 @@ class _$_filterCharacters extends _filterCharacters {
 
   @override
   String toString() {
-    return 'PhotosEvent.filterCharacters(filter: $filter)';
+    return 'CharactersEvent.filterCharacters(filter: $filter)';
   }
 
   @override
@@ -715,7 +721,7 @@ class _$_filterCharacters extends _filterCharacters {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(PageModel pageModel, CharacterFilter? filter)
-        fetchPhotos,
+        fetchCharacters,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
     required TResult Function(CharacterModel character) updateFavorite,
@@ -729,7 +735,7 @@ class _$_filterCharacters extends _filterCharacters {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PageModel pageModel, CharacterFilter? filter)?
-        fetchPhotos,
+        fetchCharacters,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
     TResult? Function(CharacterModel character)? updateFavorite,
@@ -742,7 +748,8 @@ class _$_filterCharacters extends _filterCharacters {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageModel pageModel, CharacterFilter? filter)? fetchPhotos,
+    TResult Function(PageModel pageModel, CharacterFilter? filter)?
+        fetchCharacters,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
     TResult Function(CharacterModel character)? updateFavorite,
@@ -759,7 +766,7 @@ class _$_filterCharacters extends _filterCharacters {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_fetchPhotos value) fetchPhotos,
+    required TResult Function(_fetchCharacters value) fetchCharacters,
     required TResult Function(_getNextPage value) getNextPage,
     required TResult Function(_getPrevPage value) getPrevPage,
     required TResult Function(_updateFavorite value) updateFavorite,
@@ -772,7 +779,7 @@ class _$_filterCharacters extends _filterCharacters {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_fetchPhotos value)? fetchPhotos,
+    TResult? Function(_fetchCharacters value)? fetchCharacters,
     TResult? Function(_getNextPage value)? getNextPage,
     TResult? Function(_getPrevPage value)? getPrevPage,
     TResult? Function(_updateFavorite value)? updateFavorite,
@@ -785,7 +792,7 @@ class _$_filterCharacters extends _filterCharacters {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_fetchPhotos value)? fetchPhotos,
+    TResult Function(_fetchCharacters value)? fetchCharacters,
     TResult Function(_getNextPage value)? getNextPage,
     TResult Function(_getPrevPage value)? getPrevPage,
     TResult Function(_updateFavorite value)? updateFavorite,
@@ -800,7 +807,7 @@ class _$_filterCharacters extends _filterCharacters {
   }
 }
 
-abstract class _filterCharacters extends PhotosEvent {
+abstract class _filterCharacters extends CharactersEvent {
   const factory _filterCharacters({required final CharacterFilter filter}) =
       _$_filterCharacters;
   const _filterCharacters._() : super._();
@@ -809,7 +816,7 @@ abstract class _filterCharacters extends PhotosEvent {
 }
 
 /// @nodoc
-mixin _$PhotosState {
+mixin _$CharactersState {
   CharactersData get characters => throw _privateConstructorUsedError;
   CharacterFilter? get filter => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -852,35 +859,35 @@ mixin _$PhotosState {
   TResult map<TResult extends Object?>({
     required TResult Function(_loading value) loading,
     required TResult Function(_initialized value) initialized,
-    required TResult Function(photosError value) error,
+    required TResult Function(charactersError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_loading value)? loading,
     TResult? Function(_initialized value)? initialized,
-    TResult? Function(photosError value)? error,
+    TResult? Function(charactersError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_loading value)? loading,
     TResult Function(_initialized value)? initialized,
-    TResult Function(photosError value)? error,
+    TResult Function(charactersError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $PhotosStateCopyWith<PhotosState> get copyWith =>
+  $CharactersStateCopyWith<CharactersState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PhotosStateCopyWith<$Res> {
-  factory $PhotosStateCopyWith(
-          PhotosState value, $Res Function(PhotosState) then) =
-      _$PhotosStateCopyWithImpl<$Res, PhotosState>;
+abstract class $CharactersStateCopyWith<$Res> {
+  factory $CharactersStateCopyWith(
+          CharactersState value, $Res Function(CharactersState) then) =
+      _$CharactersStateCopyWithImpl<$Res, CharactersState>;
   @useResult
   $Res call({CharactersData characters, CharacterFilter? filter});
 
@@ -889,9 +896,9 @@ abstract class $PhotosStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PhotosStateCopyWithImpl<$Res, $Val extends PhotosState>
-    implements $PhotosStateCopyWith<$Res> {
-  _$PhotosStateCopyWithImpl(this._value, this._then);
+class _$CharactersStateCopyWithImpl<$Res, $Val extends CharactersState>
+    implements $CharactersStateCopyWith<$Res> {
+  _$CharactersStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -938,7 +945,8 @@ class _$PhotosStateCopyWithImpl<$Res, $Val extends PhotosState>
 }
 
 /// @nodoc
-abstract class _$$_loadingCopyWith<$Res> implements $PhotosStateCopyWith<$Res> {
+abstract class _$$_loadingCopyWith<$Res>
+    implements $CharactersStateCopyWith<$Res> {
   factory _$$_loadingCopyWith(
           _$_loading value, $Res Function(_$_loading) then) =
       __$$_loadingCopyWithImpl<$Res>;
@@ -954,7 +962,7 @@ abstract class _$$_loadingCopyWith<$Res> implements $PhotosStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$_loadingCopyWithImpl<$Res>
-    extends _$PhotosStateCopyWithImpl<$Res, _$_loading>
+    extends _$CharactersStateCopyWithImpl<$Res, _$_loading>
     implements _$$_loadingCopyWith<$Res> {
   __$$_loadingCopyWithImpl(_$_loading _value, $Res Function(_$_loading) _then)
       : super(_value, _then);
@@ -1062,7 +1070,7 @@ class _$_loading extends _loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_loading value) loading,
     required TResult Function(_initialized value) initialized,
-    required TResult Function(photosError value) error,
+    required TResult Function(charactersError value) error,
   }) {
     return loading(this);
   }
@@ -1072,7 +1080,7 @@ class _$_loading extends _loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_loading value)? loading,
     TResult? Function(_initialized value)? initialized,
-    TResult? Function(photosError value)? error,
+    TResult? Function(charactersError value)? error,
   }) {
     return loading?.call(this);
   }
@@ -1082,7 +1090,7 @@ class _$_loading extends _loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_loading value)? loading,
     TResult Function(_initialized value)? initialized,
-    TResult Function(photosError value)? error,
+    TResult Function(charactersError value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1092,7 +1100,7 @@ class _$_loading extends _loading {
   }
 }
 
-abstract class _loading extends PhotosState {
+abstract class _loading extends CharactersState {
   const factory _loading(
       {final CharactersData characters,
       final CharacterFilter? filter}) = _$_loading;
@@ -1110,7 +1118,7 @@ abstract class _loading extends PhotosState {
 
 /// @nodoc
 abstract class _$$_initializedCopyWith<$Res>
-    implements $PhotosStateCopyWith<$Res> {
+    implements $CharactersStateCopyWith<$Res> {
   factory _$$_initializedCopyWith(
           _$_initialized value, $Res Function(_$_initialized) then) =
       __$$_initializedCopyWithImpl<$Res>;
@@ -1126,7 +1134,7 @@ abstract class _$$_initializedCopyWith<$Res>
 
 /// @nodoc
 class __$$_initializedCopyWithImpl<$Res>
-    extends _$PhotosStateCopyWithImpl<$Res, _$_initialized>
+    extends _$CharactersStateCopyWithImpl<$Res, _$_initialized>
     implements _$$_initializedCopyWith<$Res> {
   __$$_initializedCopyWithImpl(
       _$_initialized _value, $Res Function(_$_initialized) _then)
@@ -1233,7 +1241,7 @@ class _$_initialized extends _initialized {
   TResult map<TResult extends Object?>({
     required TResult Function(_loading value) loading,
     required TResult Function(_initialized value) initialized,
-    required TResult Function(photosError value) error,
+    required TResult Function(charactersError value) error,
   }) {
     return initialized(this);
   }
@@ -1243,7 +1251,7 @@ class _$_initialized extends _initialized {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_loading value)? loading,
     TResult? Function(_initialized value)? initialized,
-    TResult? Function(photosError value)? error,
+    TResult? Function(charactersError value)? error,
   }) {
     return initialized?.call(this);
   }
@@ -1253,7 +1261,7 @@ class _$_initialized extends _initialized {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_loading value)? loading,
     TResult Function(_initialized value)? initialized,
-    TResult Function(photosError value)? error,
+    TResult Function(charactersError value)? error,
     required TResult orElse(),
   }) {
     if (initialized != null) {
@@ -1263,7 +1271,7 @@ class _$_initialized extends _initialized {
   }
 }
 
-abstract class _initialized extends PhotosState {
+abstract class _initialized extends CharactersState {
   const factory _initialized(
       {required final CharactersData characters,
       final CharacterFilter? filter}) = _$_initialized;
@@ -1280,11 +1288,11 @@ abstract class _initialized extends PhotosState {
 }
 
 /// @nodoc
-abstract class _$$photosErrorCopyWith<$Res>
-    implements $PhotosStateCopyWith<$Res> {
-  factory _$$photosErrorCopyWith(
-          _$photosError value, $Res Function(_$photosError) then) =
-      __$$photosErrorCopyWithImpl<$Res>;
+abstract class _$$charactersErrorCopyWith<$Res>
+    implements $CharactersStateCopyWith<$Res> {
+  factory _$$charactersErrorCopyWith(
+          _$charactersError value, $Res Function(_$charactersError) then) =
+      __$$charactersErrorCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1300,11 +1308,11 @@ abstract class _$$photosErrorCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$photosErrorCopyWithImpl<$Res>
-    extends _$PhotosStateCopyWithImpl<$Res, _$photosError>
-    implements _$$photosErrorCopyWith<$Res> {
-  __$$photosErrorCopyWithImpl(
-      _$photosError _value, $Res Function(_$photosError) _then)
+class __$$charactersErrorCopyWithImpl<$Res>
+    extends _$CharactersStateCopyWithImpl<$Res, _$charactersError>
+    implements _$$charactersErrorCopyWith<$Res> {
+  __$$charactersErrorCopyWithImpl(
+      _$charactersError _value, $Res Function(_$charactersError) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1315,7 +1323,7 @@ class __$$photosErrorCopyWithImpl<$Res>
     Object? message = null,
     Object? errorCode = freezed,
   }) {
-    return _then(_$photosError(
+    return _then(_$charactersError(
       characters: null == characters
           ? _value.characters
           : characters // ignore: cast_nullable_to_non_nullable
@@ -1338,8 +1346,8 @@ class __$$photosErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$photosError extends photosError {
-  const _$photosError(
+class _$charactersError extends charactersError {
+  const _$charactersError(
       {required this.characters,
       this.filter,
       this.message = 'Error',
@@ -1360,7 +1368,7 @@ class _$photosError extends photosError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$photosError &&
+            other is _$charactersError &&
             (identical(other.characters, characters) ||
                 other.characters == characters) &&
             (identical(other.filter, filter) || other.filter == filter) &&
@@ -1376,8 +1384,8 @@ class _$photosError extends photosError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$photosErrorCopyWith<_$photosError> get copyWith =>
-      __$$photosErrorCopyWithImpl<_$photosError>(this, _$identity);
+  _$$charactersErrorCopyWith<_$charactersError> get copyWith =>
+      __$$charactersErrorCopyWithImpl<_$charactersError>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1432,7 +1440,7 @@ class _$photosError extends photosError {
   TResult map<TResult extends Object?>({
     required TResult Function(_loading value) loading,
     required TResult Function(_initialized value) initialized,
-    required TResult Function(photosError value) error,
+    required TResult Function(charactersError value) error,
   }) {
     return error(this);
   }
@@ -1442,7 +1450,7 @@ class _$photosError extends photosError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_loading value)? loading,
     TResult? Function(_initialized value)? initialized,
-    TResult? Function(photosError value)? error,
+    TResult? Function(charactersError value)? error,
   }) {
     return error?.call(this);
   }
@@ -1452,7 +1460,7 @@ class _$photosError extends photosError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_loading value)? loading,
     TResult Function(_initialized value)? initialized,
-    TResult Function(photosError value)? error,
+    TResult Function(charactersError value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1462,13 +1470,13 @@ class _$photosError extends photosError {
   }
 }
 
-abstract class photosError extends PhotosState {
-  const factory photosError(
+abstract class charactersError extends CharactersState {
+  const factory charactersError(
       {required final CharactersData characters,
       final CharacterFilter? filter,
       final String message,
-      final String? errorCode}) = _$photosError;
-  const photosError._() : super._();
+      final String? errorCode}) = _$charactersError;
+  const charactersError._() : super._();
 
   @override
   CharactersData get characters;
@@ -1478,6 +1486,6 @@ abstract class photosError extends PhotosState {
   String? get errorCode;
   @override
   @JsonKey(ignore: true)
-  _$$photosErrorCopyWith<_$photosError> get copyWith =>
+  _$$charactersErrorCopyWith<_$charactersError> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -2,14 +2,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:morty_api/characters/model/character_model.dart';
 import 'package:morty_api/characters/widgets/favorite_button_widget.dart';
-import 'package:morty_api/characters/widgets/photo_navigator_bar.dart';
+import 'package:morty_api/characters/widgets/characters_navigator_bar.dart';
 
 import '../character_card_screen.dart';
 
-class PhotosGridWidget extends StatelessWidget {
+class CharactersGridWidget extends StatelessWidget {
   final CharactersData charactersModel;
 
-  const PhotosGridWidget({Key? key, required this.charactersModel})
+  const CharactersGridWidget({Key? key, required this.charactersModel})
       : super(key: key);
 
   @override
@@ -18,7 +18,7 @@ class PhotosGridWidget extends StatelessWidget {
       slivers: <Widget>[
         SliverAppBar(
           flexibleSpace:
-              PhotoNavigationWidget(pageModel: charactersModel.pageModel),
+              CharactersNavigationWidget(pageModel: charactersModel.pageModel),
           floating: true,
         ),
         SliverGrid(
@@ -29,7 +29,7 @@ class PhotosGridWidget extends StatelessWidget {
             (BuildContext context, int index) {
               final cardItem = charactersModel.characters[index];
 
-              return _PhotoCardItem(cardItem: cardItem);
+              return _CharacterCardItem(cardItem: cardItem);
             },
             childCount: charactersModel.characters.length,
           ),
@@ -37,7 +37,7 @@ class PhotosGridWidget extends StatelessWidget {
         SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsets.all(16),
-            child: PhotoNavigationWidget(pageModel: charactersModel.pageModel),
+            child: CharactersNavigationWidget(pageModel: charactersModel.pageModel),
           ),
         ),
       ],
@@ -45,10 +45,10 @@ class PhotosGridWidget extends StatelessWidget {
   }
 }
 
-class _PhotoCardItem extends StatelessWidget {
+class _CharacterCardItem extends StatelessWidget {
   final CharacterModel cardItem;
 
-  const _PhotoCardItem({Key? key, required this.cardItem}) : super(key: key);
+  const _CharacterCardItem({Key? key, required this.cardItem}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

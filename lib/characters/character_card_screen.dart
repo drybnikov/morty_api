@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:morty_api/characters/bloc/photos_bloc.dart';
+import 'package:morty_api/characters/bloc/characters_bloc.dart';
 import 'package:morty_api/characters/widgets/favorite_button_widget.dart';
 
 class CharacterCardScreen extends StatelessWidget {
@@ -17,7 +17,7 @@ class CharacterCardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<PhotosBloc, PhotosState>(
+      body: BlocBuilder<CharactersBloc, CharactersState>(
         builder: (context, state) {
           final model = state.selected(characterId);
 

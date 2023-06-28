@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:morty_api/characters/bloc/photos_bloc.dart';
+import 'package:morty_api/characters/bloc/characters_bloc.dart';
 import 'package:morty_api/network/model/characters/page_model.dart';
 
-class PhotoNavigationWidget extends StatelessWidget {
+class CharactersNavigationWidget extends StatelessWidget {
   final PageModel pageModel;
 
-  const PhotoNavigationWidget({super.key, required this.pageModel});
+  const CharactersNavigationWidget({super.key, required this.pageModel});
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +32,10 @@ class PhotoNavigationWidget extends StatelessWidget {
   }
 
   void _onPrevClick(BuildContext context) {
-    context.read<PhotosBloc>().add(const PhotosEvent.getPrevPage());
+    context.read<CharactersBloc>().add(const CharactersEvent.getPrevPage());
   }
 
   void _onNextClick(BuildContext context) {
-    context.read<PhotosBloc>().add(const PhotosEvent.getNextPage());
+    context.read<CharactersBloc>().add(const CharactersEvent.getNextPage());
   }
 }

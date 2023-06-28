@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:morty_api/characters/bloc/photos_bloc.dart';
+import 'package:morty_api/characters/bloc/characters_bloc.dart';
 import 'package:morty_api/characters/character_card_screen.dart';
-import 'package:morty_api/characters/photos_list_screen.dart';
+import 'package:morty_api/characters/characters_list_screen.dart';
 import 'package:morty_api/di/injection_container.dart';
 import 'package:morty_api/network/model/characters/page_model.dart';
 
@@ -22,7 +22,7 @@ class RootNavigatorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: getIt.isReady<PhotosBloc>(),
+        future: getIt.isReady<CharactersBloc>(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           return snapshot.hasData
               ? _buildRootNavigator(context)
@@ -38,8 +38,8 @@ class RootNavigatorWidget extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => getIt.get<PhotosBloc>()
-            ..add(const PhotosEvent.fetchPhotos(
+          create: (context) => getIt.get<CharactersBloc>()
+            ..add(const CharactersEvent.fetchCharacters(
                 pageModel: PageModel.firstPage())),
         ),
       ],

@@ -11,49 +11,50 @@ import 'package:morty_api/network/model/characters/page_model.dart';
 import 'package:morty_api/repository/characters_repository.dart';
 import 'package:morty_api/utils/bloc_concurrency_mixin.dart';
 
-part 'photos_bloc.freezed.dart';
+part 'characters_bloc.freezed.dart';
 
 @Freezed(toStringOverride: true, copyWith: false)
-class PhotosEvent with _$PhotosEvent {
-  const PhotosEvent._();
+class CharactersEvent with _$CharactersEvent {
+  const CharactersEvent._();
 
-  const factory PhotosEvent.fetchPhotos(
-      {required PageModel pageModel, CharacterFilter? filter}) = _fetchPhotos;
+  const factory CharactersEvent.fetchCharacters(
+      {required PageModel pageModel,
+      CharacterFilter? filter}) = _fetchCharacters;
 
-  const factory PhotosEvent.getNextPage() = _getNextPage;
+  const factory CharactersEvent.getNextPage() = _getNextPage;
 
-  const factory PhotosEvent.getPrevPage() = _getPrevPage;
+  const factory CharactersEvent.getPrevPage() = _getPrevPage;
 
-  const factory PhotosEvent.updateFavorite(CharacterModel character) =
+  const factory CharactersEvent.updateFavorite(CharacterModel character) =
       _updateFavorite;
 
-  const factory PhotosEvent.updateFavorites(List<int> favorites) =
+  const factory CharactersEvent.updateFavorites(List<int> favorites) =
       _updateFavorites;
 
-  const factory PhotosEvent.filterCharacters(
+  const factory CharactersEvent.filterCharacters(
       {required CharacterFilter filter}) = _filterCharacters;
 }
 
 @Freezed(toStringOverride: false)
-class PhotosState with _$PhotosState {
-  const PhotosState._();
+class CharactersState with _$CharactersState {
+  const CharactersState._();
 
-  const factory PhotosState.loading({
+  const factory CharactersState.loading({
     @Default(CharactersData()) CharactersData characters,
     CharacterFilter? filter,
   }) = _loading;
 
-  const factory PhotosState.initialized({
+  const factory CharactersState.initialized({
     required CharactersData characters,
     CharacterFilter? filter,
   }) = _initialized;
 
-  const factory PhotosState.error({
+  const factory CharactersState.error({
     required CharactersData characters,
     CharacterFilter? filter,
     @Default('Error') String message,
     String? errorCode,
-  }) = photosError;
+  }) = charactersError;
 
   CharacterModel selected(int id) =>
       characters.characters.firstWhere((element) => element.id == id);
@@ -62,13 +63,13 @@ class PhotosState with _$PhotosState {
 const _filterApplyDebounce = Duration(milliseconds: 400);
 
 @lazySingleton
-class PhotosBloc extends Bloc<PhotosEvent, PhotosState>
+class CharactersBloc extends Bloc<CharactersEvent, CharactersState>
     with BlocConcurrencyMixin {
   final CharactersRepository _photosRepository;
   late StreamSubscription<List<int>> _favoritesSubscription;
 
-  PhotosBloc(this._photosRepository) : super(const _loading()) {
-    on<_fetchPhotos>(_onFetchPhotos);
+  CharactersBloc(this._photosRepository) : super(const _loading()) {
+    on<_fetchCharacters>(_onFetchCharacters);
     on<_getNextPage>(_onGetNextPage);
     on<_getPrevPage>(_onGetPrevPage);
     on<_updateFavorite>(_onUpdateFavorite);
@@ -80,7 +81,7 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState>
 
     _favoritesSubscription =
         _photosRepository.watchFavorites().listen((newFavorites) {
-      add(PhotosEvent.updateFavorites(newFavorites));
+      add(CharactersEvent.updateFavorites(newFavorites));
     });
   }
 
@@ -90,7 +91,7 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState>
     super.close();
   }
 
-  FutureOr<void> _onFetchPhotos(_fetchPhotos event, emit) async {
+  FutureOr<void> _onFetchCharacters(_fetchCharacters event, emit) async {
     try {
       final pageModel = event.pageModel;
 
@@ -103,7 +104,7 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState>
     } on Object catch (error, st) {
       Fimber.e('Error when load characters', ex: error, stacktrace: st);
       if (error is DioError) {
-        emit(photosError(
+        emit(charactersError(
           message: error.response?.data.toString() ?? error.message,
           errorCode: error.type.name,
           characters: error.response?.statusCode == 404
@@ -112,7 +113,7 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState>
           filter: event.filter,
         ));
       } else {
-        emit(photosError(
+        emit(charactersError(
           message: error.toString(),
           characters: state.characters,
           filter: event.filter,
@@ -124,8 +125,8 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState>
   FutureOr<void> _onGetNextPage(_getNextPage event, emit) async {
     final pageModel = state.characters.pageModel;
     if (pageModel.hasNext) {
-      await _onFetchPhotos(
-        _fetchPhotos(
+      await _onFetchCharacters(
+        _fetchCharacters(
           pageModel: pageModel.copyWith(current: pageModel.current + 1),
           filter: state.filter,
         ),
@@ -137,8 +138,8 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState>
   FutureOr<void> _onGetPrevPage(_getPrevPage event, emit) async {
     final pageModel = state.characters.pageModel;
     if (pageModel.hasPrev) {
-      await _onFetchPhotos(
-        _fetchPhotos(
+      await _onFetchCharacters(
+        _fetchCharacters(
           pageModel: pageModel.copyWith(current: pageModel.current - 1),
           filter: state.filter,
         ),
@@ -164,8 +165,8 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState>
   }
 
   FutureOr<void> _onFilterCharacters(_filterCharacters event, emit) async {
-    await _onFetchPhotos(
-      _fetchPhotos(
+    await _onFetchCharacters(
+      _fetchCharacters(
         pageModel: const PageModel.firstPage(),
         filter: event.filter,
       ),

@@ -12,7 +12,7 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../characters/bloc/photos_bloc.dart' as _i9;
+import '../characters/bloc/characters_bloc.dart' as _i9;
 import '../data/user_data_provider_impl.dart' as _i6;
 import '../network/client_provider.dart' as _i3;
 import '../network/repository/characters_repository_impl.dart' as _i8;
@@ -43,8 +43,8 @@ extension GetItInjectableX on _i1.GetIt {
               gh<_i4.RestClientPublic>(),
               await getAsync<_i5.UserDataProvider>(),
             ));
-    gh.lazySingletonAsync<_i9.PhotosBloc>(
-        () async => _i9.PhotosBloc(await getAsync<_i7.CharactersRepository>()));
+    gh.lazySingletonAsync<_i9.CharactersBloc>(() async =>
+        _i9.CharactersBloc(await getAsync<_i7.CharactersRepository>()));
     return this;
   }
 }

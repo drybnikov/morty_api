@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:morty_api/characters/bloc/photos_bloc.dart';
+import 'package:morty_api/characters/bloc/characters_bloc.dart';
 
 class CharactersError extends StatelessWidget {
   final String message;
@@ -34,10 +34,10 @@ class CharactersError extends StatelessWidget {
   }
 
   void _onRetry(BuildContext context) {
-    final photosBloc = context.read<PhotosBloc>();
+    final photosBloc = context.read<CharactersBloc>();
 
     photosBloc.add(
-      PhotosEvent.fetchPhotos(
+      CharactersEvent.fetchCharacters(
         pageModel: photosBloc.state.characters.pageModel,
       ),
     );
