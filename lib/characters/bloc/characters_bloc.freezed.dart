@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'characters_bloc.dart';
 
@@ -18,7 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CharactersEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PageModel pageModel, CharacterFilter? filter)
+    required TResult Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)
         fetchCharacters,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
@@ -29,7 +30,8 @@ mixin _$CharactersEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PageModel pageModel, CharacterFilter? filter)?
+    TResult? Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)?
         fetchCharacters,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
@@ -40,7 +42,8 @@ mixin _$CharactersEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageModel pageModel, CharacterFilter? filter)?
+    TResult Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)?
         fetchCharacters,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
@@ -86,16 +89,21 @@ mixin _$CharactersEvent {
 /// @nodoc
 
 class _$_fetchCharacters extends _fetchCharacters {
-  const _$_fetchCharacters({required this.pageModel, this.filter}) : super._();
+  const _$_fetchCharacters(
+      {required this.pageModel, this.filter, this.forceRefresh = false})
+      : super._();
 
   @override
   final PageModel pageModel;
   @override
   final CharacterFilter? filter;
+  @override
+  @JsonKey()
+  final bool forceRefresh;
 
   @override
   String toString() {
-    return 'CharactersEvent.fetchCharacters(pageModel: $pageModel, filter: $filter)';
+    return 'CharactersEvent.fetchCharacters(pageModel: $pageModel, filter: $filter, forceRefresh: $forceRefresh)';
   }
 
   @override
@@ -105,16 +113,19 @@ class _$_fetchCharacters extends _fetchCharacters {
             other is _$_fetchCharacters &&
             (identical(other.pageModel, pageModel) ||
                 other.pageModel == pageModel) &&
-            (identical(other.filter, filter) || other.filter == filter));
+            (identical(other.filter, filter) || other.filter == filter) &&
+            (identical(other.forceRefresh, forceRefresh) ||
+                other.forceRefresh == forceRefresh));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, pageModel, filter);
+  int get hashCode => Object.hash(runtimeType, pageModel, filter, forceRefresh);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PageModel pageModel, CharacterFilter? filter)
+    required TResult Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)
         fetchCharacters,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
@@ -122,13 +133,14 @@ class _$_fetchCharacters extends _fetchCharacters {
     required TResult Function(List<int> favorites) updateFavorites,
     required TResult Function(CharacterFilter filter) filterCharacters,
   }) {
-    return fetchCharacters(pageModel, filter);
+    return fetchCharacters(pageModel, filter, forceRefresh);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PageModel pageModel, CharacterFilter? filter)?
+    TResult? Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)?
         fetchCharacters,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
@@ -136,13 +148,14 @@ class _$_fetchCharacters extends _fetchCharacters {
     TResult? Function(List<int> favorites)? updateFavorites,
     TResult? Function(CharacterFilter filter)? filterCharacters,
   }) {
-    return fetchCharacters?.call(pageModel, filter);
+    return fetchCharacters?.call(pageModel, filter, forceRefresh);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageModel pageModel, CharacterFilter? filter)?
+    TResult Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)?
         fetchCharacters,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
@@ -152,7 +165,7 @@ class _$_fetchCharacters extends _fetchCharacters {
     required TResult orElse(),
   }) {
     if (fetchCharacters != null) {
-      return fetchCharacters(pageModel, filter);
+      return fetchCharacters(pageModel, filter, forceRefresh);
     }
     return orElse();
   }
@@ -204,11 +217,13 @@ class _$_fetchCharacters extends _fetchCharacters {
 abstract class _fetchCharacters extends CharactersEvent {
   const factory _fetchCharacters(
       {required final PageModel pageModel,
-      final CharacterFilter? filter}) = _$_fetchCharacters;
+      final CharacterFilter? filter,
+      final bool forceRefresh}) = _$_fetchCharacters;
   const _fetchCharacters._() : super._();
 
   PageModel get pageModel;
   CharacterFilter? get filter;
+  bool get forceRefresh;
 }
 
 /// @nodoc
@@ -233,7 +248,8 @@ class _$_getNextPage extends _getNextPage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PageModel pageModel, CharacterFilter? filter)
+    required TResult Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)
         fetchCharacters,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
@@ -247,7 +263,8 @@ class _$_getNextPage extends _getNextPage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PageModel pageModel, CharacterFilter? filter)?
+    TResult? Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)?
         fetchCharacters,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
@@ -261,7 +278,8 @@ class _$_getNextPage extends _getNextPage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageModel pageModel, CharacterFilter? filter)?
+    TResult Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)?
         fetchCharacters,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
@@ -347,7 +365,8 @@ class _$_getPrevPage extends _getPrevPage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PageModel pageModel, CharacterFilter? filter)
+    required TResult Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)
         fetchCharacters,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
@@ -361,7 +380,8 @@ class _$_getPrevPage extends _getPrevPage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PageModel pageModel, CharacterFilter? filter)?
+    TResult? Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)?
         fetchCharacters,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
@@ -375,7 +395,8 @@ class _$_getPrevPage extends _getPrevPage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageModel pageModel, CharacterFilter? filter)?
+    TResult Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)?
         fetchCharacters,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
@@ -467,7 +488,8 @@ class _$_updateFavorite extends _updateFavorite {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PageModel pageModel, CharacterFilter? filter)
+    required TResult Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)
         fetchCharacters,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
@@ -481,7 +503,8 @@ class _$_updateFavorite extends _updateFavorite {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PageModel pageModel, CharacterFilter? filter)?
+    TResult? Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)?
         fetchCharacters,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
@@ -495,7 +518,8 @@ class _$_updateFavorite extends _updateFavorite {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageModel pageModel, CharacterFilter? filter)?
+    TResult Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)?
         fetchCharacters,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
@@ -572,7 +596,6 @@ class _$_updateFavorites extends _updateFavorites {
   final List<int> _favorites;
   @override
   List<int> get favorites {
-    if (_favorites is EqualUnmodifiableListView) return _favorites;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_favorites);
   }
@@ -598,7 +621,8 @@ class _$_updateFavorites extends _updateFavorites {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PageModel pageModel, CharacterFilter? filter)
+    required TResult Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)
         fetchCharacters,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
@@ -612,7 +636,8 @@ class _$_updateFavorites extends _updateFavorites {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PageModel pageModel, CharacterFilter? filter)?
+    TResult? Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)?
         fetchCharacters,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
@@ -626,7 +651,8 @@ class _$_updateFavorites extends _updateFavorites {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageModel pageModel, CharacterFilter? filter)?
+    TResult Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)?
         fetchCharacters,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
@@ -720,7 +746,8 @@ class _$_filterCharacters extends _filterCharacters {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PageModel pageModel, CharacterFilter? filter)
+    required TResult Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)
         fetchCharacters,
     required TResult Function() getNextPage,
     required TResult Function() getPrevPage,
@@ -734,7 +761,8 @@ class _$_filterCharacters extends _filterCharacters {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PageModel pageModel, CharacterFilter? filter)?
+    TResult? Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)?
         fetchCharacters,
     TResult? Function()? getNextPage,
     TResult? Function()? getPrevPage,
@@ -748,7 +776,8 @@ class _$_filterCharacters extends _filterCharacters {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PageModel pageModel, CharacterFilter? filter)?
+    TResult Function(
+            PageModel pageModel, CharacterFilter? filter, bool forceRefresh)?
         fetchCharacters,
     TResult Function()? getNextPage,
     TResult Function()? getPrevPage,
@@ -827,8 +856,12 @@ mixin _$CharactersState {
     required TResult Function(
             CharactersData characters, CharacterFilter? filter)
         initialized,
-    required TResult Function(CharactersData characters,
-            CharacterFilter? filter, String message, String? errorCode)
+    required TResult Function(
+            CharactersData characters,
+            CharacterFilter? filter,
+            String message,
+            String? errorCode,
+            DateTime time)
         error,
   }) =>
       throw _privateConstructorUsedError;
@@ -839,7 +872,7 @@ mixin _$CharactersState {
     TResult? Function(CharactersData characters, CharacterFilter? filter)?
         initialized,
     TResult? Function(CharactersData characters, CharacterFilter? filter,
-            String message, String? errorCode)?
+            String message, String? errorCode, DateTime time)?
         error,
   }) =>
       throw _privateConstructorUsedError;
@@ -850,7 +883,7 @@ mixin _$CharactersState {
     TResult Function(CharactersData characters, CharacterFilter? filter)?
         initialized,
     TResult Function(CharactersData characters, CharacterFilter? filter,
-            String message, String? errorCode)?
+            String message, String? errorCode, DateTime time)?
         error,
     required TResult orElse(),
   }) =>
@@ -1026,8 +1059,12 @@ class _$_loading extends _loading {
     required TResult Function(
             CharactersData characters, CharacterFilter? filter)
         initialized,
-    required TResult Function(CharactersData characters,
-            CharacterFilter? filter, String message, String? errorCode)
+    required TResult Function(
+            CharactersData characters,
+            CharacterFilter? filter,
+            String message,
+            String? errorCode,
+            DateTime time)
         error,
   }) {
     return loading(characters, filter);
@@ -1041,7 +1078,7 @@ class _$_loading extends _loading {
     TResult? Function(CharactersData characters, CharacterFilter? filter)?
         initialized,
     TResult? Function(CharactersData characters, CharacterFilter? filter,
-            String message, String? errorCode)?
+            String message, String? errorCode, DateTime time)?
         error,
   }) {
     return loading?.call(characters, filter);
@@ -1055,7 +1092,7 @@ class _$_loading extends _loading {
     TResult Function(CharactersData characters, CharacterFilter? filter)?
         initialized,
     TResult Function(CharactersData characters, CharacterFilter? filter,
-            String message, String? errorCode)?
+            String message, String? errorCode, DateTime time)?
         error,
     required TResult orElse(),
   }) {
@@ -1197,8 +1234,12 @@ class _$_initialized extends _initialized {
     required TResult Function(
             CharactersData characters, CharacterFilter? filter)
         initialized,
-    required TResult Function(CharactersData characters,
-            CharacterFilter? filter, String message, String? errorCode)
+    required TResult Function(
+            CharactersData characters,
+            CharacterFilter? filter,
+            String message,
+            String? errorCode,
+            DateTime time)
         error,
   }) {
     return initialized(characters, filter);
@@ -1212,7 +1253,7 @@ class _$_initialized extends _initialized {
     TResult? Function(CharactersData characters, CharacterFilter? filter)?
         initialized,
     TResult? Function(CharactersData characters, CharacterFilter? filter,
-            String message, String? errorCode)?
+            String message, String? errorCode, DateTime time)?
         error,
   }) {
     return initialized?.call(characters, filter);
@@ -1226,7 +1267,7 @@ class _$_initialized extends _initialized {
     TResult Function(CharactersData characters, CharacterFilter? filter)?
         initialized,
     TResult Function(CharactersData characters, CharacterFilter? filter,
-            String message, String? errorCode)?
+            String message, String? errorCode, DateTime time)?
         error,
     required TResult orElse(),
   }) {
@@ -1299,7 +1340,8 @@ abstract class _$$charactersErrorCopyWith<$Res>
       {CharactersData characters,
       CharacterFilter? filter,
       String message,
-      String? errorCode});
+      String? errorCode,
+      DateTime time});
 
   @override
   $CharactersDataCopyWith<$Res> get characters;
@@ -1322,6 +1364,7 @@ class __$$charactersErrorCopyWithImpl<$Res>
     Object? filter = freezed,
     Object? message = null,
     Object? errorCode = freezed,
+    Object? time = null,
   }) {
     return _then(_$charactersError(
       characters: null == characters
@@ -1340,6 +1383,10 @@ class __$$charactersErrorCopyWithImpl<$Res>
           ? _value.errorCode
           : errorCode // ignore: cast_nullable_to_non_nullable
               as String?,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -1351,7 +1398,8 @@ class _$charactersError extends charactersError {
       {required this.characters,
       this.filter,
       this.message = 'Error',
-      this.errorCode})
+      this.errorCode,
+      required this.time})
       : super._();
 
   @override
@@ -1363,6 +1411,8 @@ class _$charactersError extends charactersError {
   final String message;
   @override
   final String? errorCode;
+  @override
+  final DateTime time;
 
   @override
   bool operator ==(dynamic other) {
@@ -1374,12 +1424,13 @@ class _$charactersError extends charactersError {
             (identical(other.filter, filter) || other.filter == filter) &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.errorCode, errorCode) ||
-                other.errorCode == errorCode));
+                other.errorCode == errorCode) &&
+            (identical(other.time, time) || other.time == time));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, characters, filter, message, errorCode);
+      Object.hash(runtimeType, characters, filter, message, errorCode, time);
 
   @JsonKey(ignore: true)
   @override
@@ -1396,11 +1447,15 @@ class _$charactersError extends charactersError {
     required TResult Function(
             CharactersData characters, CharacterFilter? filter)
         initialized,
-    required TResult Function(CharactersData characters,
-            CharacterFilter? filter, String message, String? errorCode)
+    required TResult Function(
+            CharactersData characters,
+            CharacterFilter? filter,
+            String message,
+            String? errorCode,
+            DateTime time)
         error,
   }) {
-    return error(characters, filter, message, errorCode);
+    return error(characters, filter, message, errorCode, time);
   }
 
   @override
@@ -1411,10 +1466,10 @@ class _$charactersError extends charactersError {
     TResult? Function(CharactersData characters, CharacterFilter? filter)?
         initialized,
     TResult? Function(CharactersData characters, CharacterFilter? filter,
-            String message, String? errorCode)?
+            String message, String? errorCode, DateTime time)?
         error,
   }) {
-    return error?.call(characters, filter, message, errorCode);
+    return error?.call(characters, filter, message, errorCode, time);
   }
 
   @override
@@ -1425,12 +1480,12 @@ class _$charactersError extends charactersError {
     TResult Function(CharactersData characters, CharacterFilter? filter)?
         initialized,
     TResult Function(CharactersData characters, CharacterFilter? filter,
-            String message, String? errorCode)?
+            String message, String? errorCode, DateTime time)?
         error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(characters, filter, message, errorCode);
+      return error(characters, filter, message, errorCode, time);
     }
     return orElse();
   }
@@ -1475,7 +1530,8 @@ abstract class charactersError extends CharactersState {
       {required final CharactersData characters,
       final CharacterFilter? filter,
       final String message,
-      final String? errorCode}) = _$charactersError;
+      final String? errorCode,
+      required final DateTime time}) = _$charactersError;
   const charactersError._() : super._();
 
   @override
@@ -1484,6 +1540,7 @@ abstract class charactersError extends CharactersState {
   CharacterFilter? get filter;
   String get message;
   String? get errorCode;
+  DateTime get time;
   @override
   @JsonKey(ignore: true)
   _$$charactersErrorCopyWith<_$charactersError> get copyWith =>

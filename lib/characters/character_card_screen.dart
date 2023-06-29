@@ -43,6 +43,9 @@ class CharacterCardScreen extends StatelessWidget {
                         child: CachedNetworkImage(
                           imageUrl: model.image,
                           fit: BoxFit.cover,
+                          errorWidget: (context, url, error) => const Center(
+                            child: Icon(Icons.offline_bolt_outlined),
+                          ),
                           imageBuilder: (context, provider) => Ink.image(
                             image: provider,
                             fit: BoxFit.cover,

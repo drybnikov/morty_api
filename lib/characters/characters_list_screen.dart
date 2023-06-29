@@ -35,7 +35,19 @@ class _CharactersListBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CharactersBloc, CharactersState>(
+    return BlocConsumer<CharactersBloc, CharactersState>(
+      listener: (context, state) => state.mapOrNull(
+        error: (error) => ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              error.message,
+              style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
+            ),
+            backgroundColor: Theme.of(context).errorColor,
+            duration: const Duration(seconds: 3),
+          ),
+        ),
+      ),
       builder: (context, state) => state.maybeMap(
         loading: (_) => const _PhotosListLoading(),
         error: (error) => error.characters.characters.isEmpty

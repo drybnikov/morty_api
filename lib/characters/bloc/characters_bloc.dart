@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:clock/clock.dart';
 import 'package:dio/dio.dart';
 import 'package:fimber/fimber.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,9 +18,11 @@ part 'characters_bloc.freezed.dart';
 class CharactersEvent with _$CharactersEvent {
   const CharactersEvent._();
 
-  const factory CharactersEvent.fetchCharacters(
-      {required PageModel pageModel,
-      CharacterFilter? filter}) = _fetchCharacters;
+  const factory CharactersEvent.fetchCharacters({
+    required PageModel pageModel,
+    CharacterFilter? filter,
+    @Default(false) bool forceRefresh,
+  }) = _fetchCharacters;
 
   const factory CharactersEvent.getNextPage() = _getNextPage;
 
@@ -54,6 +57,7 @@ class CharactersState with _$CharactersState {
     CharacterFilter? filter,
     @Default('Error') String message,
     String? errorCode,
+    required DateTime time,
   }) = charactersError;
 
   CharacterModel selected(int id) =>
@@ -98,6 +102,7 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState>
       final charactersResult = await _photosRepository.fetchCharactersData(
         page: pageModel.current,
         filter: event.filter,
+        forceRefresh: event.forceRefresh,
       );
 
       emit(_initialized(characters: charactersResult, filter: event.filter));
@@ -111,12 +116,14 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState>
               ? const CharactersData()
               : state.characters,
           filter: event.filter,
+          time: clock.now(),
         ));
       } else {
         emit(charactersError(
           message: error.toString(),
           characters: state.characters,
           filter: event.filter,
+          time: clock.now(),
         ));
       }
     }

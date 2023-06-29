@@ -8,7 +8,7 @@ abstract class CharactersRepository {
 
   ///Fetch Characters paginated response for specific [page] and [limit]
   Future<CharactersData> fetchCharactersData(
-      {required int page, CharacterFilter? filter});
+      {required int page, CharacterFilter? filter, bool forceRefresh = false});
 
   Future<bool> updateFavorite(CharactersData data, CharacterModel character);
 

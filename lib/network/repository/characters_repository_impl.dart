@@ -33,8 +33,11 @@ class CharactersRepositoryImpl implements CharactersRepository {
   }
 
   @override
-  Future<CharactersData> fetchCharactersData(
-      {required int page, CharacterFilter? filter}) async {
+  Future<CharactersData> fetchCharactersData({
+    required int page,
+    CharacterFilter? filter,
+    bool forceRefresh = false,
+  }) async {
     try {
       final cachedData = await _userDataProvider.fetchCharacterData(
         page - 1,
@@ -44,7 +47,7 @@ class CharactersRepositoryImpl implements CharactersRepository {
       final favorites = await _userDataProvider.fetchFavorites();
       Fimber.d('filter:$filter, cachedData size: ${cachedData.length}');
 
-      if (cachedData.isEmpty || cachedData.length < pageSize) {
+      if (forceRefresh || cachedData.isEmpty || cachedData.length < pageSize) {
         final result = await _restClient.getCharacterPage(
           page: page,
           name: filter?.name,

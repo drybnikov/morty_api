@@ -85,17 +85,18 @@ class _CharacterCardItem extends StatelessWidget {
                       child: Text(
                         cardItem.name,
                         maxLines: 1,
-                        style: TextStyle(
-                            color: Theme.of(context).cardColor,
-                            shadows: const [Shadow(offset: Offset(1, 1))]),
+                        style: const TextStyle(
+                          shadows: [Shadow(offset: Offset(1, 1))],
+                        ),
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
                     Chip(
-                        label: Text(
-                      cardItem.species,
-                      style: Theme.of(context).textTheme.bodySmall,
-                    )),
+                      label: Text(
+                        cardItem.species,
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -125,6 +126,10 @@ class _MaterialInkImage extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       child: CachedNetworkImage(
         imageUrl: imageUrl,
+        errorWidget: (context, url, error) => InkWell(
+          onTap: onImageTap,
+          child: const Center(child: Icon(Icons.offline_bolt_outlined)),
+        ),
         imageBuilder: (context, provider) => Ink.image(
           image: provider,
           fit: BoxFit.cover,

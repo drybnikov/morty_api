@@ -12,7 +12,10 @@ class CharactersNavigationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
       InputChip(
-        avatar: const Icon(Icons.navigate_before),
+        avatar: Icon(
+          Icons.navigate_before_outlined,
+          color: Theme.of(context).colorScheme.onSurface,
+        ),
         label: const Text('prev'),
         onPressed: pageModel.prev != null ? () => _onPrevClick(context) : null,
       ),
