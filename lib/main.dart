@@ -33,9 +33,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'The Rick and Morty Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
-        useMaterial3: true,
+      themeMode: ThemeMode.dark,
+      theme: ThemeData.dark(useMaterial3: true).copyWith(
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.blueGrey, brightness: Brightness.dark),
       ),
       home: RootNavigatorWidget(),
     );

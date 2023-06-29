@@ -1,8 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:morty_api/characters/model/character_model.dart';
-import 'package:morty_api/characters/widgets/favorite_button_widget.dart';
 import 'package:morty_api/characters/widgets/characters_navigator_bar.dart';
+import 'package:morty_api/characters/widgets/favorite_button_widget.dart';
 
 import '../character_card_screen.dart';
 
@@ -21,6 +22,7 @@ class CharactersGridWidget extends StatelessWidget {
               CharactersNavigationWidget(pageModel: charactersModel.pageModel),
           floating: true,
         ),
+        const HeaderLocator.sliver(),
         SliverGrid(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
@@ -37,7 +39,8 @@ class CharactersGridWidget extends StatelessWidget {
         SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsets.all(16),
-            child: CharactersNavigationWidget(pageModel: charactersModel.pageModel),
+            child: CharactersNavigationWidget(
+                pageModel: charactersModel.pageModel),
           ),
         ),
       ],
@@ -48,7 +51,8 @@ class CharactersGridWidget extends StatelessWidget {
 class _CharacterCardItem extends StatelessWidget {
   final CharacterModel cardItem;
 
-  const _CharacterCardItem({Key? key, required this.cardItem}) : super(key: key);
+  const _CharacterCardItem({Key? key, required this.cardItem})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

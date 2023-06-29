@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:morty_api/characters/bloc/characters_bloc.dart';
+import 'package:morty_api/characters/refreshable_characters_body.dart';
 import 'package:morty_api/characters/widgets/about_info_action_widget.dart';
 import 'package:morty_api/characters/widgets/characters_error.dart';
-import 'package:morty_api/characters/widgets/characters_grid_widget.dart';
 import 'package:morty_api/characters/widgets/filter_action_widget.dart';
 
 class CharactersListScreen extends StatelessWidget {
@@ -43,16 +43,10 @@ class _CharactersListBody extends StatelessWidget {
                 message: error.message,
                 errorCode: error.errorCode,
               )
-            : CharactersGridWidget(
-                charactersModel: error.characters,
-                key: ValueKey(state.characters.pageModel.current),
-              ),
+            : RefreshableCharactersBody(charactersData: error.characters),
         orElse: () => AnimatedSwitcher(
           duration: const Duration(milliseconds: 300),
-          child: CharactersGridWidget(
-            charactersModel: state.characters,
-            key: ValueKey(state.characters.pageModel.current),
-          ),
+          child: RefreshableCharactersBody(charactersData: state.characters),
         ),
       ),
     );
