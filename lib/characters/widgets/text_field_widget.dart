@@ -29,8 +29,8 @@ class TextFieldWidget extends StatefulWidget {
   const TextFieldWidget({
     Key? key,
     this.hintLabel = '',
-    this.inputType = TextInputType.number,
-    this.textInputAction = TextInputAction.next,
+    this.inputType = TextInputType.text,
+    this.textInputAction = TextInputAction.done,
     this.inputFormatters = const [],
     this.autofillHints,
     this.suffixIcon,
