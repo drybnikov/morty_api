@@ -69,10 +69,10 @@ const _filterApplyDebounce = Duration(milliseconds: 400);
 @lazySingleton
 class CharactersBloc extends Bloc<CharactersEvent, CharactersState>
     with BlocConcurrencyMixin {
-  final CharactersRepository _photosRepository;
+  final CharactersRepository _charactersRepository;
   late StreamSubscription<List<int>> _favoritesSubscription;
 
-  CharactersBloc(this._photosRepository) : super(const _loading()) {
+  CharactersBloc(this._charactersRepository) : super(const _loading()) {
     on<_fetchCharacters>(_onFetchCharacters);
     on<_getNextPage>(_onGetNextPage);
     on<_getPrevPage>(_onGetPrevPage);
@@ -84,7 +84,7 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState>
     );
 
     _favoritesSubscription =
-        _photosRepository.watchFavorites().listen((newFavorites) {
+        _charactersRepository.watchFavorites().listen((newFavorites) {
       add(CharactersEvent.updateFavorites(newFavorites));
     });
   }
@@ -99,7 +99,7 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState>
     try {
       final pageModel = event.pageModel;
 
-      final charactersResult = await _photosRepository.fetchCharactersData(
+      final charactersResult = await _charactersRepository.fetchCharactersData(
         page: pageModel.current,
         filter: event.filter,
         forceRefresh: event.forceRefresh,
@@ -156,7 +156,7 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState>
   }
 
   FutureOr<void> _onUpdateFavorite(_updateFavorite event, emit) async {
-    await _photosRepository.updateFavorite(
+    await _charactersRepository.updateFavorite(
       state.characters,
       event.character,
     );

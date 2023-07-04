@@ -21,38 +21,6 @@ class _RestClientPublic implements RestClientPublic {
   String? baseUrl;
 
   @override
-  Future<List<CharacterResponse>> getCharacter(
-    page,
-    limit,
-  ) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'page': page,
-      r'limit': limit,
-    };
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    final _result = await _dio
-        .fetch<List<dynamic>>(_setStreamType<List<CharacterResponse>>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              'character/',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    var value = _result.data!
-        .map((dynamic i) =>
-            CharacterResponse.fromJson(i as Map<String, dynamic>))
-        .toList();
-    return value;
-  }
-
-  @override
   Future<CharactersResponse> getCharacterPage({
     required page,
     name,

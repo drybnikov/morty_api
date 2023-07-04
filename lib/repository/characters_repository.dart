@@ -2,11 +2,8 @@ import 'package:morty_api/characters/model/character_filter.dart';
 import 'package:morty_api/characters/model/character_model.dart';
 
 abstract class CharactersRepository {
-  ///Fetch Characters list for specific [page] and [limit]
-  Future<List<CharacterModel>> fetchCharacters(
-      {required int page, required int limit});
-
-  ///Fetch Characters paginated response for specific [page] and [limit]
+  ///Fetch Characters paginated response for specific [page] with optional [filter]
+  ///Allow optional [forceRefresh] flag to force refresh from network
   Future<CharactersData> fetchCharactersData(
       {required int page, CharacterFilter? filter, bool forceRefresh = false});
 

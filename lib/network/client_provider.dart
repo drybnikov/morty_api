@@ -6,13 +6,10 @@ import 'package:injectable/injectable.dart';
 class ClientProvider {
   final _authDio = Dio();
 
-  ClientProvider() {
-    _initDio();
-  }
-
   Dio get client => _authDio;
 
-  void _initDio() {
+  @PostConstruct()
+  void initDio() {
     _authDio.options
       ..connectTimeout = 60000 //60s
       ..receiveTimeout = 60000

@@ -29,7 +29,7 @@ extension GetItInjectableX on _i1.GetIt {
       environment,
       environmentFilter,
     );
-    gh.lazySingleton<_i3.ClientProvider>(() => _i3.ClientProvider());
+    gh.lazySingleton<_i3.ClientProvider>(() => _i3.ClientProvider()..initDio());
     gh.lazySingleton<_i4.RestClientPublic>(
         () => _i4.RestClientPublic(gh<_i3.ClientProvider>()));
     gh.lazySingletonAsync<_i5.UserDataProvider>(() {

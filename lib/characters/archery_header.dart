@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rive/rive.dart';
 
-const kDefaultArcheryTriggerOffset = 100.0;
+const kDefaultArcheryTriggerOffset = 150.0;
 
 class ArcheryHeader extends Header {
   const ArcheryHeader({

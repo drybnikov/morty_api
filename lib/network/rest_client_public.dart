@@ -17,14 +17,7 @@ abstract class RestClientPublic {
     return _RestClientPublic(clientProvider.client);
   }
 
-  /// Get paged photos list
-  @GET('character/')
-  Future<List<CharacterResponse>> getCharacter(
-    @Query('page') int page,
-    @Query('limit') int limit,
-  );
-
-  /// Get paged photos list with headers
+  /// Get paged and filtered characters from the API
   @GET('character/')
   Future<CharactersResponse> getCharacterPage({
     @Query('page') required int page,

@@ -19,20 +19,6 @@ class CharactersRepositoryImpl implements CharactersRepository {
   CharactersRepositoryImpl(this._restClient, this._userDataProvider);
 
   @override
-  Future<List<CharacterModel>> fetchCharacters(
-      {required int page, required int limit}) async {
-    try {
-      final result = await _restClient.getCharacter(page, limit);
-
-      return result.map((e) => e.toCharacterModel()).toList();
-    } on Exception catch (ex, st) {
-      Fimber.e('Error when load characters on page:$page',
-          ex: ex, stacktrace: st);
-      rethrow;
-    }
-  }
-
-  @override
   Future<CharactersData> fetchCharactersData({
     required int page,
     CharacterFilter? filter,
